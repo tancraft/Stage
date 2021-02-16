@@ -16,16 +16,11 @@ function initGame() {
         this.lien = url;
         this.image = document.createElement('img');
         checkImage(this.lien, function(){ alert("good"); }, function(){ alert("bad"); } );
-        this.affiche = function () {
-            this.image.addEventListener('load', function() {
 
-              }, false)          
-        };
-     return this;
+     return this.image;
     }
 
     var image2 = new creerImage('joueur.png');
-    image2.affiche();
     var canvas = document.querySelector('#canva');
 var ctx = canvas.getContext("2d");
 ctx.drawImage(image2.image, 400, 200, 100, 100);
