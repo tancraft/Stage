@@ -52,3 +52,5 @@ outillage utilisé (fonctionne via select comme les materiaux)
 liste des materiaux dont il a eu besoin et la quantitée (choix ce fait via select)
 observations (verifier contenu exact)
 
+toto
+
