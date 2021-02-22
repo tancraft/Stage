@@ -52,6 +52,16 @@ outillage utilisé (fonctionne via select comme les materiaux)
 liste des materiaux dont il a eu besoin et la quantitée (choix ce fait via select)
 observations (verifier contenu exact)
 
-toto
+ajouts du 22/02/2021
 
-encore toto
+-          Création d’un site exclusivement pour la formation (Pas pour la certification)
+
+-          La WIFI dans les ateliers sera une obligation (c’est un outil de travail, charge aux Centres de la faire installer)
+
+-          Couleur de fond (bleu nuit, bleu gris)
+
+-          Le site présenté sur la convention de stage peut faire office de modèle concernant la présentation
+
+-          La gestion des stocks (matériaux et matériel) serait un plus ; à voir dans la version 2 si pas assez de temps pour la version 1
+
+-          Est-il possible d’insérer un système de gestion de clé par hiérarchisation (je vous expliquerai de vive voix)
