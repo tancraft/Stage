@@ -8,7 +8,7 @@ formateurs
 informations sur la demande
 
 date de creation
-numéro d operation et intitulle operation
+numï¿½ro d operation et intitulle operation
 localisation travaux
 nature d intervention
 description/infos sup
@@ -16,14 +16,14 @@ description/infos sup
 compte rendu intervention
 
 date intervention
-horaires debut/fin/durée
+horaires debut/fin/durï¿½e
 operation (select sur les libelle du type d operation)
 type de maintenance (select sur les libelle du tpe de maintenance, correction, amelioration, corrective)
 cause inter (select sur les causes )
 nature de l intervention (description de ce qui a ete fait) a verifier
 description inter en 2 parties ce qui a ete fait et les raisons sur ce qui n as pas ete fait
-materiaux utilisés
-liste des materiaux dont il a eu besoin et la quantitée (choix ce fait via select)
+materiaux utilisï¿½s
+liste des materiaux dont il a eu besoin et la quantitï¿½e (choix ce fait via select)
 observations (verifier contenu exact)
 
 Fiche d'intervention certif
@@ -41,27 +41,30 @@ description/infos sup
 compte rendu intervention
 
 date intervention
-horaires debut/fin/durée
+horaires debut/fin/durï¿½e
 operation (select sur les libelle du type d operation)
 type de maintenance (select sur les libelle du tpe de maintenance, correction, amelioration, corrective)
 cause inter (select sur les causes )
 nature de l intervention (description de ce qui a ete fait) a verifier
 description inter en 2 parties ce qui a ete fait et les raisons sur ce qui n as pas ete fait
-materiaux utilisés
-outillage utilisé (fonctionne via select comme les materiaux)
-liste des materiaux dont il a eu besoin et la quantitée (choix ce fait via select)
+materiaux utilisï¿½s
+outillage utilisï¿½ (fonctionne via select comme les materiaux)
+liste des materiaux dont il a eu besoin et la quantitï¿½e (choix ce fait via select)
 observations (verifier contenu exact)
 
 ajouts du 22/02/2021
 
--          Création d’un site exclusivement pour la formation (Pas pour la certification)
+-          Crï¿½ation dï¿½un site exclusivement pour la formation (Pas pour la certification)
 
--          La WIFI dans les ateliers sera une obligation (c’est un outil de travail, charge aux Centres de la faire installer)
+-          La WIFI dans les ateliers sera une obligation (cï¿½est un outil de travail, charge aux Centres de la faire installer)
 
 -          Couleur de fond (bleu nuit, bleu gris)
 
--          Le site présenté sur la convention de stage peut faire office de modèle concernant la présentation
+-          Le site prï¿½sentï¿½ sur la convention de stage peut faire office de modï¿½le concernant la prï¿½sentation
 
--          La gestion des stocks (matériaux et matériel) serait un plus ; à voir dans la version 2 si pas assez de temps pour la version 1
+-          La gestion des stocks (matï¿½riaux et matï¿½riel) serait un plus ; ï¿½ voir dans la version 2 si pas assez de temps pour la version 1
 
--          Est-il possible d’insérer un système de gestion de clé par hiérarchisation (je vous expliquerai de vive voix)
+-          Est-il possible dï¿½insï¿½rer un systï¿½me de gestion de clï¿½ par hiï¿½rarchisation (je vous expliquerai de vive voix)
+
+
+toto
