@@ -1,8 +1,10 @@
 
 redige=redacteur apres generation
 
-matraiux utilise apres generation
+materiaux utilise apres generation
 
 outil utiliser  apres generation
 
 anime= animation apre generation
+
+formateur meme rempplacant peut voir les fiche de toute l offre
