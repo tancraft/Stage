@@ -130,3 +130,17 @@ CREATE TABLE anime(
 	,CONSTRAINT anime_formateurs0_FK FOREIGN KEY (iduSer) REFERENCES formateurs(iduSer)
 )ENGINE=InnoDB;
 
+
+#------------------------------------------------------------
+# Table: realise
+#------------------------------------------------------------
+
+CREATE TABLE realise(
+        idUser              Int NOT NULL ,
+        idFicheIntervention Int NOT NULL
+	,CONSTRAINT realise_PK PRIMARY KEY (idUser,idFicheIntervention)
+
+	,CONSTRAINT realise_stagiaires_FK FOREIGN KEY (idUser) REFERENCES stagiaires(idUser)
+	,CONSTRAINT realise_fichesInterventions0_FK FOREIGN KEY (idFicheIntervention) REFERENCES fichesInterventions(idFicheIntervention)
+)ENGINE=InnoDB;
+
