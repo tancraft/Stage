@@ -1,11 +1,11 @@
 
-redige=redacteur apres generation
+redige=redacteur apres generation table n existe plus
 
-materiaux utilise apres generation
+materiaux utilise apres generation ok
 
-outil utiliser  apres generation
+outil utiliser  apres generation ok
 
-anime= animation apre generation
+anime= animation apre generation ok
 
 formateur meme rempplacant peut voir les fiche de toute l offre
 
