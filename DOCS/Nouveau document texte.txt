@@ -11,3 +11,7 @@ formateur meme rempplacant peut voir les fiche de toute l offre
 
 outillage materiaux
 centre et autres
+
+fiche itv 
+fiche user 
+fiche type maintenance en visu
