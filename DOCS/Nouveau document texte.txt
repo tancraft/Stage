@@ -13,5 +13,7 @@ outillage materiaux
 centre et autres
 
 fiche itv 
+page connexion
+fiche activite
 fiche user 
 fiche type maintenance en visu
