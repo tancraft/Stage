@@ -17,3 +17,13 @@ page connexion
 fiche activite
 fiche user 
 fiche type maintenance en visu
+
+Il faut ajouter une colonne demandeur varchar 100 dans la table fichesInterventions, valeur par défaut "Formateur Référent" (tu peux l'encoder dans le script)ok
+Il faut ajouter une table degresUrgence avec un lien 1:1 -1:n vers la table fichesInterventions ok
+
+Dans le MCD, tu dupplique outils , tu nommes les tables outilsCaisse et outilsMagasin  et tu crée un lien similaire pour outilsMagasin
+dans le script, Il faut dupliqués les tables outils et outilsUtilises et les nommés OutilsCaisse, OutilsCaisseUtilises et outilsMagasin et outilsMagasinUtilises
+
+2. Le calcul de la durée ne sera fait que pour vérifier que la durée saisie est probable (je t'expliquerai en détail plus tard)(modifié)
+[16:24]
+Attention à l'orthographe des tables!

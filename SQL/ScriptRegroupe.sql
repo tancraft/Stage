@@ -38,9 +38,9 @@ CREATE TABLE formateurs(
         matriculeFormateur Varchar (50) NOT NULL,
         typeContrat        Varchar (50) NOT NULL ,
         dateDebutContrat   Date NOT NULL ,
-        dateFinContrat     Date NOT NULL
+        dateFinContrat     Date NULL
 
-)ENGINE=InnoDB;
+)ENGINE=InnoDB, CHARSET = UTF8;
 
 
 #------------------------------------------------------------
@@ -53,7 +53,7 @@ CREATE TABLE offres(
         dateDebutOffre Date NOT NULL ,
         dateFinOffre   Date NOT NULL
 
-)ENGINE=InnoDB;
+)ENGINE=InnoDB, CHARSET = UTF8;
 
 
 #------------------------------------------------------------
@@ -67,7 +67,7 @@ CREATE TABLE stagiaires(
         numeroBeneficiaire Varchar (50) NOT NULL ,
         idOffre            Int NOT NULL
 
-)ENGINE=InnoDB;
+)ENGINE=InnoDB, CHARSET = UTF8;
 
 
 #------------------------------------------------------------
@@ -78,7 +78,7 @@ CREATE TABLE roles(
         idRole      Int  Auto_increment  NOT NULL PRIMARY KEY,
         libelleRole Varchar (50) NOT NULL
 
-)ENGINE=InnoDB;
+)ENGINE=InnoDB, CHARSET = UTF8;
 
 
 #------------------------------------------------------------
@@ -95,7 +95,7 @@ CREATE TABLE utilisateurs(
         idRole     Int NOT NULL,
         UNIQUE KEY email (emailUser)
 
-)ENGINE=InnoDB;
+)ENGINE=InnoDB, CHARSET = UTF8;
 
 
 #------------------------------------------------------------
@@ -106,7 +106,7 @@ CREATE TABLE environnements(
         idEnv   Int  Auto_increment  NOT NULL PRIMARY KEY,
         typeEnv Varchar (50) NOT NULL
 
-)ENGINE=InnoDB;
+)ENGINE=InnoDB, CHARSET = UTF8;
 
 
 #------------------------------------------------------------
@@ -118,7 +118,7 @@ CREATE TABLE lieux(
         nomLieu Varchar (50) NOT NULL ,
         idEnv   Int NOT NULL
 
-)ENGINE=InnoDB;
+)ENGINE=InnoDB, CHARSET = UTF8;
 
 
 #------------------------------------------------------------
@@ -130,7 +130,7 @@ CREATE TABLE causes(
         numeroCause  Varchar (50) NOT NULL ,
         libelleCause Varchar (50) NOT NULL
 
-)ENGINE=InnoDB;
+)ENGINE=InnoDB, CHARSET = UTF8;
 
 
 #------------------------------------------------------------
@@ -142,7 +142,7 @@ CREATE TABLE typesMaintenances(
         numeroTypeMaint  Varchar (50) NOT NULL ,
         libelleTypeMaint Varchar (50) NOT NULL
 
-)ENGINE=InnoDB;
+)ENGINE=InnoDB, CHARSET = UTF8;
 
 
 #------------------------------------------------------------
@@ -154,7 +154,7 @@ CREATE TABLE actions(
         numeroAction  Varchar (50) NOT NULL ,
         libelleAction Varchar (50) NOT NULL
 
-)ENGINE=InnoDB;
+)ENGINE=InnoDB, CHARSET = UTF8;
 
 
 #------------------------------------------------------------
@@ -166,7 +166,7 @@ CREATE TABLE blocsCompetences(
         numeroBlocComp  Varchar (50) NOT NULL ,
         libelleBlocComp Varchar (50) NOT NULL
 
-)ENGINE=InnoDB;
+)ENGINE=InnoDB, CHARSET = UTF8;
 
 
 #------------------------------------------------------------
@@ -179,7 +179,7 @@ CREATE TABLE mesm(
         libelleMesm Varchar (50) NOT NULL ,
         idBlocComp  Int NOT NULL
 
-)ENGINE=InnoDB;
+)ENGINE=InnoDB, CHARSET = UTF8;
 
 #------------------------------------------------------------
 # Table: operations
@@ -192,8 +192,17 @@ CREATE TABLE operations(
         schemaOperation   Varchar (50) NULL ,
         idMesm            Int NOT NULL
 
-)ENGINE=InnoDB;
+)ENGINE=InnoDB, CHARSET = UTF8;
 
+#------------------------------------------------------------
+# Table: degresUrgences
+#------------------------------------------------------------
+
+CREATE TABLE degresUrgences(
+        idDegreUrgence      Int  Auto_increment  NOT NULL PRIMARY KEY,
+        libelleDegreUrgence Varchar (100) NOT NULL
+
+)ENGINE=InnoDB, CHARSET = UTF8;
 
 #------------------------------------------------------------
 # Table: fichesInterventions
@@ -202,15 +211,17 @@ CREATE TABLE operations(
 CREATE TABLE fichesInterventions(
         idFicheIntervention Int  Auto_increment  NOT NULL PRIMARY KEY,
         dateDemande         Date NOT NULL ,
+        demandeur            VARCHAR(100)  NOT NULL DEFAULT 'Formateur Référent',
         descriptionDemande  Text NOT NULL ,
         statutDemande       Int NOT NULL ,
         validation          Bool NOT NULL ,
         appreciation        Text NULL ,
         idUser              Int NOT NULL ,
         idLieu              Int NOT NULL ,
-        idOperation         Int NOT NULL
+        idOperation         Int NOT NULL,
+        idDegreUrgence      Int NOT NULL
 
-)ENGINE=InnoDB;
+)ENGINE=InnoDB, CHARSET = UTF8;
 
 
 #------------------------------------------------------------
@@ -230,7 +241,7 @@ CREATE TABLE activites(
         idTypeMaint         Int NOT NULL ,
         idFicheIntervention Int NOT NULL
 
-)ENGINE=InnoDB;
+)ENGINE=InnoDB, CHARSET = UTF8;
 
 
 #------------------------------------------------------------
@@ -243,20 +254,32 @@ CREATE TABLE materiaux(
         nbDispo     Int NOT NULL ,
         idUser      Int NOT NULL
 
-)ENGINE=InnoDB;
+)ENGINE=InnoDB, CHARSET = UTF8;
 
 
 #------------------------------------------------------------
-# Table: outils
+# Table: OutilsCaisse
 #------------------------------------------------------------
 
-CREATE TABLE outils(
-        idOutil  Int  Auto_increment  NOT NULL PRIMARY KEY,
-        nomOutil Varchar (100) NOT NULL ,
-        nbOutil  Int NOT NULL ,
+CREATE TABLE OutilsCaisse(
+        idOutilCaisse  Int  Auto_increment  NOT NULL PRIMARY KEY,
+        nomOutilCaisse Varchar (100) NOT NULL ,
+        nbOutilCaisse  Int NOT NULL ,
         idUser   Int NOT NULL
 
-)ENGINE=InnoDB;
+)ENGINE=InnoDB, CHARSET = UTF8;
+
+#------------------------------------------------------------
+# Table: outilsMagasin
+#------------------------------------------------------------
+
+CREATE TABLE outilsMagasin(
+        idOutilMagasin  Int  Auto_increment  NOT NULL PRIMARY KEY,
+        nomOutilMagasin Varchar (100) NOT NULL ,
+        nbOutilMagasin  Int NOT NULL ,
+        idUser   Int NOT NULL
+
+)ENGINE=InnoDB, CHARSET = UTF8;
 
 
 #------------------------------------------------------------
@@ -268,7 +291,7 @@ CREATE TABLE animation(
         idOffre Int NOT NULL,
         idUser  Int NOT NULL
 
-)ENGINE=InnoDB;
+)ENGINE=InnoDB, CHARSET = UTF8;
 
 
 #------------------------------------------------------------
@@ -280,7 +303,7 @@ CREATE TABLE stagiairesAffectes(
         idUser              Int NOT NULL ,
         idFicheIntervention Int NOT NULL
 
-)ENGINE=InnoDB;
+)ENGINE=InnoDB, CHARSET = UTF8;
 
 
 #------------------------------------------------------------
@@ -292,7 +315,7 @@ CREATE TABLE causesLiees(
         idActivite Int NOT NULL ,
         idCause    Int NOT NULL
 
-)ENGINE=InnoDB;
+)ENGINE=InnoDB, CHARSET = UTF8;
 
 
 #------------------------------------------------------------
@@ -304,21 +327,32 @@ CREATE TABLE actionsCorrespondantes(
         idAction   Int NOT NULL ,
         idActivite Int NOT NULL
 
-)ENGINE=InnoDB;
+)ENGINE=InnoDB, CHARSET = UTF8;
 
 
 #------------------------------------------------------------
-# Table: outilsUtilises
+# Table: OutilsCaisseUtilises
 #------------------------------------------------------------
 
-CREATE TABLE outilsUtilises(
-        idOutilsUtilises     Int NOT NULL  PRIMARY KEY,
+CREATE TABLE OutilsCaisseUtilises(
+        idOutilsCaisseUtilises     Int NOT NULL  PRIMARY KEY,
         idActivite    Int NOT NULL ,
-        idOutil       Int NOT NULL ,
-        quantiteOutil Int NOT NULL
+        idOutilCaisse       Int NOT NULL ,
+        quantiteOutilsCaisse Int NOT NULL
 
-)ENGINE=InnoDB;
+)ENGINE=InnoDB, CHARSET = UTF8;
 
+#------------------------------------------------------------
+# Table: outilsMagasinUtilises
+#------------------------------------------------------------
+
+CREATE TABLE outilsMagasinUtilises(
+        idOutilsMagasinUtilises     Int NOT NULL  PRIMARY KEY,
+        idActivite    Int NOT NULL ,
+        idOutilMagasin       Int NOT NULL ,
+        quantiteOutilsMagasin Int NOT NULL
+
+)ENGINE=InnoDB, CHARSET = UTF8;
 
 #------------------------------------------------------------
 # Table: materiauxUtilises
@@ -330,7 +364,7 @@ CREATE TABLE materiauxUtilises(
         idMateriel  Int NOT NULL ,
         quantiteMat Int NOT NULL
 
-)ENGINE=InnoDB;
+)ENGINE=InnoDB, CHARSET = UTF8;
 
 #------------------------------------------------------------
 # cle etrangeres
@@ -349,7 +383,7 @@ ALTER TABLE operations ADD CONSTRAINT FK_operations__mesm FOREIGN KEY (idMesm) R
 ALTER TABLE fichesInterventions ADD CONSTRAINT FK_fichesInterventions_formateurs FOREIGN KEY (idUser) REFERENCES formateurs(idUser);
 ALTER TABLE fichesInterventions ADD CONSTRAINT FK_fichesInterventions_lieux0 FOREIGN KEY (idLieu) REFERENCES lieux(idLieu);
 ALTER TABLE fichesInterventions ADD CONSTRAINT FK_fichesInterventions__operations1 FOREIGN KEY (idOperation) REFERENCES operations(idOperation);
-
+ALTER TABLE fichesInterventions ADD CONSTRAINT FK_fichesInterventions__degresUrgences FOREIGN KEY (idDegreUrgence) REFERENCES degresUrgences(idDegreUrgence);
 
 ALTER TABLE activites ADD CONSTRAINT FK_activites__mesm FOREIGN KEY (idMesm) REFERENCES mesm(idMesm);
 ALTER TABLE activites ADD CONSTRAINT FK_activites__typesMaintenances0 FOREIGN KEY (idTypeMaint) REFERENCES typesMaintenances(idTypeMaint);
@@ -359,7 +393,9 @@ ALTER TABLE activites ADD CONSTRAINT FK_activites_fichesInterventions1 FOREIGN K
 ALTER TABLE materiaux ADD CONSTRAINT FK_materiaux_formateurs FOREIGN KEY (idUser) REFERENCES formateurs(idUser);
 
 
-ALTER TABLE outils ADD CONSTRAINT FK_outils_formateurs FOREIGN KEY (idUser) REFERENCES formateurs(idUser);
+ALTER TABLE OutilsCaisse ADD CONSTRAINT FK_OutilsCaisse_formateurs FOREIGN KEY (idUser) REFERENCES formateurs(idUser);
+
+ALTER TABLE outilsMagasin ADD CONSTRAINT FK_outilsMagasin_formateurs FOREIGN KEY (idUser) REFERENCES formateurs(idUser);
 
 
 ALTER TABLE animation ADD CONSTRAINT FK_animation_offres FOREIGN KEY (idOffre) REFERENCES offres(idOffre);
@@ -377,8 +413,11 @@ ALTER TABLE actionsCorrespondantes ADD CONSTRAINT FK_actionsCorrespondantes__act
 ALTER TABLE actionsCorrespondantes ADD CONSTRAINT FK_actionsCorrespondantes__activites0 FOREIGN KEY (idActivite) REFERENCES activites(idActivite);
 
 
-ALTER TABLE outilsUtilises ADD CONSTRAINT FK_outilsUtilises__activites FOREIGN KEY (idActivite) REFERENCES activites(idActivite);
-ALTER TABLE outilsUtilises ADD CONSTRAINT FK_outilsUtilises__outils0 FOREIGN KEY (idOutil) REFERENCES outils(idOutil);
+ALTER TABLE OutilsCaisseUtilises ADD CONSTRAINT FK_OutilsCaisseUtilises__activites FOREIGN KEY (idActivite) REFERENCES activites(idActivite);
+ALTER TABLE OutilsCaisseUtilises ADD CONSTRAINT FK_OutilsCaisseUtilises__OutilsCaisse FOREIGN KEY (idOutilCaisse) REFERENCES OutilsCaisse(idOutilCaisse);
+
+ALTER TABLE outilsMagasinUtilises ADD CONSTRAINT FK_outilsMagasinUtilises__activites FOREIGN KEY (idActivite) REFERENCES activites(idActivite);
+ALTER TABLE outilsMagasinUtilises ADD CONSTRAINT FK_outilsMagasinUtilises__outilsMagasin FOREIGN KEY (idOutilMagasin) REFERENCES outilsMagasin(idOutilMagasin);
 
 
 ALTER TABLE materiauxUtilises ADD CONSTRAINT FK_materiauxUtilises__activites FOREIGN KEY (idActivite) REFERENCES activites(idActivite);
@@ -414,6 +453,7 @@ SELECT
     s.numeroBeneficiaire,
     fi.idFicheIntervention,
     fi.dateDemande,
+    fi.demandeur,
     fi.descriptionDemande,
     fi.statutDemande,
     fi.validation,
@@ -464,13 +504,17 @@ SELECT
     a.libelleAction,
     fi.idFicheIntervention,
     fi.dateDemande,
+    fi.demandeur,
     fi.idOperation,
     mat.idMateriel,
     mat.nomMateriel,
     ne.quantiteMat,
-    ou.idOutil,
-    ou.nomOutil,
-    uti.quantiteOutil
+    oucai.idOutilCaisse,
+    oucai.nomOutilCaisse,
+    uticai.quantiteOutilsCaisse,
+    oumag.idOutilMagasin,
+    oumag.nomOutilMagasin,
+    utimag.quantiteOutilsMagasin
 
 FROM
     activites AS ac
@@ -483,5 +527,7 @@ LEFT JOIN actionsCorrespondantes AS cor ON cor.idActivite= ac.idActivite
 INNER JOIN actions AS a ON cor.idAction= a.idAction
 LEFT JOIN materiauxUtilises AS ne ON ne.idActivite= ac.idActivite
 INNER JOIN materiaux AS mat ON ne.idMateriel= mat.idMateriel
-LEFT JOIN outilsUtilises AS uti ON uti.idActivite= ac.idActivite
-INNER JOIN outils AS ou ON uti.idOutil= ou.idOutil;
+LEFT JOIN OutilsCaisseUtilises AS uticai ON uticai.idActivite= ac.idActivite
+INNER JOIN OutilsCaisse AS oucai ON uticai.idOutilCaisse= oucai.idOutilCaisse
+LEFT JOIN outilsMagasinUtilises AS utimag ON utimag.idActivite= ac.idActivite
+INNER JOIN outilsMagasin AS oumag ON utimag.idOutilMagasin= oumag.idOutilMagasin;
