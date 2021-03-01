@@ -25,7 +25,7 @@ DROP TABLE IF EXISTS materiaux;
 DROP TABLE IF EXISTS outils;
 DROP TABLE IF EXISTS animation;
 DROP TABLE IF EXISTS realise;
-DROP TABLE IF EXISTS aPour;
+DROP TABLE IF EXISTS lier;
 DROP TABLE IF EXISTS correspond;
 DROP TABLE IF EXISTS utiliser;
 DROP TABLE IF EXISTS utilise;
@@ -35,8 +35,11 @@ DROP TABLE IF EXISTS utilise;
 #------------------------------------------------------------
 
 CREATE TABLE formateurs(
-        iduSer             Int  Auto_increment  NOT NULL PRIMARY KEY,
-        matriculeFormateur Varchar (50) NOT NULL
+        iduSer             Int  NOT NULL PRIMARY KEY,
+        matriculeFormateur Varchar (50) NOT NULL,
+        typeContrat        Varchar (50) NOT NULL ,
+        dateDebutContrat   Date NOT NULL ,
+        dateFinContrat     Date NOT NULL
 
 )ENGINE=InnoDB;
 
@@ -46,7 +49,7 @@ CREATE TABLE formateurs(
 #------------------------------------------------------------
 
 CREATE TABLE offres(
-        idOffre        Int  Auto_increment  NOT NULL PRIMARY KEY,
+        idOffre        Int Auto_increment  NOT NULL PRIMARY KEY,
         numeroOffre    Varchar (50) NOT NULL ,
         dateDebutOffre Date NOT NULL ,
         dateFinOffre   Date NOT NULL
@@ -59,7 +62,7 @@ CREATE TABLE offres(
 #------------------------------------------------------------
 
 CREATE TABLE stagiaires(
-        idUser             Int  Auto_increment  NOT NULL PRIMARY KEY,
+        idUser             Int NOT NULL PRIMARY KEY,
         dateDebutFormation Date NOT NULL ,
         dateFinFormation   Date NOT NULL ,
         numeroBeneficiaire Varchar (50) NOT NULL ,
@@ -281,11 +284,11 @@ CREATE TABLE realise(
 
 
 #------------------------------------------------------------
-# Table: aPour
+# Table: lier
 #------------------------------------------------------------
 
-CREATE TABLE aPour(
-        idApour    Int NOT NULL PRIMARY KEY ,
+CREATE TABLE lier(
+        idLier    Int NOT NULL PRIMARY KEY ,
         idActivite Int NOT NULL ,
         idCause    Int NOT NULL
 
@@ -362,8 +365,8 @@ ALTER TABLE animation ADD CONSTRAINT FK_animation_formateurs0 FOREIGN KEY (iduSe
 ALTER TABLE realise ADD CONSTRAINT FK_realise_stagiaires FOREIGN KEY (idUser) REFERENCES stagiaires(idUser);
 ALTER TABLE realise ADD CONSTRAINT FK_realise_fichesInterventions0 FOREIGN KEY (idFicheIntervention) REFERENCES fichesInterventions(idFicheIntervention);
 
-ALTER TABLE aPour ADD CONSTRAINT FK_aPour__activites FOREIGN KEY (idActivite) REFERENCES activites(idActivite);
-ALTER TABLE aPour ADD CONSTRAINT FK_aPour__causes0 FOREIGN KEY (idCause) REFERENCES causes(idCause);
+ALTER TABLE lier ADD CONSTRAINT FK_lier__activites FOREIGN KEY (idActivite) REFERENCES activites(idActivite);
+ALTER TABLE lier ADD CONSTRAINT FK_lier__causes0 FOREIGN KEY (idCause) REFERENCES causes(idCause);
 
 
 ALTER TABLE correspond ADD CONSTRAINT FK_correspond__actions FOREIGN KEY (idAction) REFERENCES actions(idAction);
