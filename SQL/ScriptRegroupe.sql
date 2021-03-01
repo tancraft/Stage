@@ -24,18 +24,17 @@ DROP TABLE IF EXISTS activites;
 DROP TABLE IF EXISTS materiaux;
 DROP TABLE IF EXISTS outils;
 DROP TABLE IF EXISTS animation;
-DROP TABLE IF EXISTS realise;
-DROP TABLE IF EXISTS lier;
-DROP TABLE IF EXISTS correspond;
-DROP TABLE IF EXISTS utiliser;
-DROP TABLE IF EXISTS utilise;
+DROP TABLE IF EXISTS stagiairesAffectes;
+DROP TABLE IF EXISTS causesLiees;
+DROP TABLE IF EXISTS actionsCorrespondantes;
+DROP TABLE IF EXISTS outilsUtilises;
 
 #------------------------------------------------------------
 # Table: formateurs
 #------------------------------------------------------------
 
 CREATE TABLE formateurs(
-        iduSer             Int  NOT NULL PRIMARY KEY,
+        idUser             Int  NOT NULL PRIMARY KEY,
         matriculeFormateur Varchar (50) NOT NULL,
         typeContrat        Varchar (50) NOT NULL ,
         dateDebutContrat   Date NOT NULL ,
@@ -207,7 +206,7 @@ CREATE TABLE fichesInterventions(
         statutDemande       Int NOT NULL ,
         validation          Bool NOT NULL ,
         appreciation        Text NULL ,
-        iduSer              Int NOT NULL ,
+        idUser              Int NOT NULL ,
         idLieu              Int NOT NULL ,
         idOperation         Int NOT NULL
 
@@ -242,7 +241,7 @@ CREATE TABLE materiaux(
         idMateriel  Int  Auto_increment  NOT NULL PRIMARY KEY,
         nomMateriel Varchar (100) NOT NULL ,
         nbDispo     Int NOT NULL ,
-        iduSer      Int NOT NULL
+        idUser      Int NOT NULL
 
 )ENGINE=InnoDB;
 
@@ -255,7 +254,7 @@ CREATE TABLE outils(
         idOutil  Int  Auto_increment  NOT NULL PRIMARY KEY,
         nomOutil Varchar (100) NOT NULL ,
         nbOutil  Int NOT NULL ,
-        iduSer   Int NOT NULL
+        idUser   Int NOT NULL
 
 )ENGINE=InnoDB;
 
@@ -267,17 +266,17 @@ CREATE TABLE outils(
 CREATE TABLE animation(
         idAnimation Int NOT NULL PRIMARY KEY,
         idOffre Int NOT NULL,
-        iduSer  Int NOT NULL
+        idUser  Int NOT NULL
 
 )ENGINE=InnoDB;
 
 
 #------------------------------------------------------------
-# Table: realise
+# Table: stagiairesAffectes
 #------------------------------------------------------------
 
-CREATE TABLE realise(
-        idRealise           Int NOT NULL PRIMARY KEY,
+CREATE TABLE stagiairesAffectes(
+        idStagiairesAffectes           Int NOT NULL PRIMARY KEY,
         idUser              Int NOT NULL ,
         idFicheIntervention Int NOT NULL
 
@@ -285,11 +284,11 @@ CREATE TABLE realise(
 
 
 #------------------------------------------------------------
-# Table: lier
+# Table: causesLiees
 #------------------------------------------------------------
 
-CREATE TABLE lier(
-        idLier    Int NOT NULL PRIMARY KEY ,
+CREATE TABLE causesLiees(
+        idCausesLiees    Int NOT NULL PRIMARY KEY ,
         idActivite Int NOT NULL ,
         idCause    Int NOT NULL
 
@@ -297,11 +296,11 @@ CREATE TABLE lier(
 
 
 #------------------------------------------------------------
-# Table: correspond
+# Table: actionsCorrespondantes
 #------------------------------------------------------------
 
-CREATE TABLE correspond(
-        idCorrespond  Int NOT NULL PRIMARY KEY ,   
+CREATE TABLE actionsCorrespondantes(
+        idActionsCorrespondantes  Int NOT NULL PRIMARY KEY ,   
         idAction   Int NOT NULL ,
         idActivite Int NOT NULL
 
@@ -309,11 +308,11 @@ CREATE TABLE correspond(
 
 
 #------------------------------------------------------------
-# Table: utiliser
+# Table: outilsUtilises
 #------------------------------------------------------------
 
-CREATE TABLE utiliser(
-        idUtiliser     Int NOT NULL  PRIMARY KEY,
+CREATE TABLE outilsUtilises(
+        idOutilsUtilises     Int NOT NULL  PRIMARY KEY,
         idActivite    Int NOT NULL ,
         idOutil       Int NOT NULL ,
         quantiteOutil Int NOT NULL
@@ -322,11 +321,11 @@ CREATE TABLE utiliser(
 
 
 #------------------------------------------------------------
-# Table: necessaire
+# Table: materiauxUtilises
 #------------------------------------------------------------
 
-CREATE TABLE necessaire(
-        idNecessaire Int NOT NULL PRIMARY KEY,
+CREATE TABLE materiauxUtilises(
+        idMateriauxUtilises Int NOT NULL PRIMARY KEY,
         idActivite  Int NOT NULL ,
         idMateriel  Int NOT NULL ,
         quantiteMat Int NOT NULL
@@ -347,7 +346,7 @@ ALTER TABLE mesm ADD CONSTRAINT FK_mesm__blocsCompetences FOREIGN KEY (idBlocCom
 
 ALTER TABLE operations ADD CONSTRAINT FK_operations__mesm FOREIGN KEY (idMesm) REFERENCES mesm(idMesm);
 
-ALTER TABLE fichesInterventions ADD CONSTRAINT FK_fichesInterventions_formateurs FOREIGN KEY (iduSer) REFERENCES formateurs(iduSer);
+ALTER TABLE fichesInterventions ADD CONSTRAINT FK_fichesInterventions_formateurs FOREIGN KEY (idUser) REFERENCES formateurs(idUser);
 ALTER TABLE fichesInterventions ADD CONSTRAINT FK_fichesInterventions_lieux0 FOREIGN KEY (idLieu) REFERENCES lieux(idLieu);
 ALTER TABLE fichesInterventions ADD CONSTRAINT FK_fichesInterventions__operations1 FOREIGN KEY (idOperation) REFERENCES operations(idOperation);
 
@@ -357,41 +356,41 @@ ALTER TABLE activites ADD CONSTRAINT FK_activites__typesMaintenances0 FOREIGN KE
 ALTER TABLE activites ADD CONSTRAINT FK_activites_fichesInterventions1 FOREIGN KEY (idFicheIntervention) REFERENCES fichesInterventions(idFicheIntervention);
 
 
-ALTER TABLE materiaux ADD CONSTRAINT FK_materiaux_formateurs FOREIGN KEY (iduSer) REFERENCES formateurs(iduSer);
+ALTER TABLE materiaux ADD CONSTRAINT FK_materiaux_formateurs FOREIGN KEY (idUser) REFERENCES formateurs(idUser);
 
 
-ALTER TABLE outils ADD CONSTRAINT FK_outils_formateurs FOREIGN KEY (iduSer) REFERENCES formateurs(iduSer);
+ALTER TABLE outils ADD CONSTRAINT FK_outils_formateurs FOREIGN KEY (idUser) REFERENCES formateurs(idUser);
 
 
 ALTER TABLE animation ADD CONSTRAINT FK_animation_offres FOREIGN KEY (idOffre) REFERENCES offres(idOffre);
-ALTER TABLE animation ADD CONSTRAINT FK_animation_formateurs0 FOREIGN KEY (iduSer) REFERENCES formateurs(iduSer);
+ALTER TABLE animation ADD CONSTRAINT FK_animation_formateurs0 FOREIGN KEY (idUser) REFERENCES formateurs(idUser);
 
 
-ALTER TABLE realise ADD CONSTRAINT FK_realise_stagiaires FOREIGN KEY (idUser) REFERENCES stagiaires(idUser);
-ALTER TABLE realise ADD CONSTRAINT FK_realise_fichesInterventions0 FOREIGN KEY (idFicheIntervention) REFERENCES fichesInterventions(idFicheIntervention);
+ALTER TABLE stagiairesAffectes ADD CONSTRAINT FK_stagiairesAffectes_stagiaires FOREIGN KEY (idUser) REFERENCES stagiaires(idUser);
+ALTER TABLE stagiairesAffectes ADD CONSTRAINT FK_stagiairesAffectes_fichesInterventions0 FOREIGN KEY (idFicheIntervention) REFERENCES fichesInterventions(idFicheIntervention);
 
-ALTER TABLE lier ADD CONSTRAINT FK_lier__activites FOREIGN KEY (idActivite) REFERENCES activites(idActivite);
-ALTER TABLE lier ADD CONSTRAINT FK_lier__causes0 FOREIGN KEY (idCause) REFERENCES causes(idCause);
-
-
-ALTER TABLE correspond ADD CONSTRAINT FK_correspond__actions FOREIGN KEY (idAction) REFERENCES actions(idAction);
-ALTER TABLE correspond ADD CONSTRAINT FK_correspond__activites0 FOREIGN KEY (idActivite) REFERENCES activites(idActivite);
+ALTER TABLE causesLiees ADD CONSTRAINT FK_causesLiees__activites FOREIGN KEY (idActivite) REFERENCES activites(idActivite);
+ALTER TABLE causesLiees ADD CONSTRAINT FK_causesLiees__causes0 FOREIGN KEY (idCause) REFERENCES causes(idCause);
 
 
-ALTER TABLE utiliser ADD CONSTRAINT FK_utiliser__activites FOREIGN KEY (idActivite) REFERENCES activites(idActivite);
-ALTER TABLE utiliser ADD CONSTRAINT FK_utiliser__outils0 FOREIGN KEY (idOutil) REFERENCES outils(idOutil);
+ALTER TABLE actionsCorrespondantes ADD CONSTRAINT FK_actionsCorrespondantes__actions FOREIGN KEY (idAction) REFERENCES actions(idAction);
+ALTER TABLE actionsCorrespondantes ADD CONSTRAINT FK_actionsCorrespondantes__activites0 FOREIGN KEY (idActivite) REFERENCES activites(idActivite);
 
 
-ALTER TABLE necessaire ADD CONSTRAINT FK_necessaire__activites FOREIGN KEY (idActivite) REFERENCES activites(idActivite);
-ALTER TABLE necessaire ADD CONSTRAINT FK_necessaire__materiaux0 FOREIGN KEY (idMateriel) REFERENCES materiaux(idMateriel);
+ALTER TABLE outilsUtilises ADD CONSTRAINT FK_outilsUtilises__activites FOREIGN KEY (idActivite) REFERENCES activites(idActivite);
+ALTER TABLE outilsUtilises ADD CONSTRAINT FK_outilsUtilises__outils0 FOREIGN KEY (idOutil) REFERENCES outils(idOutil);
+
+
+ALTER TABLE materiauxUtilises ADD CONSTRAINT FK_materiauxUtilises__activites FOREIGN KEY (idActivite) REFERENCES activites(idActivite);
+ALTER TABLE materiauxUtilises ADD CONSTRAINT FK_materiauxUtilises__materiaux0 FOREIGN KEY (idMateriel) REFERENCES materiaux(idMateriel);
 
 #------------------------------------------------------------
 # vues
 #------------------------------------------------------------
 
-CREATE VIEW  offreFormateur as
+CREATE VIEW  offresFormateurs as
 SELECT
-    f.iduSer,
+    f.idUser,
     f.matriculeFormateur,
     f.typeContrat,
     f.dateDebutContrat,
@@ -402,18 +401,14 @@ SELECT
     o.dateFinOffre
 FROM
     formateurs AS f
-INNER JOIN animation AS a
-ON
-    f.iduSer = a.iduSer
-INNER JOIN offres AS o
-ON
-    a.idOffre = o.idOffre;
+INNER JOIN animation AS a ON f.idUser = a.idUser
+INNER JOIN offres AS o ON a.idOffre = o.idOffre;
 
 
 
-CREATE VIEW  stagiaireFicheInter as
+CREATE VIEW  stagiairesFichesInterventions as
 SELECT
-    s.iduSer,
+    s.idUser,
     s.dateDebutFormation,
     s.dateFinFormation,
     s.numeroBeneficiaire,
@@ -431,30 +426,23 @@ SELECT
     op.schemaOperation,
     m.idMesm,
     m.numeroMesm,
-    m.libelleMesm
+    m.libelleMesm,
+    bc.numeroBlocComp,
+    bc.libelleBlocComp
 FROM
     stagiaires AS s
-INNER JOIN realise AS r
-ON
-    s.iduSer = r.iduSer
-INNER JOIN fichesInterventions AS fi
-ON
-    r.idFicheIntervention = fi.idFicheIntervention
-INNER JOIN lieux AS li
-ON
-    fi.idLieu = li.idLieu
-INNER JOIN operations AS op
-ON
-    op.idOperation = fi.idOperation
-INNER JOIN mesm AS m
-ON
-    m.idMesm = op.idMesm;
+INNER JOIN stagiairesAffectes AS r ON s.idUser = r.idUser
+INNER JOIN fichesInterventions AS fi ON r.idFicheIntervention = fi.idFicheIntervention
+INNER JOIN lieux AS li ON fi.idLieu = li.idLieu
+LEFT JOIN operations AS op ON op.idOperation = fi.idOperation
+INNER JOIN mesm AS m ON m.idMesm = op.idMesm
+INNER JOIN blocsCompetences AS bc ON m.idBlocComp=bc.idBlocComp;
 
 
 
-CREATE VIEW  ficheActivitee as
+CREATE VIEW  ficheActivite as
 SELECT
-    li.idActivite,
+    ac.idActivite,
     ac.dateIntervention,
     ac.dateDebutItv,
     ac.dateFinItv,
@@ -486,36 +474,14 @@ SELECT
 
 FROM
     activites AS ac
-INNER JOIN lier AS li
-ON
-    ac.idActivite = li.idActivite
-INNER JOIN causes AS ca
-ON
-    li.idCause = ca.idCause
-INNER JOIN mesm AS me
-ON
-    me.idMesm = ac.idMesm
-INNER JOIN typesMaintenances AS tm
-ON
-    tm.idTypeMaint= ac.idTypeMaint
-INNER JOIN correspond AS cor
-ON
-    cor.idActivite= ac.idActivite
-INNER JOIN actions AS a
-ON
-    cor.idAction= a.idAction
-INNER JOIN necessaire AS ne
-ON
-    ne.idActivite= ac.idActivite
-INNER JOIN materiaux AS mat
-ON
-    ne.idMateriel= mat.idMateriel
-INNER JOIN utiliser AS uti
-ON
-    uti.idActivite= ac.idActivite
-INNER JOIN outils AS ou
-ON
-    uti.idOutil= ou.idOutil
-INNER JOIN fichesInterventions AS fi
-ON
-    fi.idFicheIntervention= ac.idFicheIntervention;
+INNER JOIN fichesInterventions AS fi ON fi.idFicheIntervention= ac.idFicheIntervention 
+LEFT JOIN causesLiees AS li ON ac.idActivite = li.idActivite
+INNER JOIN causes AS ca ON li.idCause = ca.idCause
+INNER JOIN mesm AS me ON me.idMesm = ac.idMesm
+INNER JOIN typesMaintenances AS tm ON tm.idTypeMaint= ac.idTypeMaint
+LEFT JOIN actionsCorrespondantes AS cor ON cor.idActivite= ac.idActivite
+INNER JOIN actions AS a ON cor.idAction= a.idAction
+LEFT JOIN materiauxUtilises AS ne ON ne.idActivite= ac.idActivite
+INNER JOIN materiaux AS mat ON ne.idMateriel= mat.idMateriel
+LEFT JOIN outilsUtilises AS uti ON uti.idActivite= ac.idActivite
+INNER JOIN outils AS ou ON uti.idOutil= ou.idOutil;
