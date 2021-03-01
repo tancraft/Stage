@@ -1,0 +1,415 @@
+/********* Global **********/
+body {
+    min-height: 100%;
+    background: var(--FondPage);
+}
+
+div,
+header,
+footer,
+body,
+nav,
+section,
+form {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+}
+
+img {
+    width: 100%;
+}
+
+.colonne,
+form {
+    flex-direction: column;
+}
+
+legend {
+    color: var(--CouleurTexte);
+}
+
+.centre {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.espaceHor {
+    flex: none;
+    height: 1em;
+}
+
+.erreur {
+    text-align: center;
+    padding: 0.5em;
+    color: var(--Rouge);
+    text-shadow: 0.1em 0.1em 0.1em 0.1em var(--CouleurTexte);
+}
+
+.grande,
+section {
+    flex: 5;
+}
+
+.demi {
+    flex: 0.5;
+}
+
+.mini {
+    flex: 0.2;
+}
+
+.double {
+    flex: 2;
+}
+
+.triple {
+    flex: 3;
+}
+
+.info {
+    margin: 0.3em;
+}
+
+/******* Form ********/
+label {
+    color: var(--CouleurTexte);
+    text-align: center;
+}
+
+.centerItem {
+    align-items: center;
+}
+
+.centerSelf {
+    align-self: center;
+}
+
+
+a {
+    color: var(--CouleurTexte);
+    text-decoration: none
+}
+
+/******* Boutons ********/
+.bouton {
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border-radius: 1em;
+    border: 2px solid var(--BordureBouton);
+    cursor: pointer;
+    padding: 0.5em 1em;
+    color: var(--CouleurTexte);
+    transition: 0.2s;
+}
+
+.bouton:hover {
+    border: 2px solid var(--CouleurTexte);
+    color: var(--BordureBouton);
+}
+
+button:disabled {
+    border: solid var(--CouleurOmbre) 2px;
+}
+
+.grandBouton {
+    width: 100%;
+    letter-spacing: 0.2em;
+    font-size: 1.2em;
+    font-weight: 900;
+    padding: 0.5em 4em;
+    background: linear-gradient(to right, var(--BordureBouton), var(--FondPage), 90%, var(--BordureBouton));
+
+}
+
+.zoneBouton {
+    padding: 2em 0;
+}
+
+/********* input & Select *********/
+input,
+textarea,
+select,
+.case {
+    border: 1px solid var(--BordureBouton);
+    background-color: Transparent;
+    padding: 0.5em 1em;
+    color: var(--CouleurTexte);
+}
+
+textarea {
+    height: 25vh;
+}
+
+.titreColonne {
+    border: 2px solid var(--CouleurTexte);
+    color: var(--BordureBouton);
+    font-size: 1.2em;
+}
+
+input:focus {
+    background-color: #aaa;
+    color: black;
+}
+
+select option {
+    background-color: var(--FondPage);
+    border: 1px solid var(--BordureBouton);
+    color: var(--CouleurTexte);
+}
+
+select option::selection {
+    background-color: red;
+}
+
+.absolu {
+    position: absolute;
+    top: 5em;
+    left: 5em;
+}
+
+.relatif {
+    position: relative;
+}
+
+.oeil {
+    position: absolute;
+    left: 32vw;
+    top: 4vh;
+}
+
+
+
+/******** Header ********/
+header,
+footer {
+    box-shadow: -0.1em 0.1em 0.2em 0.2em var(--CouleurOmbre);
+}
+
+header {
+    margin-bottom: 1em;
+}
+
+.logo,
+.connection {
+    flex: 0.5;
+}
+
+.texteClair,
+.label {
+    color: var(--CouleurTexte);
+}
+
+/******** Footer ******/
+footer {
+    margin-top: 1em;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    width: 99%;
+    bottom: 0.2em;
+    color: var(--CouleurTexte);
+    background-color: var(--FondPage);
+}
+
+.container {
+    padding-bottom: 3.5em;
+    /* flex-direction: column; */
+}
+
+.aideMdp {
+    flex-direction: column;
+    z-index: 2;
+    font-size: 0.8em;
+    display: none;
+    white-space: nowrap;
+    border-radius: 2vh;
+    background-color: white;
+    padding: 1vh;
+}
+
+.oeil {
+    position: absolute;
+    left: 32vw;
+    top: 4vh;
+}
+
+/*   MENU   */
+
+
+.menu a {
+    font-size: 1.5em;
+
+}
+
+.menu>div {
+    border-top-left-radius: 100%;
+    border-top-right-radius: 100%;
+    border: 2px solid var(--CouleurOmbre);
+    padding: 0.2em;
+    transition: 0.2s;
+    height: 100%;
+    margin: 0.5em 0;
+    background: linear-gradient(to right, var(--FondPage), 90%, var(--BordureBouton));
+}
+
+.menu>div:hover a,
+.ongletSelect {
+    color: var(--FondPage) !important;
+}
+
+.menu>div:hover,
+.ongletSelect {
+
+    background: linear-gradient(0.25turn, var(--FondPage), 40%, var(--BordureBouton)) !important;
+    border: 2px solid var(--CouleurTexte) !important;
+    background-position: right center !important;
+}
+
+/* Interface Utilisateur */
+.bordureTitre {
+    border: 1px solid var(--CouleurTexte);
+}
+
+.bordureVerte {
+    border: 1px solid var(--BordureBouton);
+}
+
+.indic {
+    flex: none;
+    padding: 0.5em;
+    border-radius: 10em;
+    border: 1px solid var(--BordureBouton);
+}
+
+.texteInfoBulle {
+    position: absolute;
+    top: 0.5vh;
+    left: 10vh;
+    font-size: 0.8em;
+    display: none;
+    white-space: nowrap;
+    border-radius: 2vh;
+    background-color: #aaa;
+    color: black;
+    padding: 1vh;
+    z-index: 1;
+}
+
+/* Condition */
+.hauteurCase {
+    padding: 0.8em 0;
+}
+
+.left {
+    justify-content: left;
+}
+
+.rouge {
+    color: red;
+}
+
+.vert {
+    color: #3db651;
+}
+
+.incorrect {
+    border: red solid 3px;
+}
+
+.correct {
+    border: #3db651 solid 3px;
+}
+
+.cache {
+    display: none;
+}
+
+
+/************* Changement style input range pour Chrome ***********/
+
+input[type=range] {
+    width: 100%;
+    margin-top: 1em;
+    background-color: transparent;
+    -webkit-appearance: none;
+    /** permet d'enlever le mode par défaut des inputs range **/
+}
+
+
+/** permet de changer le style du petit rond à l'interieur du slider **/
+
+input[type=range]::-webkit-slider-thumb {
+    margin-top: -0.5em;
+    width: 1.5em;
+    height: 1.5em;
+    background: var(--BordureBouton);
+    border: 2px solid var(--FondPage);
+    border-radius: 0.5em;
+    cursor: pointer;
+    -webkit-appearance: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    background: var(--BordureBouton);
+    border: 0.2em solid var(--FondPage);
+    border-radius: 0.4em;
+    width: 100%;
+    height: 0.8em;
+    cursor: pointer;
+}
+
+
+/************* Changement style input range pour Firefox ***********/
+
+input[type=range]::-moz-range-track {
+    background: var(--BordureBouton);
+    border: 0.2em solid var(--FondPage);
+    border-radius: 0.4em;
+    width: 100%;
+    height: 0.8em;
+    cursor: pointer;
+}
+
+input[type=range]::-moz-range-thumb {
+    margin-top: -0.5em;
+    width: 1.5em;
+    height: 1.5em;
+    background: var(--BordureBouton);
+    border: 1px solid var(--FondPage);
+    border-radius: 0.5em;
+    cursor: pointer;
+}
+
+
+/************* Changement style input range pour IE ***********/
+
+input[type=range]::-ms-track {
+    background: var(--BordureBouton);
+    border-color: transparent;
+    width: 100%;
+    height: 0.8em;
+    cursor: pointer;
+}
+
+input[type=range]::-ms-fill-lower {
+    background: var(--BordureBouton);
+    border: 0.2px solid var(--FondPage);
+    border-radius: 22.6px;
+}
+
+input[type=range]::-ms-fill-upper {
+    background: var(--BordureBouton);
+    border: 0.2px solid var(--FondPage);
+    border-radius: 22.6px;
+}
+
+input[type=range]::-ms-thumb {
+    width: 1.5em;
+    height: 1.5em;
+    background: var(--BordureBouton);
+    border: 1px solid var(--FondPage);
+    border-radius: 0.5em;
+    cursor: pointer;
+}

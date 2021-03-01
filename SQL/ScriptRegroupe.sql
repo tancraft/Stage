@@ -223,6 +223,7 @@ CREATE TABLE activites(
         dateIntervention    Date NOT NULL ,
         dateDebutItv        Datetime NOT NULL ,
         dateFinItv          Datetime NOT NULL ,
+        dureeItv            Datetime NOT NULL ,
         travauxRealises     Text NOT NULL ,
         travauxNonRealises  Text NOT NULL ,
         observations        Text NOT NULL ,
@@ -321,16 +322,20 @@ CREATE TABLE utiliser(
 
 
 #------------------------------------------------------------
-# Table: utilise
+# Table: necessaire
 #------------------------------------------------------------
 
-CREATE TABLE utilise(
-        idUtilise Int NOT NULL PRIMARY KEY,
+CREATE TABLE necessaire(
+        idNecessaire Int NOT NULL PRIMARY KEY,
         idActivite  Int NOT NULL ,
         idMateriel  Int NOT NULL ,
         quantiteMat Int NOT NULL
 
 )ENGINE=InnoDB;
+
+#------------------------------------------------------------
+# cle etrangeres
+#------------------------------------------------------------
 
 ALTER TABLE stagiaires ADD CONSTRAINT FK_stagiaires_offres FOREIGN KEY (idOffre) REFERENCES offres(idOffre);
 
@@ -377,14 +382,20 @@ ALTER TABLE utiliser ADD CONSTRAINT FK_utiliser__activites FOREIGN KEY (idActivi
 ALTER TABLE utiliser ADD CONSTRAINT FK_utiliser__outils0 FOREIGN KEY (idOutil) REFERENCES outils(idOutil);
 
 
-ALTER TABLE utilise ADD CONSTRAINT FK_utilise__activites FOREIGN KEY (idActivite) REFERENCES activites(idActivite);
-ALTER TABLE utilise ADD CONSTRAINT FK_utilise__materiaux0 FOREIGN KEY (idMateriel) REFERENCES materiaux(idMateriel);
+ALTER TABLE necessaire ADD CONSTRAINT FK_necessaire__activites FOREIGN KEY (idActivite) REFERENCES activites(idActivite);
+ALTER TABLE necessaire ADD CONSTRAINT FK_necessaire__materiaux0 FOREIGN KEY (idMateriel) REFERENCES materiaux(idMateriel);
 
+#------------------------------------------------------------
+# vues
+#------------------------------------------------------------
 
 CREATE VIEW  offreFormateur as
 SELECT
     f.iduSer,
     f.matriculeFormateur,
+    f.typeContrat,
+    f.dateDebutContrat,
+    f.dateFinContrat, 
     o.idOffre,
     o.numeroOffre,
     o.dateDebutOffre,
@@ -398,7 +409,9 @@ INNER JOIN offres AS o
 ON
     a.idOffre = o.idOffre;
 
-CREATE VIEW  stagiaireFiche as
+
+
+CREATE VIEW  stagiaireFicheInter as
 SELECT
     s.iduSer,
     s.dateDebutFormation,
@@ -436,3 +449,73 @@ ON
 INNER JOIN mesm AS m
 ON
     m.idMesm = op.idMesm;
+
+
+
+CREATE VIEW  ficheActivitee as
+SELECT
+    li.idActivite,
+    ac.dateIntervention,
+    ac.dateDebutItv,
+    ac.dateFinItv,
+    ac.dureeItv,
+    ac.travauxRealises,
+    ac.travauxNonRealises,
+    ac.observations,
+    ca.idCause,
+    ca.numeroCause,
+    ca.libelleCause,
+    me.idMesm,
+    me.numeroMesm,
+    me.libelleMesm,
+    tm.idTypeMaint,
+    tm.numeroTypeMaint,
+    tm.libelleTypeMaint,
+    a.idAction,
+    a.numeroAction,
+    a.libelleAction,
+    fi.idFicheIntervention,
+    fi.dateDemande,
+    fi.idOperation,
+    mat.idMateriel,
+    mat.nomMateriel,
+    ne.quantiteMat,
+    ou.idOutil,
+    ou.nomOutil,
+    uti.quantiteOutil
+
+FROM
+    activites AS ac
+INNER JOIN lier AS li
+ON
+    ac.idActivite = li.idActivite
+INNER JOIN causes AS ca
+ON
+    li.idCause = ca.idCause
+INNER JOIN mesm AS me
+ON
+    me.idMesm = ac.idMesm
+INNER JOIN typesMaintenances AS tm
+ON
+    tm.idTypeMaint= ac.idTypeMaint
+INNER JOIN correspond AS cor
+ON
+    cor.idActivite= ac.idActivite
+INNER JOIN actions AS a
+ON
+    cor.idAction= a.idAction
+INNER JOIN necessaire AS ne
+ON
+    ne.idActivite= ac.idActivite
+INNER JOIN materiaux AS mat
+ON
+    ne.idMateriel= mat.idMateriel
+INNER JOIN utiliser AS uti
+ON
+    uti.idActivite= ac.idActivite
+INNER JOIN outils AS ou
+ON
+    uti.idOutil= ou.idOutil
+INNER JOIN fichesInterventions AS fi
+ON
+    fi.idFicheIntervention= ac.idFicheIntervention;
