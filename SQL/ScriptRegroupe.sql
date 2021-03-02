@@ -195,10 +195,10 @@ CREATE TABLE operations(
 )ENGINE=InnoDB, CHARSET = UTF8;
 
 #------------------------------------------------------------
-# Table: degresUrgences
+# Table: degresUrgence
 #------------------------------------------------------------
 
-CREATE TABLE degresUrgences(
+CREATE TABLE degresUrgence(
         idDegreUrgence      Int  Auto_increment  NOT NULL PRIMARY KEY,
         libelleDegreUrgence Varchar (100) NOT NULL
 
@@ -211,7 +211,7 @@ CREATE TABLE degresUrgences(
 CREATE TABLE fichesInterventions(
         idFicheIntervention Int  Auto_increment  NOT NULL PRIMARY KEY,
         dateDemande         Date NOT NULL ,
-        demandeur            VARCHAR(100)  NOT NULL DEFAULT 'Formateur Référent',
+        demandeur           VARCHAR(100)  NOT NULL DEFAULT 'Formateur Référent',
         descriptionDemande  Text NOT NULL ,
         statutDemande       Int NOT NULL ,
         validation          Bool NOT NULL ,
@@ -258,10 +258,10 @@ CREATE TABLE materiaux(
 
 
 #------------------------------------------------------------
-# Table: OutilsCaisse
+# Table: outilsCaisse
 #------------------------------------------------------------
 
-CREATE TABLE OutilsCaisse(
+CREATE TABLE outilsCaisse(
         idOutilCaisse  Int  Auto_increment  NOT NULL PRIMARY KEY,
         nomOutilCaisse Varchar (100) NOT NULL ,
         nbOutilCaisse  Int NOT NULL ,
@@ -331,10 +331,10 @@ CREATE TABLE actionsCorrespondantes(
 
 
 #------------------------------------------------------------
-# Table: OutilsCaisseUtilises
+# Table: outilsCaisseUtilises
 #------------------------------------------------------------
 
-CREATE TABLE OutilsCaisseUtilises(
+CREATE TABLE outilsCaisseUtilises(
         idOutilsCaisseUtilises     Int NOT NULL  PRIMARY KEY,
         idActivite    Int NOT NULL ,
         idOutilCaisse       Int NOT NULL ,
@@ -383,7 +383,7 @@ ALTER TABLE operations ADD CONSTRAINT FK_operations__mesm FOREIGN KEY (idMesm) R
 ALTER TABLE fichesInterventions ADD CONSTRAINT FK_fichesInterventions_formateurs FOREIGN KEY (idUser) REFERENCES formateurs(idUser);
 ALTER TABLE fichesInterventions ADD CONSTRAINT FK_fichesInterventions_lieux0 FOREIGN KEY (idLieu) REFERENCES lieux(idLieu);
 ALTER TABLE fichesInterventions ADD CONSTRAINT FK_fichesInterventions__operations1 FOREIGN KEY (idOperation) REFERENCES operations(idOperation);
-ALTER TABLE fichesInterventions ADD CONSTRAINT FK_fichesInterventions__degresUrgences FOREIGN KEY (idDegreUrgence) REFERENCES degresUrgences(idDegreUrgence);
+ALTER TABLE fichesInterventions ADD CONSTRAINT FK_fichesInterventions__degresUrgence FOREIGN KEY (idDegreUrgence) REFERENCES degresUrgence(idDegreUrgence);
 
 ALTER TABLE activites ADD CONSTRAINT FK_activites__mesm FOREIGN KEY (idMesm) REFERENCES mesm(idMesm);
 ALTER TABLE activites ADD CONSTRAINT FK_activites__typesMaintenances0 FOREIGN KEY (idTypeMaint) REFERENCES typesMaintenances(idTypeMaint);
@@ -393,7 +393,7 @@ ALTER TABLE activites ADD CONSTRAINT FK_activites_fichesInterventions1 FOREIGN K
 ALTER TABLE materiaux ADD CONSTRAINT FK_materiaux_formateurs FOREIGN KEY (idUser) REFERENCES formateurs(idUser);
 
 
-ALTER TABLE OutilsCaisse ADD CONSTRAINT FK_OutilsCaisse_formateurs FOREIGN KEY (idUser) REFERENCES formateurs(idUser);
+ALTER TABLE outilsCaisse ADD CONSTRAINT FK_OutilsCaisse_formateurs FOREIGN KEY (idUser) REFERENCES formateurs(idUser);
 
 ALTER TABLE outilsMagasin ADD CONSTRAINT FK_outilsMagasin_formateurs FOREIGN KEY (idUser) REFERENCES formateurs(idUser);
 
@@ -413,8 +413,8 @@ ALTER TABLE actionsCorrespondantes ADD CONSTRAINT FK_actionsCorrespondantes__act
 ALTER TABLE actionsCorrespondantes ADD CONSTRAINT FK_actionsCorrespondantes__activites0 FOREIGN KEY (idActivite) REFERENCES activites(idActivite);
 
 
-ALTER TABLE OutilsCaisseUtilises ADD CONSTRAINT FK_OutilsCaisseUtilises__activites FOREIGN KEY (idActivite) REFERENCES activites(idActivite);
-ALTER TABLE OutilsCaisseUtilises ADD CONSTRAINT FK_OutilsCaisseUtilises__OutilsCaisse FOREIGN KEY (idOutilCaisse) REFERENCES OutilsCaisse(idOutilCaisse);
+ALTER TABLE outilsCaisseUtilises ADD CONSTRAINT FK_OutilsCaisseUtilises__activites FOREIGN KEY (idActivite) REFERENCES activites(idActivite);
+ALTER TABLE outilsCaisseUtilises ADD CONSTRAINT FK_OutilsCaisseUtilises__OutilsCaisse FOREIGN KEY (idOutilCaisse) REFERENCES OutilsCaisse(idOutilCaisse);
 
 ALTER TABLE outilsMagasinUtilises ADD CONSTRAINT FK_outilsMagasinUtilises__activites FOREIGN KEY (idActivite) REFERENCES activites(idActivite);
 ALTER TABLE outilsMagasinUtilises ADD CONSTRAINT FK_outilsMagasinUtilises__outilsMagasin FOREIGN KEY (idOutilMagasin) REFERENCES outilsMagasin(idOutilMagasin);
