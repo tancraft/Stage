@@ -1,0 +1,44 @@
+installer git
+tester avec la commande 
+git --version
+
+parametrage
+
+git config --global user.name "nom utilisateur"
+git config --global user.email "mon email"
+
+creer repertoire
+
+en ligne de commande
+$mkdir nomrepertoire
+
+sinon le faire normalement
+se positionner dans le repertoire et ouvrir git bash
+
+git init
+
+verifier le statut global du repository
+
+git status
+
+envoi de fichier 
+
+git add (on peut ajouter nom du fichier)
+
+git commit -m "le nom du commit"
+
+git remote add origin https://github.com/tancraft/nomRepository.git 
+
+git push origin master
+
+historique des fichiers 
+
+git log
+
+recuperer les fichier 
+git pull
+
+recuperer le repository
+git clone https://github.com/tancraft/nomRepository.git 
+
+
