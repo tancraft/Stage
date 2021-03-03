@@ -104,4 +104,3 @@ class Actions
 		return;
 	}
 }
-echo "toto";
