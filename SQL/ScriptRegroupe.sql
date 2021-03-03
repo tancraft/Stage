@@ -164,7 +164,7 @@ CREATE TABLE actions(
 CREATE TABLE blocsCompetences(
         idBlocComp      Int  Auto_increment  NOT NULL PRIMARY KEY,
         numeroBlocComp  Varchar (50) NOT NULL ,
-        libelleBlocComp Varchar (50) NOT NULL
+        libelleBlocComp Varchar (200) NOT NULL
 
 )ENGINE=InnoDB, CHARSET = UTF8;
 
