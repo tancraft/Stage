@@ -372,7 +372,7 @@ CREATE TABLE amb_materiauxUtilises(
 
 ALTER TABLE amb_stagiaires ADD CONSTRAINT FK_stagiaires_offres FOREIGN KEY (idOffre) REFERENCES amb_offres(idOffre);
 
-ALTER TABLE amb_ utilisateurs ADD CONSTRAINT FK_utilisateurs_roles FOREIGN KEY (idRole) REFERENCES amb_roles(idRole);
+ALTER TABLE amb_utilisateurs ADD CONSTRAINT FK_utilisateurs_roles FOREIGN KEY (idRole) REFERENCES amb_roles(idRole);
 
 ALTER TABLE amb_lieux ADD CONSTRAINT FK_lieux_environnements FOREIGN KEY (idEnv) REFERENCES amb_environnements(idEnv);
 
@@ -439,7 +439,7 @@ SELECT
     o.dateDebutOffre,
     o.dateFinOffre
 FROM
-    formateurs AS f
+    amb_formateurs AS f
 INNER JOIN amb_animation AS a ON f.idUser = a.idUser
 INNER JOIN amb_offres AS o ON a.idOffre = o.idOffre;
 
@@ -470,7 +470,7 @@ SELECT
     bc.numeroBlocComp,
     bc.libelleBlocComp
 FROM
-    stagiaires AS s
+    amb_stagiaires AS s
 INNER JOIN amb_stagiairesAffectes AS r ON s.idUser = r.idUser
 INNER JOIN amb_fichesInterventions AS fi ON r.idFicheIntervention = fi.idFicheIntervention
 INNER JOIN amb_lieux AS li ON fi.idLieu = li.idLieu
@@ -517,7 +517,7 @@ SELECT
     utimag.quantiteOutilsMagasin
 
 FROM
-    activites AS ac
+    amb_activites AS ac
 INNER JOIN amb_fichesInterventions AS fi ON fi.idFicheIntervention= ac.idFicheIntervention 
 LEFT JOIN  amb_causesLiees AS li ON ac.idActivite = li.idActivite
 INNER JOIN amb_causes AS ca ON li.idCause = ca.idCause
