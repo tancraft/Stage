@@ -80,7 +80,7 @@ class UtilisateursManager
 	{
  		$db=DbConnect::getDb();
 		$liste = [];
-		$q = $db->query("SELECT * from amb_Utilisateurs where idRole = ".$idRole." ORDER BY nomUtilisateur");
+		$q = $db->query("SELECT * from amb_Utilisateurs where idRole = ".$idRole." ORDER BY nomUser");
 		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
 		{
 			if($donnees != false)

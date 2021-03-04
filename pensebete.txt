@@ -21,7 +21,7 @@ get outilcaisse by formateur
 
 get outil utiliser by formateur
 
-get list operaion by mesm
+get list operation by mesm
 
 get list mesm by bloc comp
 

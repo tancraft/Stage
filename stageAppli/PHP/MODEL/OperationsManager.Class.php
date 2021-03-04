@@ -48,7 +48,7 @@ class OperationsManager
 	{
  		$db=DbConnect::getDb();
 		$liste = [];
-		$q = $db->query("SELECT * from amb_Operations ORDER BY intituleOperation, schemaOperation");
+		$q = $db->query("SELECT * from amb_Operations ORDER BY numeroOperation, intituleOperation");
 		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
 		{
 			if($donnees != false)
