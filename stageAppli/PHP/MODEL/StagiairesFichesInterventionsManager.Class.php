@@ -5,7 +5,7 @@ class StagiairesFichesInterventionsManager
 	public static function add(StagiairesFichesInterventions $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("INSERT INTO Stagiairesfichesinterventions (dateDebutFormation,dateFinFormation,numeroBeneficiaire,idFicheIntervention,dateDemande,demandeur,descriptionDemande,statutDemande,validation,appreciation,idLieu,nomLieu,idOperation,numeroOperation,intituleOperation,schemaOperation,idMesm,numeroMesm,libelleMesm,numeroBlocComp,libelleBlocComp) VALUES (:dateDebutFormation,:dateFinFormation,:numeroBeneficiaire,:idFicheIntervention,:dateDemande,:demandeur,:descriptionDemande,:statutDemande,:validation,:appreciation,:idLieu,:nomLieu,:idOperation,:numeroOperation,:intituleOperation,:schemaOperation,:idMesm,:numeroMesm,:libelleMesm,:numeroBlocComp,:libelleBlocComp)");
+		$q=$db->prepare("INSERT INTO amb_Stagiairesfichesinterventions (dateDebutFormation,dateFinFormation,numeroBeneficiaire,idFicheIntervention,dateDemande,demandeur,descriptionDemande,statutDemande,validation,appreciation,idLieu,nomLieu,idOperation,numeroOperation,intituleOperation,schemaOperation,idMesm,numeroMesm,libelleMesm,numeroBlocComp,libelleBlocComp) VALUES (:dateDebutFormation,:dateFinFormation,:numeroBeneficiaire,:idFicheIntervention,:dateDemande,:demandeur,:descriptionDemande,:statutDemande,:validation,:appreciation,:idLieu,:nomLieu,:idOperation,:numeroOperation,:intituleOperation,:schemaOperation,:idMesm,:numeroMesm,:libelleMesm,:numeroBlocComp,:libelleBlocComp)");
 		$q->bindValue(":dateDebutFormation", $obj->getDateDebutFormation());
 		$q->bindValue(":dateFinFormation", $obj->getDateFinFormation());
 		$q->bindValue(":numeroBeneficiaire", $obj->getNumeroBeneficiaire());
@@ -33,7 +33,7 @@ class StagiairesFichesInterventionsManager
 	public static function update(StagiairesFichesInterventions $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("UPDATE Stagiairesfichesinterventions SET idUser=:idUser,dateDebutFormation=:dateDebutFormation,dateFinFormation=:dateFinFormation,numeroBeneficiaire=:numeroBeneficiaire,idFicheIntervention=:idFicheIntervention,dateDemande=:dateDemande,demandeur=:demandeur,descriptionDemande=:descriptionDemande,statutDemande=:statutDemande,validation=:validation,appreciation=:appreciation,idLieu=:idLieu,nomLieu=:nomLieu,idOperation=:idOperation,numeroOperation=:numeroOperation,intituleOperation=:intituleOperation,schemaOperation=:schemaOperation,idMesm=:idMesm,numeroMesm=:numeroMesm,libelleMesm=:libelleMesm,numeroBlocComp=:numeroBlocComp,libelleBlocComp=:libelleBlocComp WHERE idUser=:idUser");
+		$q=$db->prepare("UPDATE amb_Stagiairesfichesinterventions SET idUser=:idUser,dateDebutFormation=:dateDebutFormation,dateFinFormation=:dateFinFormation,numeroBeneficiaire=:numeroBeneficiaire,idFicheIntervention=:idFicheIntervention,dateDemande=:dateDemande,demandeur=:demandeur,descriptionDemande=:descriptionDemande,statutDemande=:statutDemande,validation=:validation,appreciation=:appreciation,idLieu=:idLieu,nomLieu=:nomLieu,idOperation=:idOperation,numeroOperation=:numeroOperation,intituleOperation=:intituleOperation,schemaOperation=:schemaOperation,idMesm=:idMesm,numeroMesm=:numeroMesm,libelleMesm=:libelleMesm,numeroBlocComp=:numeroBlocComp,libelleBlocComp=:libelleBlocComp WHERE idUser=:idUser");
 		$q->bindValue(":idUser", $obj->getIdUser());
 		$q->bindValue(":dateDebutFormation", $obj->getDateDebutFormation());
 		$q->bindValue(":dateFinFormation", $obj->getDateFinFormation());

@@ -5,7 +5,7 @@ class EnvironnementsManager
 	public static function add(Environnements $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("INSERT INTO Environnements (typeEnv) VALUES (:typeEnv)");
+		$q=$db->prepare("INSERT INTO amb_Environnements (typeEnv) VALUES (:typeEnv)");
 		$q->bindValue(":typeEnv", $obj->getTypeEnv());
 		$q->execute();
 	}
@@ -13,7 +13,7 @@ class EnvironnementsManager
 	public static function update(Environnements $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("UPDATE Environnements SET idEnv=:idEnv,typeEnv=:typeEnv WHERE idEnv=:idEnv");
+		$q=$db->prepare("UPDATE amb_Environnements SET idEnv=:idEnv,typeEnv=:typeEnv WHERE idEnv=:idEnv");
 		$q->bindValue(":idEnv", $obj->getIdEnv());
 		$q->bindValue(":typeEnv", $obj->getTypeEnv());
 		$q->execute();

@@ -5,7 +5,7 @@ class DegresUrgenceManager
 	public static function add(DegresUrgence $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("INSERT INTO Degresurgence (libelleDegreUrgence) VALUES (:libelleDegreUrgence)");
+		$q=$db->prepare("INSERT INTO amb_Degresurgence (libelleDegreUrgence) VALUES (:libelleDegreUrgence)");
 		$q->bindValue(":libelleDegreUrgence", $obj->getLibelleDegreUrgence());
 		$q->execute();
 	}
@@ -13,7 +13,7 @@ class DegresUrgenceManager
 	public static function update(DegresUrgence $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("UPDATE Degresurgence SET idDegreUrgence=:idDegreUrgence,libelleDegreUrgence=:libelleDegreUrgence WHERE idDegreUrgence=:idDegreUrgence");
+		$q=$db->prepare("UPDATE amb_Degresurgence SET idDegreUrgence=:idDegreUrgence,libelleDegreUrgence=:libelleDegreUrgence WHERE idDegreUrgence=:idDegreUrgence");
 		$q->bindValue(":idDegreUrgence", $obj->getIdDegreUrgence());
 		$q->bindValue(":libelleDegreUrgence", $obj->getLibelleDegreUrgence());
 		$q->execute();

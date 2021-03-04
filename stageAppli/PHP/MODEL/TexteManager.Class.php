@@ -5,7 +5,7 @@ class TexteManager
 	public static function add(Texte $obj)
 	{
 		$db=DbConnect::getDb();
-		$q=$db->prepare("INSERT INTO Texte (codeTexte,codeLangue,Texte) VALUES (:codeTexte,:codeLangue,:texte)");
+		$q=$db->prepare("INSERT INTO amb_Texte (codeTexte,codeLangue,Texte) VALUES (:codeTexte,:codeLangue,:texte)");
 		$q->bindValue(":codeTexte", $obj->getCodeTexte());
 		$q->bindValue(":codeLangue", $obj->getCodeLangue());
 		$q->bindValue(":texte", $obj->getTexte());
@@ -14,7 +14,7 @@ class TexteManager
 	public static function update(Texte $obj)
 	{
 		$db=DbConnect::getDb();
-		$q=$db->prepare("UPDATE Texte SET idTexte=:idTexte,codeTexte=:codeTexte,codeLangue=:codeLangue,texte=:texte WHERE idTexte=:idTexte");
+		$q=$db->prepare("UPDATE amb_Texte SET idTexte=:idTexte,codeTexte=:codeTexte,codeLangue=:codeLangue,texte=:texte WHERE idTexte=:idTexte");
 		$q->bindValue(":idTexte", $obj->getIdTexte());
 		$q->bindValue(":codeTexte", $obj->getCodeTexte());
 		$q->bindValue(":codeLangue", $obj->getCodeLangue());
@@ -25,7 +25,7 @@ class TexteManager
 	public static function delete(Texte $obj)
 	{
 		$db=DbConnect::getDb();
-		$q=$db->prepare("UPDATE Texte SET idTexte=:idTexte,codeTexte=:codeTexte,codeLangue=:codeLangue,texte=:texte WHERE idTexte=:idTexte");
+		$q=$db->prepare("UPDATE amb_Texte SET idTexte=:idTexte,codeTexte=:codeTexte,codeLangue=:codeLangue,texte=:texte WHERE idTexte=:idTexte");
 		$db->exec("DELETE from amb_Texte WHERE idTexte=" .$obj->getIdTexte());
 	}
 

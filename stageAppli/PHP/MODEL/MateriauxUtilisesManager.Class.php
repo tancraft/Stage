@@ -5,7 +5,7 @@ class MateriauxUtilisesManager
 	public static function add(Materiauxutilises $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("INSERT INTO Materiauxutilises (idActivite,idMateriel,quantiteMat) VALUES (:idActivite,:idMateriel,:quantiteMat)");
+		$q=$db->prepare("INSERT INTO amb_Materiauxutilises (idActivite,idMateriel,quantiteMat) VALUES (:idActivite,:idMateriel,:quantiteMat)");
 		$q->bindValue(":idActivite", $obj->getIdActivite());
 		$q->bindValue(":idMateriel", $obj->getIdMateriel());
 		$q->bindValue(":quantiteMat", $obj->getQuantiteMat());
@@ -15,7 +15,7 @@ class MateriauxUtilisesManager
 	public static function update(MateriaUxutilises $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("UPDATE Materiauxutilises SET idMateriauxUtilises=:idMateriauxUtilises,idActivite=:idActivite,idMateriel=:idMateriel,quantiteMat=:quantiteMat WHERE idMateriauxUtilises=:idMateriauxUtilises");
+		$q=$db->prepare("UPDATE amb_Materiauxutilises SET idMateriauxUtilises=:idMateriauxUtilises,idActivite=:idActivite,idMateriel=:idMateriel,quantiteMat=:quantiteMat WHERE idMateriauxUtilises=:idMateriauxUtilises");
 		$q->bindValue(":idMateriauxUtilises", $obj->getIdMateriauxUtilises());
 		$q->bindValue(":idActivite", $obj->getIdActivite());
 		$q->bindValue(":idMateriel", $obj->getIdMateriel());

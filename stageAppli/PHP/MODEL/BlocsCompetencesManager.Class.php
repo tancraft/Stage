@@ -5,7 +5,7 @@ class BlocsCompetencesManager
 	public static function add(BlocsCompetences $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("INSERT INTO Blocscompetences (numeroBlocComp,libelleBlocComp) VALUES (:numeroBlocComp,:libelleBlocComp)");
+		$q=$db->prepare("INSERT INTO amb_Blocscompetences (numeroBlocComp,libelleBlocComp) VALUES (:numeroBlocComp,:libelleBlocComp)");
 		$q->bindValue(":numeroBlocComp", $obj->getNumeroBlocComp());
 		$q->bindValue(":libelleBlocComp", $obj->getLibelleBlocComp());
 		$q->execute();
@@ -14,7 +14,7 @@ class BlocsCompetencesManager
 	public static function update(BlocsCompetences $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("UPDATE Blocscompetences SET idBlocComp=:idBlocComp,numeroBlocComp=:numeroBlocComp,libelleBlocComp=:libelleBlocComp WHERE idBlocComp=:idBlocComp");
+		$q=$db->prepare("UPDATE amb_Blocscompetences SET idBlocComp=:idBlocComp,numeroBlocComp=:numeroBlocComp,libelleBlocComp=:libelleBlocComp WHERE idBlocComp=:idBlocComp");
 		$q->bindValue(":idBlocComp", $obj->getIdBlocComp());
 		$q->bindValue(":numeroBlocComp", $obj->getNumeroBlocComp());
 		$q->bindValue(":libelleBlocComp", $obj->getLibelleBlocComp());

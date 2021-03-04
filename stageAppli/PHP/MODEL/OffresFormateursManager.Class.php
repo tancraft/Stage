@@ -5,7 +5,7 @@ class OffresFormateursManager
 	public static function add(OffresFormateurs $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("INSERT INTO Offresformateurs (matriculeFormateur,typeContrat,dateDebutContrat,dateFinContrat,idOffre,numeroOffre,dateDebutOffre,dateFinOffre) VALUES (:matriculeFormateur,:typeContrat,:dateDebutContrat,:dateFinContrat,:idOffre,:numeroOffre,:dateDebutOffre,:dateFinOffre)");
+		$q=$db->prepare("INSERT INTO amb_Offresformateurs (matriculeFormateur,typeContrat,dateDebutContrat,dateFinContrat,idOffre,numeroOffre,dateDebutOffre,dateFinOffre) VALUES (:matriculeFormateur,:typeContrat,:dateDebutContrat,:dateFinContrat,:idOffre,:numeroOffre,:dateDebutOffre,:dateFinOffre)");
 		$q->bindValue(":matriculeFormateur", $obj->getMatriculeFormateur());
 		$q->bindValue(":typeContrat", $obj->getTypeContrat());
 		$q->bindValue(":dateDebutContrat", $obj->getDateDebutContrat());
@@ -20,7 +20,7 @@ class OffresFormateursManager
 	public static function update(OffresFormateurs $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("UPDATE Offresformateurs SET idUser=:idUser,matriculeFormateur=:matriculeFormateur,typeContrat=:typeContrat,dateDebutContrat=:dateDebutContrat,dateFinContrat=:dateFinContrat,idOffre=:idOffre,numeroOffre=:numeroOffre,dateDebutOffre=:dateDebutOffre,dateFinOffre=:dateFinOffre WHERE idUser=:idUser");
+		$q=$db->prepare("UPDATE amb_Offresformateurs SET idUser=:idUser,matriculeFormateur=:matriculeFormateur,typeContrat=:typeContrat,dateDebutContrat=:dateDebutContrat,dateFinContrat=:dateFinContrat,idOffre=:idOffre,numeroOffre=:numeroOffre,dateDebutOffre=:dateDebutOffre,dateFinOffre=:dateFinOffre WHERE idUser=:idUser");
 		$q->bindValue(":idUser", $obj->getIdUser());
 		$q->bindValue(":matriculeFormateur", $obj->getMatriculeFormateur());
 		$q->bindValue(":typeContrat", $obj->getTypeContrat());

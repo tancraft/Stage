@@ -5,7 +5,7 @@ class FichesInterventionsManager
 	public static function add(FichesInterventions $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("INSERT INTO Fichesinterventions (dateDemande,demandeur,descriptionDemande,statutDemande,validation,appreciation,idUser,idLieu,idOperation,idDegreUrgence) VALUES (:dateDemande,:demandeur,:descriptionDemande,:statutDemande,:validation,:appreciation,:idUser,:idLieu,:idOperation,:idDegreUrgence)");
+		$q=$db->prepare("INSERT INTO amb_Fichesinterventions (dateDemande,demandeur,descriptionDemande,statutDemande,validation,appreciation,idUser,idLieu,idOperation,idDegreUrgence) VALUES (:dateDemande,:demandeur,:descriptionDemande,:statutDemande,:validation,:appreciation,:idUser,:idLieu,:idOperation,:idDegreUrgence)");
 		$q->bindValue(":dateDemande", $obj->getDateDemande());
 		$q->bindValue(":demandeur", $obj->getDemandeur());
 		$q->bindValue(":descriptionDemande", $obj->getDescriptionDemande());
@@ -22,7 +22,7 @@ class FichesInterventionsManager
 	public static function update(FichesInterventions $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("UPDATE Fichesinterventions SET idFicheIntervention=:idFicheIntervention,dateDemande=:dateDemande,demandeur=:demandeur,descriptionDemande=:descriptionDemande,statutDemande=:statutDemande,validation=:validation,appreciation=:appreciation,idUser=:idUser,idLieu=:idLieu,idOperation=:idOperation,idDegreUrgence=:idDegreUrgence WHERE idFicheIntervention=:idFicheIntervention");
+		$q=$db->prepare("UPDATE amb_Fichesinterventions SET idFicheIntervention=:idFicheIntervention,dateDemande=:dateDemande,demandeur=:demandeur,descriptionDemande=:descriptionDemande,statutDemande=:statutDemande,validation=:validation,appreciation=:appreciation,idUser=:idUser,idLieu=:idLieu,idOperation=:idOperation,idDegreUrgence=:idDegreUrgence WHERE idFicheIntervention=:idFicheIntervention");
 		$q->bindValue(":idFicheIntervention", $obj->getIdFicheIntervention());
 		$q->bindValue(":dateDemande", $obj->getDateDemande());
 		$q->bindValue(":demandeur", $obj->getDemandeur());

@@ -5,7 +5,7 @@ class ActivitesManager
 	public static function add(Activites $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("INSERT INTO Activites (dateIntervention,dateDebutItv,dateFinItv,dureeItv,travauxRealises,travauxNonRealises,observations,idMesm,idTypeMaint,idFicheIntervention) VALUES (:dateIntervention,:dateDebutItv,:dateFinItv,:dureeItv,:travauxRealises,:travauxNonRealises,:observations,:idMesm,:idTypeMaint,:idFicheIntervention)");
+		$q=$db->prepare("INSERT INTO amb_Activites (dateIntervention,dateDebutItv,dateFinItv,dureeItv,travauxRealises,travauxNonRealises,observations,idMesm,idTypeMaint,idFicheIntervention) VALUES (:dateIntervention,:dateDebutItv,:dateFinItv,:dureeItv,:travauxRealises,:travauxNonRealises,:observations,:idMesm,:idTypeMaint,:idFicheIntervention)");
 		$q->bindValue(":dateIntervention", $obj->getDateIntervention());
 		$q->bindValue(":dateDebutItv", $obj->getDateDebutItv());
 		$q->bindValue(":dateFinItv", $obj->getDateFinItv());
@@ -22,7 +22,7 @@ class ActivitesManager
 	public static function update(Activites $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("UPDATE Activites SET idActivite=:idActivite,dateIntervention=:dateIntervention,dateDebutItv=:dateDebutItv,dateFinItv=:dateFinItv,dureeItv=:dureeItv,travauxRealises=:travauxRealises,travauxNonRealises=:travauxNonRealises,observations=:observations,idMesm=:idMesm,idTypeMaint=:idTypeMaint,idFicheIntervention=:idFicheIntervention WHERE idActivite=:idActivite");
+		$q=$db->prepare("UPDATE amb_Activites SET idActivite=:idActivite,dateIntervention=:dateIntervention,dateDebutItv=:dateDebutItv,dateFinItv=:dateFinItv,dureeItv=:dureeItv,travauxRealises=:travauxRealises,travauxNonRealises=:travauxNonRealises,observations=:observations,idMesm=:idMesm,idTypeMaint=:idTypeMaint,idFicheIntervention=:idFicheIntervention WHERE idActivite=:idActivite");
 		$q->bindValue(":idActivite", $obj->getIdActivite());
 		$q->bindValue(":dateIntervention", $obj->getDateIntervention());
 		$q->bindValue(":dateDebutItv", $obj->getDateDebutItv());

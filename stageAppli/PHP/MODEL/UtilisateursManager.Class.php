@@ -5,7 +5,7 @@ class UtilisateursManager
 	public static function add(Utilisateurs $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("INSERT INTO Utilisateurs (nomUser,prenomUser,telUser,emailUser,mdpUser,idRole) VALUES (:nomUser,:prenomUser,:telUser,:emailUser,:mdpUser,:idRole)");
+		$q=$db->prepare("INSERT INTO amb_Utilisateurs (nomUser,prenomUser,telUser,emailUser,mdpUser,idRole) VALUES (:nomUser,:prenomUser,:telUser,:emailUser,:mdpUser,:idRole)");
 		$q->bindValue(":nomUser", $obj->getNomUser());
 		$q->bindValue(":prenomUser", $obj->getPrenomUser());
 		$q->bindValue(":telUser", $obj->getTelUser());
@@ -18,7 +18,7 @@ class UtilisateursManager
 	public static function update(Utilisateurs $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("UPDATE Utilisateurs SET idUser=:idUser,nomUser=:nomUser,prenomUser=:prenomUser,telUser=:telUser,emailUser=:emailUser,mdpUser=:mdpUser,idRole=:idRole WHERE idUser=:idUser");
+		$q=$db->prepare("UPDATE amb_Utilisateurs SET idUser=:idUser,nomUser=:nomUser,prenomUser=:prenomUser,telUser=:telUser,emailUser=:emailUser,mdpUser=:mdpUser,idRole=:idRole WHERE idUser=:idUser");
 		$q->bindValue(":idUser", $obj->getIdUser());
 		$q->bindValue(":nomUser", $obj->getNomUser());
 		$q->bindValue(":prenomUser", $obj->getPrenomUser());

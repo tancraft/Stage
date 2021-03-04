@@ -5,7 +5,7 @@ class ActionsManager
 	public static function add(Actions $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("INSERT INTO Actions (numeroAction,libelleAction) VALUES (:numeroAction,:libelleAction)");
+		$q=$db->prepare("INSERT INTO amb_Actions (numeroAction,libelleAction) VALUES (:numeroAction,:libelleAction)");
 		$q->bindValue(":numeroAction", $obj->getNumeroAction());
 		$q->bindValue(":libelleAction", $obj->getLibelleAction());
 		$q->execute();
@@ -14,7 +14,7 @@ class ActionsManager
 	public static function update(Actions $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("UPDATE Actions SET idAction=:idAction,numeroAction=:numeroAction,libelleAction=:libelleAction WHERE idAction=:idAction");
+		$q=$db->prepare("UPDATE amb_Actions SET idAction=:idAction,numeroAction=:numeroAction,libelleAction=:libelleAction WHERE idAction=:idAction");
 		$q->bindValue(":idAction", $obj->getIdAction());
 		$q->bindValue(":numeroAction", $obj->getNumeroAction());
 		$q->bindValue(":libelleAction", $obj->getLibelleAction());

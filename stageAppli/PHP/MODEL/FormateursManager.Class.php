@@ -5,7 +5,7 @@ class FormateursManager
 	public static function add(Formateurs $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("INSERT INTO Formateurs (matriculeFormateur,typeContrat,dateDebutContrat,dateFinContrat) VALUES (:matriculeFormateur,:typeContrat,:dateDebutContrat,:dateFinContrat)");
+		$q=$db->prepare("INSERT INTO amb_Formateurs (matriculeFormateur,typeContrat,dateDebutContrat,dateFinContrat) VALUES (:matriculeFormateur,:typeContrat,:dateDebutContrat,:dateFinContrat)");
 		$q->bindValue(":matriculeFormateur", $obj->getMatriculeFormateur());
 		$q->bindValue(":typeContrat", $obj->getTypeContrat());
 		$q->bindValue(":dateDebutContrat", $obj->getDateDebutContrat());
@@ -16,7 +16,7 @@ class FormateursManager
 	public static function update(Formateurs $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("UPDATE Formateurs SET idUser=:idUser,matriculeFormateur=:matriculeFormateur,typeContrat=:typeContrat,dateDebutContrat=:dateDebutContrat,dateFinContrat=:dateFinContrat WHERE idUser=:idUser");
+		$q=$db->prepare("UPDATE amb_Formateurs SET idUser=:idUser,matriculeFormateur=:matriculeFormateur,typeContrat=:typeContrat,dateDebutContrat=:dateDebutContrat,dateFinContrat=:dateFinContrat WHERE idUser=:idUser");
 		$q->bindValue(":idUser", $obj->getIdUser());
 		$q->bindValue(":matriculeFormateur", $obj->getMatriculeFormateur());
 		$q->bindValue(":typeContrat", $obj->getTypeContrat());

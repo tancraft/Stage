@@ -5,7 +5,7 @@ class StagiairesAffectesManager
 	public static function add(StagiairesAffectes $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("INSERT INTO Stagiairesaffectes (idUser,idFicheIntervention) VALUES (:idUser,:idFicheIntervention)");
+		$q=$db->prepare("INSERT INTO amb_Stagiairesaffectes (idUser,idFicheIntervention) VALUES (:idUser,:idFicheIntervention)");
 		$q->bindValue(":idUser", $obj->getIdUser());
 		$q->bindValue(":idFicheIntervention", $obj->getIdFicheIntervention());
 		$q->execute();
@@ -14,7 +14,7 @@ class StagiairesAffectesManager
 	public static function update(StagiairesAffectes $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("UPDATE Stagiairesaffectes SET idStagiairesAffectes=:idStagiairesAffectes,idUser=:idUser,idFicheIntervention=:idFicheIntervention WHERE idStagiairesAffectes=:idStagiairesAffectes");
+		$q=$db->prepare("UPDATE amb_Stagiairesaffectes SET idStagiairesAffectes=:idStagiairesAffectes,idUser=:idUser,idFicheIntervention=:idFicheIntervention WHERE idStagiairesAffectes=:idStagiairesAffectes");
 		$q->bindValue(":idStagiairesAffectes", $obj->getIdStagiairesAffectes());
 		$q->bindValue(":idUser", $obj->getIdUser());
 		$q->bindValue(":idFicheIntervention", $obj->getIdFicheIntervention());

@@ -5,7 +5,7 @@ class MesmManager
 	public static function add(Mesm $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("INSERT INTO Mesm (numeroMesm,libelleMesm,idBlocComp) VALUES (:numeroMesm,:libelleMesm,:idBlocComp)");
+		$q=$db->prepare("INSERT INTO amb_Mesm (numeroMesm,libelleMesm,idBlocComp) VALUES (:numeroMesm,:libelleMesm,:idBlocComp)");
 		$q->bindValue(":numeroMesm", $obj->getNumeroMesm());
 		$q->bindValue(":libelleMesm", $obj->getLibelleMesm());
 		$q->bindValue(":idBlocComp", $obj->getIdBlocComp());
@@ -15,7 +15,7 @@ class MesmManager
 	public static function update(Mesm $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("UPDATE Mesm SET idMesm=:idMesm,numeroMesm=:numeroMesm,libelleMesm=:libelleMesm,idBlocComp=:idBlocComp WHERE idMesm=:idMesm");
+		$q=$db->prepare("UPDATE amb_Mesm SET idMesm=:idMesm,numeroMesm=:numeroMesm,libelleMesm=:libelleMesm,idBlocComp=:idBlocComp WHERE idMesm=:idMesm");
 		$q->bindValue(":idMesm", $obj->getIdMesm());
 		$q->bindValue(":numeroMesm", $obj->getNumeroMesm());
 		$q->bindValue(":libelleMesm", $obj->getLibelleMesm());

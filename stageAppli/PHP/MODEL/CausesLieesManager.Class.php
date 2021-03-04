@@ -5,7 +5,7 @@ class CausesLieesManager
 	public static function add(Causesliees $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("INSERT INTO Causesliees (idActivite,idCause) VALUES (:idActivite,:idCause)");
+		$q=$db->prepare("INSERT INTO amb_Causesliees (idActivite,idCause) VALUES (:idActivite,:idCause)");
 		$q->bindValue(":idActivite", $obj->getIdActivite());
 		$q->bindValue(":idCause", $obj->getIdCause());
 		$q->execute();
@@ -14,7 +14,7 @@ class CausesLieesManager
 	public static function update(CausesLiees $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("UPDATE Causesliees SET idCausesLiees=:idCausesLiees,idActivite=:idActivite,idCause=:idCause WHERE idCausesLiees=:idCausesLiees");
+		$q=$db->prepare("UPDATE amb_Causesliees SET idCausesLiees=:idCausesLiees,idActivite=:idActivite,idCause=:idCause WHERE idCausesLiees=:idCausesLiees");
 		$q->bindValue(":idCausesLiees", $obj->getIdCausesLiees());
 		$q->bindValue(":idActivite", $obj->getIdActivite());
 		$q->bindValue(":idCause", $obj->getIdCause());

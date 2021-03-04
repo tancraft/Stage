@@ -5,7 +5,7 @@ class OffresManager
 	public static function add(Offres $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("INSERT INTO Offres (numeroOffre,dateDebutOffre,dateFinOffre) VALUES (:numeroOffre,:dateDebutOffre,:dateFinOffre)");
+		$q=$db->prepare("INSERT INTO amb_Offres (numeroOffre,dateDebutOffre,dateFinOffre) VALUES (:numeroOffre,:dateDebutOffre,:dateFinOffre)");
 		$q->bindValue(":numeroOffre", $obj->getNumeroOffre());
 		$q->bindValue(":dateDebutOffre", $obj->getDateDebutOffre());
 		$q->bindValue(":dateFinOffre", $obj->getDateFinOffre());
@@ -15,7 +15,7 @@ class OffresManager
 	public static function update(Offres $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("UPDATE Offres SET idOffre=:idOffre,numeroOffre=:numeroOffre,dateDebutOffre=:dateDebutOffre,dateFinOffre=:dateFinOffre WHERE idOffre=:idOffre");
+		$q=$db->prepare("UPDATE amb_Offres SET idOffre=:idOffre,numeroOffre=:numeroOffre,dateDebutOffre=:dateDebutOffre,dateFinOffre=:dateFinOffre WHERE idOffre=:idOffre");
 		$q->bindValue(":idOffre", $obj->getIdOffre());
 		$q->bindValue(":numeroOffre", $obj->getNumeroOffre());
 		$q->bindValue(":dateDebutOffre", $obj->getDateDebutOffre());

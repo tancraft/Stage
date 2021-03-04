@@ -5,7 +5,7 @@ class OperationsManager
 	public static function add(Operations $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("INSERT INTO Operations (numeroOperation,intituleOperation,schemaOperation,idMesm) VALUES (:numeroOperation,:intituleOperation,:schemaOperation,:idMesm)");
+		$q=$db->prepare("INSERT INTO amb_Operations (numeroOperation,intituleOperation,schemaOperation,idMesm) VALUES (:numeroOperation,:intituleOperation,:schemaOperation,:idMesm)");
 		$q->bindValue(":numeroOperation", $obj->getNumeroOperation());
 		$q->bindValue(":intituleOperation", $obj->getIntituleOperation());
 		$q->bindValue(":schemaOperation", $obj->getSchemaOperation());
@@ -16,7 +16,7 @@ class OperationsManager
 	public static function update(Operations $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("UPDATE Operations SET idOperation=:idOperation,numeroOperation=:numeroOperation,intituleOperation=:intituleOperation,schemaOperation=:schemaOperation,idMesm=:idMesm WHERE idOperation=:idOperation");
+		$q=$db->prepare("UPDATE amb_Operations SET idOperation=:idOperation,numeroOperation=:numeroOperation,intituleOperation=:intituleOperation,schemaOperation=:schemaOperation,idMesm=:idMesm WHERE idOperation=:idOperation");
 		$q->bindValue(":idOperation", $obj->getIdOperation());
 		$q->bindValue(":numeroOperation", $obj->getNumeroOperation());
 		$q->bindValue(":intituleOperation", $obj->getIntituleOperation());

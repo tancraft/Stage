@@ -5,7 +5,7 @@ class StagiairesManager
 	public static function add(Stagiaires $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("INSERT INTO Stagiaires (dateDebutFormation,dateFinFormation,numeroBeneficiaire,idOffre) VALUES (:dateDebutFormation,:dateFinFormation,:numeroBeneficiaire,:idOffre)");
+		$q=$db->prepare("INSERT INTO amb_Stagiaires (dateDebutFormation,dateFinFormation,numeroBeneficiaire,idOffre) VALUES (:dateDebutFormation,:dateFinFormation,:numeroBeneficiaire,:idOffre)");
 		$q->bindValue(":dateDebutFormation", $obj->getDateDebutFormation());
 		$q->bindValue(":dateFinFormation", $obj->getDateFinFormation());
 		$q->bindValue(":numeroBeneficiaire", $obj->getNumeroBeneficiaire());
@@ -16,7 +16,7 @@ class StagiairesManager
 	public static function update(Stagiaires $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("UPDATE Stagiaires SET idUser=:idUser,dateDebutFormation=:dateDebutFormation,dateFinFormation=:dateFinFormation,numeroBeneficiaire=:numeroBeneficiaire,idOffre=:idOffre WHERE idUser=:idUser");
+		$q=$db->prepare("UPDATE amb_Stagiaires SET idUser=:idUser,dateDebutFormation=:dateDebutFormation,dateFinFormation=:dateFinFormation,numeroBeneficiaire=:numeroBeneficiaire,idOffre=:idOffre WHERE idUser=:idUser");
 		$q->bindValue(":idUser", $obj->getIdUser());
 		$q->bindValue(":dateDebutFormation", $obj->getDateDebutFormation());
 		$q->bindValue(":dateFinFormation", $obj->getDateFinFormation());

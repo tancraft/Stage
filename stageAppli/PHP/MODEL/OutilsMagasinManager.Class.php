@@ -5,7 +5,7 @@ class OutilsMagasinManager
 	public static function add(Outilsmagasin $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("INSERT INTO Outilsmagasin (nomOutilMagasin,nbOutilMagasin,idUser) VALUES (:nomOutilMagasin,:nbOutilMagasin,:idUser)");
+		$q=$db->prepare("INSERT INTO amb_Outilsmagasin (nomOutilMagasin,nbOutilMagasin,idUser) VALUES (:nomOutilMagasin,:nbOutilMagasin,:idUser)");
 		$q->bindValue(":nomOutilMagasin", $obj->getNomOutilMagasin());
 		$q->bindValue(":nbOutilMagasin", $obj->getNbOutilMagasin());
 		$q->bindValue(":idUser", $obj->getIdUser());
@@ -15,7 +15,7 @@ class OutilsMagasinManager
 	public static function update(OutilsMagasin $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("UPDATE Outilsmagasin SET idOutilMagasin=:idOutilMagasin,nomOutilMagasin=:nomOutilMagasin,nbOutilMagasin=:nbOutilMagasin,idUser=:idUser WHERE idOutilMagasin=:idOutilMagasin");
+		$q=$db->prepare("UPDATE amb_Outilsmagasin SET idOutilMagasin=:idOutilMagasin,nomOutilMagasin=:nomOutilMagasin,nbOutilMagasin=:nbOutilMagasin,idUser=:idUser WHERE idOutilMagasin=:idOutilMagasin");
 		$q->bindValue(":idOutilMagasin", $obj->getIdOutilMagasin());
 		$q->bindValue(":nomOutilMagasin", $obj->getNomOutilMagasin());
 		$q->bindValue(":nbOutilMagasin", $obj->getNbOutilMagasin());

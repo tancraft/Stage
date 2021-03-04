@@ -5,7 +5,7 @@ class OutilsCaisseManager
 	public static function add(OutilsCaisse $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("INSERT INTO Outilscaisse (nomOutilCaisse,nbOutilCaisse,idUser) VALUES (:nomOutilCaisse,:nbOutilCaisse,:idUser)");
+		$q=$db->prepare("INSERT INTO amb_Outilscaisse (nomOutilCaisse,nbOutilCaisse,idUser) VALUES (:nomOutilCaisse,:nbOutilCaisse,:idUser)");
 		$q->bindValue(":nomOutilCaisse", $obj->getNomOutilCaisse());
 		$q->bindValue(":nbOutilCaisse", $obj->getNbOutilCaisse());
 		$q->bindValue(":idUser", $obj->getIdUser());
@@ -15,7 +15,7 @@ class OutilsCaisseManager
 	public static function update(OutilsCaisse $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("UPDATE Outilscaisse SET idOutilCaisse=:idOutilCaisse,nomOutilCaisse=:nomOutilCaisse,nbOutilCaisse=:nbOutilCaisse,idUser=:idUser WHERE idOutilCaisse=:idOutilCaisse");
+		$q=$db->prepare("UPDATE amb_Outilscaisse SET idOutilCaisse=:idOutilCaisse,nomOutilCaisse=:nomOutilCaisse,nbOutilCaisse=:nbOutilCaisse,idUser=:idUser WHERE idOutilCaisse=:idOutilCaisse");
 		$q->bindValue(":idOutilCaisse", $obj->getIdOutilCaisse());
 		$q->bindValue(":nomOutilCaisse", $obj->getNomOutilCaisse());
 		$q->bindValue(":nbOutilCaisse", $obj->getNbOutilCaisse());

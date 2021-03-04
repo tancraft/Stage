@@ -5,7 +5,7 @@ class LieuxManager
 	public static function add(Lieux $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("INSERT INTO Lieux (nomLieu,idEnv) VALUES (:nomLieu,:idEnv)");
+		$q=$db->prepare("INSERT INTO amb_Lieux (nomLieu,idEnv) VALUES (:nomLieu,:idEnv)");
 		$q->bindValue(":nomLieu", $obj->getNomLieu());
 		$q->bindValue(":idEnv", $obj->getIdEnv());
 		$q->execute();
@@ -14,7 +14,7 @@ class LieuxManager
 	public static function update(Lieux $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("UPDATE Lieux SET idLieu=:idLieu,nomLieu=:nomLieu,idEnv=:idEnv WHERE idLieu=:idLieu");
+		$q=$db->prepare("UPDATE amb_Lieux SET idLieu=:idLieu,nomLieu=:nomLieu,idEnv=:idEnv WHERE idLieu=:idLieu");
 		$q->bindValue(":idLieu", $obj->getIdLieu());
 		$q->bindValue(":nomLieu", $obj->getNomLieu());
 		$q->bindValue(":idEnv", $obj->getIdEnv());

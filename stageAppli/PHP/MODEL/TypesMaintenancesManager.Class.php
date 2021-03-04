@@ -5,7 +5,7 @@ class TypesMaintenancesManager
 	public static function add(TypesMaintenances $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("INSERT INTO Typesmaintenances (numeroTypeMaint,libelleTypeMaint) VALUES (:numeroTypeMaint,:libelleTypeMaint)");
+		$q=$db->prepare("INSERT INTO amb_Typesmaintenances (numeroTypeMaint,libelleTypeMaint) VALUES (:numeroTypeMaint,:libelleTypeMaint)");
 		$q->bindValue(":numeroTypeMaint", $obj->getNumeroTypeMaint());
 		$q->bindValue(":libelleTypeMaint", $obj->getLibelleTypeMaint());
 		$q->execute();
@@ -14,7 +14,7 @@ class TypesMaintenancesManager
 	public static function update(TypesMaintenances $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("UPDATE Typesmaintenances SET idTypeMaint=:idTypeMaint,numeroTypeMaint=:numeroTypeMaint,libelleTypeMaint=:libelleTypeMaint WHERE idTypeMaint=:idTypeMaint");
+		$q=$db->prepare("UPDATE amb_Typesmaintenances SET idTypeMaint=:idTypeMaint,numeroTypeMaint=:numeroTypeMaint,libelleTypeMaint=:libelleTypeMaint WHERE idTypeMaint=:idTypeMaint");
 		$q->bindValue(":idTypeMaint", $obj->getIdTypeMaint());
 		$q->bindValue(":numeroTypeMaint", $obj->getNumeroTypeMaint());
 		$q->bindValue(":libelleTypeMaint", $obj->getLibelleTypeMaint());

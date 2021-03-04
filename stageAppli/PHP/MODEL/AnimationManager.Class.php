@@ -5,7 +5,7 @@ class AnimationManager
 	public static function add(Animation $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("INSERT INTO Animation (idOffre,idUser) VALUES (:idOffre,:idUser)");
+		$q=$db->prepare("INSERT INTO amb_Animation (idOffre,idUser) VALUES (:idOffre,:idUser)");
 		$q->bindValue(":idOffre", $obj->getIdOffre());
 		$q->bindValue(":idUser", $obj->getIdUser());
 		$q->execute();
@@ -14,7 +14,7 @@ class AnimationManager
 	public static function update(Animation $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("UPDATE Animation SET idAnimation=:idAnimation,idOffre=:idOffre,idUser=:idUser WHERE idAnimation=:idAnimation");
+		$q=$db->prepare("UPDATE amb_Animation SET idAnimation=:idAnimation,idOffre=:idOffre,idUser=:idUser WHERE idAnimation=:idAnimation");
 		$q->bindValue(":idAnimation", $obj->getIdAnimation());
 		$q->bindValue(":idOffre", $obj->getIdOffre());
 		$q->bindValue(":idUser", $obj->getIdUser());

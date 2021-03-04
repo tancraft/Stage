@@ -5,7 +5,7 @@ class MateriauxManager
 	public static function add(Materiaux $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("INSERT INTO Materiaux (nomMateriel,nbDispo,idUser) VALUES (:nomMateriel,:nbDispo,:idUser)");
+		$q=$db->prepare("INSERT INTO amb_Materiaux (nomMateriel,nbDispo,idUser) VALUES (:nomMateriel,:nbDispo,:idUser)");
 		$q->bindValue(":nomMateriel", $obj->getNomMateriel());
 		$q->bindValue(":nbDispo", $obj->getNbDispo());
 		$q->bindValue(":idUser", $obj->getIdUser());
@@ -15,7 +15,7 @@ class MateriauxManager
 	public static function update(Materiaux $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("UPDATE Materiaux SET idMateriel=:idMateriel,nomMateriel=:nomMateriel,nbDispo=:nbDispo,idUser=:idUser WHERE idMateriel=:idMateriel");
+		$q=$db->prepare("UPDATE amb_Materiaux SET idMateriel=:idMateriel,nomMateriel=:nomMateriel,nbDispo=:nbDispo,idUser=:idUser WHERE idMateriel=:idMateriel");
 		$q->bindValue(":idMateriel", $obj->getIdMateriel());
 		$q->bindValue(":nomMateriel", $obj->getNomMateriel());
 		$q->bindValue(":nbDispo", $obj->getNbDispo());

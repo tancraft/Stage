@@ -5,7 +5,7 @@ class ActionsCorrespondantesManager
 	public static function add(ActionsCorrespondantes $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("INSERT INTO Actionscorrespondantes (idAction,idActivite) VALUES (:idAction,:idActivite)");
+		$q=$db->prepare("INSERT INTO amb_Actionscorrespondantes (idAction,idActivite) VALUES (:idAction,:idActivite)");
 		$q->bindValue(":idAction", $obj->getIdAction());
 		$q->bindValue(":idActivite", $obj->getIdActivite());
 		$q->execute();
@@ -14,7 +14,7 @@ class ActionsCorrespondantesManager
 	public static function update(ActionsCorrespondantes $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("UPDATE Actionscorrespondantes SET idActionsCorrespondantes=:idActionsCorrespondantes,idAction=:idAction,idActivite=:idActivite WHERE idActionsCorrespondantes=:idActionsCorrespondantes");
+		$q=$db->prepare("UPDATE amb_Actionscorrespondantes SET idActionsCorrespondantes=:idActionsCorrespondantes,idAction=:idAction,idActivite=:idActivite WHERE idActionsCorrespondantes=:idActionsCorrespondantes");
 		$q->bindValue(":idActionsCorrespondantes", $obj->getIdActionsCorrespondantes());
 		$q->bindValue(":idAction", $obj->getIdAction());
 		$q->bindValue(":idActivite", $obj->getIdActivite());
