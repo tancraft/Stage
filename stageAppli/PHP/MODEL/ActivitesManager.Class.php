@@ -39,13 +39,13 @@ class ActivitesManager
 	public static function delete(Activites $obj)
 	{
  		$db=DbConnect::getDb();
-		$db->exec("DELETE FROM Activites WHERE idActivite=" .$obj->getIdActivite());
+		$db->exec("DELETE from amb_Activites WHERE idActivite=" .$obj->getIdActivite());
 	}
 	public static function findById($id)
 	{
  		$db=DbConnect::getDb();
 		$id = (int) $id;
-		$q=$db->query("SELECT * FROM Activites WHERE idActivite =".$id);
+		$q=$db->query("SELECT * from amb_Activites WHERE idActivite =".$id);
 		$results = $q->fetch(PDO::FETCH_ASSOC);
 		if($results != false)
 		{
@@ -60,7 +60,7 @@ class ActivitesManager
 	{
  		$db=DbConnect::getDb();
 		$liste = [];
-		$q = $db->query("SELECT * FROM Activites");
+		$q = $db->query("SELECT * from amb_Activites");
 		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
 		{
 			if($donnees != false)

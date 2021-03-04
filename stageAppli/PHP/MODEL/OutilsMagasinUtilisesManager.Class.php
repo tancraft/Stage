@@ -25,13 +25,13 @@ class OutilsMagasinUtilisesManager
 	public static function delete(OutilsMagasinUtilises $obj)
 	{
  		$db=DbConnect::getDb();
-		$db->exec("DELETE FROM Outilsmagasinutilises WHERE idOutilsMagasinUtilises=" .$obj->getIdOutilsMagasinUtilises());
+		$db->exec("DELETE from amb_Outilsmagasinutilises WHERE idOutilsMagasinUtilises=" .$obj->getIdOutilsMagasinUtilises());
 	}
 	public static function findById($id)
 	{
  		$db=DbConnect::getDb();
 		$id = (int) $id;
-		$q=$db->query("SELECT * FROM Outilsmagasinutilises WHERE idOutilsMagasinUtilises =".$id);
+		$q=$db->query("SELECT * from amb_Outilsmagasinutilises WHERE idOutilsMagasinUtilises =".$id);
 		$results = $q->fetch(PDO::FETCH_ASSOC);
 		if($results != false)
 		{
@@ -46,7 +46,7 @@ class OutilsMagasinUtilisesManager
 	{
  		$db=DbConnect::getDb();
 		$liste = [];
-		$q = $db->query("SELECT * FROM Outilsmagasinutilises");
+		$q = $db->query("SELECT * from amb_Outilsmagasinutilises");
 		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
 		{
 			if($donnees != false)

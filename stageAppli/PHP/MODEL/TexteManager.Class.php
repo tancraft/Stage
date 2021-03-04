@@ -26,14 +26,14 @@ class TexteManager
 	{
 		$db=DbConnect::getDb();
 		$q=$db->prepare("UPDATE Texte SET idTexte=:idTexte,codeTexte=:codeTexte,codeLangue=:codeLangue,texte=:texte WHERE idTexte=:idTexte");
-		$db->exec("DELETE FROM Texte WHERE idTexte=" .$obj->getIdTexte());
+		$db->exec("DELETE from amb_Texte WHERE idTexte=" .$obj->getIdTexte());
 	}
 
 	public static function findById($id)
 	{
 		$db=DbConnect::getDb();
 		$id = (int) $id;
-		$q=$db->query("SELECT * FROM Texte WHERE idTexte =".$id);
+		$q=$db->query("SELECT * from amb_Texte WHERE idTexte =".$id);
 		$results = $q->fetch(PDO::FETCH_ASSOC);
 		if($results != false)
 		{
@@ -50,7 +50,7 @@ class TexteManager
 	{
 		$db=DbConnect::getDb();
 		$liste = [];
-		$q = $db->query("SELECT * FROM Texte");
+		$q = $db->query("SELECT * from amb_Texte");
 		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
 		{
 			if($donnees != false)
@@ -65,7 +65,7 @@ class TexteManager
 
 	{
 		$db=DbConnect::getDb();
-		$q=$db->prepare("SELECT texte FROM Traductions WHERE codeTexte =:codeTexte and codeLangue = :codeLangue");
+		$q=$db->prepare("SELECT texte from amb_Traductions WHERE codeTexte =:codeTexte and codeLangue = :codeLangue");
 		$q->bindValue(":codeTexte", $codeTexte,PDO::PARAM_STR);
 		$q->bindValue(":codeLangue", $codeLangue,PDO::PARAM_STR);
 		$q->execute();

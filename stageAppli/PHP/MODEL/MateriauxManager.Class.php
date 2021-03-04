@@ -25,13 +25,13 @@ class MateriauxManager
 	public static function delete(Materiaux $obj)
 	{
  		$db=DbConnect::getDb();
-		$db->exec("DELETE FROM Materiaux WHERE idMateriel=" .$obj->getIdMateriel());
+		$db->exec("DELETE from amb_Materiaux WHERE idMateriel=" .$obj->getIdMateriel());
 	}
 	public static function findById($id)
 	{
  		$db=DbConnect::getDb();
 		$id = (int) $id;
-		$q=$db->query("SELECT * FROM Materiaux WHERE idMateriel =".$id);
+		$q=$db->query("SELECT * from amb_Materiaux WHERE idMateriel =".$id);
 		$results = $q->fetch(PDO::FETCH_ASSOC);
 		if($results != false)
 		{
@@ -46,7 +46,7 @@ class MateriauxManager
 	{
  		$db=DbConnect::getDb();
 		$liste = [];
-		$q = $db->query("SELECT * FROM Materiaux");
+		$q = $db->query("SELECT * from amb_Materiaux");
 		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
 		{
 			if($donnees != false)

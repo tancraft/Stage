@@ -25,13 +25,13 @@ class MesmManager
 	public static function delete(Mesm $obj)
 	{
  		$db=DbConnect::getDb();
-		$db->exec("DELETE FROM Mesm WHERE idMesm=" .$obj->getIdMesm());
+		$db->exec("DELETE from amb_Mesm WHERE idMesm=" .$obj->getIdMesm());
 	}
 	public static function findById($id)
 	{
  		$db=DbConnect::getDb();
 		$id = (int) $id;
-		$q=$db->query("SELECT * FROM Mesm WHERE idMesm =".$id);
+		$q=$db->query("SELECT * from amb_Mesm WHERE idMesm =".$id);
 		$results = $q->fetch(PDO::FETCH_ASSOC);
 		if($results != false)
 		{
@@ -46,7 +46,7 @@ class MesmManager
 	{
  		$db=DbConnect::getDb();
 		$liste = [];
-		$q = $db->query("SELECT * FROM Mesm");
+		$q = $db->query("SELECT * from amb_Mesm");
 		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
 		{
 			if($donnees != false)

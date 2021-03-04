@@ -23,13 +23,13 @@ class TypesMaintenancesManager
 	public static function delete(TypesMaintenances $obj)
 	{
  		$db=DbConnect::getDb();
-		$db->exec("DELETE FROM Typesmaintenances WHERE idTypeMaint=" .$obj->getIdTypeMaint());
+		$db->exec("DELETE from amb_Typesmaintenances WHERE idTypeMaint=" .$obj->getIdTypeMaint());
 	}
 	public static function findById($id)
 	{
  		$db=DbConnect::getDb();
 		$id = (int) $id;
-		$q=$db->query("SELECT * FROM Typesmaintenances WHERE idTypeMaint =".$id);
+		$q=$db->query("SELECT * from amb_Typesmaintenances WHERE idTypeMaint =".$id);
 		$results = $q->fetch(PDO::FETCH_ASSOC);
 		if($results != false)
 		{
@@ -44,7 +44,7 @@ class TypesMaintenancesManager
 	{
  		$db=DbConnect::getDb();
 		$liste = [];
-		$q = $db->query("SELECT * FROM Typesmaintenances");
+		$q = $db->query("SELECT * from amb_Typesmaintenances");
 		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
 		{
 			if($donnees != false)

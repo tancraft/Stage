@@ -39,13 +39,13 @@ class FichesInterventionsManager
 	public static function delete(FichesInterventions $obj)
 	{
  		$db=DbConnect::getDb();
-		$db->exec("DELETE FROM Fichesinterventions WHERE idFicheIntervention=" .$obj->getIdFicheIntervention());
+		$db->exec("DELETE from amb_Fichesinterventions WHERE idFicheIntervention=" .$obj->getIdFicheIntervention());
 	}
 	public static function findById($id)
 	{
  		$db=DbConnect::getDb();
 		$id = (int) $id;
-		$q=$db->query("SELECT * FROM Fichesinterventions WHERE idFicheIntervention =".$id);
+		$q=$db->query("SELECT * from amb_Fichesinterventions WHERE idFicheIntervention =".$id);
 		$results = $q->fetch(PDO::FETCH_ASSOC);
 		if($results != false)
 		{
@@ -60,7 +60,7 @@ class FichesInterventionsManager
 	{
  		$db=DbConnect::getDb();
 		$liste = [];
-		$q = $db->query("SELECT * FROM Fichesinterventions");
+		$q = $db->query("SELECT * from amb_Fichesinterventions");
 		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
 		{
 			if($donnees != false)

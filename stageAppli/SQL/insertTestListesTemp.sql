@@ -9,13 +9,13 @@ INSERT INTO `actions`(`idAction`, `numeroAction`, `libelleAction`) VALUES (NULL,
 INSERT INTO `actions`(`idAction`, `numeroAction`, `libelleAction`) VALUES (NULL,6,"Amélioration");
 INSERT INTO `actions`(`idAction`, `numeroAction`, `libelleAction`) VALUES (NULL,4,"Dépannage");
 
-SELECT `numeroAction`,`libelleAction` FROM `actions` ORDER BY `numeroAction`,`libelleAction`;
+SELECT `numeroAction`,`libelleAction` from amb_`actions` ORDER BY `numeroAction`,`libelleAction`;
 
 INSERT INTO `blocscompetences`(`idBlocComp`, `numeroBlocComp`, `libelleBlocComp`) VALUES (NULL,3,"Assurer la maintenance courante de l’installation et des équipements thermiques et sanitaires d’un bâtiment");
 INSERT INTO `blocscompetences`(`idBlocComp`, `numeroBlocComp`, `libelleBlocComp`) VALUES (NULL,1,"Assurer la maintenance courante des aménagements intérieurs d’un bâtiment");
 INSERT INTO `blocscompetences`(`idBlocComp`, `numeroBlocComp`, `libelleBlocComp`) VALUES (NULL,2,"Assurer la maintenance courante de l’installation et des équipements électriques d’un bâtiment");
 
-SELECT `numeroBlocComp`, `libelleBlocComp` FROM `blocscompetences` ORDER BY `numeroBlocComp`,`libelleBlocComp`;
+SELECT `numeroBlocComp`, `libelleBlocComp` from amb_`blocscompetences` ORDER BY `numeroBlocComp`,`libelleBlocComp`;
 
 
 INSERT INTO `causes`(`idCause`, `numeroCause`, `libelleCause`) VALUES (NULL,3,"Manque d'entretien");
@@ -23,7 +23,7 @@ INSERT INTO `causes`(`idCause`, `numeroCause`, `libelleCause`) VALUES (NULL,1,"U
 INSERT INTO `causes`(`idCause`, `numeroCause`, `libelleCause`) VALUES (NULL,4,"Contrôle de routine");
 INSERT INTO `causes`(`idCause`, `numeroCause`, `libelleCause`) VALUES (NULL,2,"Détérioration");
 
-SELECT `numeroCause`, `libelleCause` FROM `causes` ORDER BY `numeroCause`, `libelleCause`;
+SELECT `numeroCause`, `libelleCause` from amb_`causes` ORDER BY `numeroCause`, `libelleCause`;
 
 
 --insert des operations

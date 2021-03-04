@@ -23,13 +23,13 @@ class BlocsCompetencesManager
 	public static function delete(BlocsCompetences $obj)
 	{
  		$db=DbConnect::getDb();
-		$db->exec("DELETE FROM Blocscompetences WHERE idBlocComp=" .$obj->getIdBlocComp());
+		$db->exec("DELETE from amb_Blocscompetences WHERE idBlocComp=" .$obj->getIdBlocComp());
 	}
 	public static function findById($id)
 	{
  		$db=DbConnect::getDb();
 		$id = (int) $id;
-		$q=$db->query("SELECT * FROM Blocscompetences WHERE idBlocComp =".$id);
+		$q=$db->query("SELECT * from amb_Blocscompetences WHERE idBlocComp =".$id);
 		$results = $q->fetch(PDO::FETCH_ASSOC);
 		if($results != false)
 		{
@@ -44,7 +44,7 @@ class BlocsCompetencesManager
 	{
  		$db=DbConnect::getDb();
 		$liste = [];
-		$q = $db->query("SELECT * FROM Blocscompetences ORDER BY numeroBlocComp, libelleBlocComp");
+		$q = $db->query("SELECT * from amb_Blocscompetences ORDER BY numeroBlocComp, libelleBlocComp");
 		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
 		{
 			if($donnees != false)

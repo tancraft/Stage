@@ -23,13 +23,13 @@ class LieuxManager
 	public static function delete(Lieux $obj)
 	{
  		$db=DbConnect::getDb();
-		$db->exec("DELETE FROM Lieux WHERE idLieu=" .$obj->getIdLieu());
+		$db->exec("DELETE from amb_Lieux WHERE idLieu=" .$obj->getIdLieu());
 	}
 	public static function findById($id)
 	{
  		$db=DbConnect::getDb();
 		$id = (int) $id;
-		$q=$db->query("SELECT * FROM Lieux WHERE idLieu =".$id);
+		$q=$db->query("SELECT * from amb_Lieux WHERE idLieu =".$id);
 		$results = $q->fetch(PDO::FETCH_ASSOC);
 		if($results != false)
 		{
@@ -44,7 +44,7 @@ class LieuxManager
 	{
  		$db=DbConnect::getDb();
 		$liste = [];
-		$q = $db->query("SELECT * FROM Lieux");
+		$q = $db->query("SELECT * from amb_Lieux");
 		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
 		{
 			if($donnees != false)

@@ -25,13 +25,13 @@ class OutilsCaisseUtilisesManager
 	public static function delete(OutilsCaisseUtilises $obj)
 	{
  		$db=DbConnect::getDb();
-		$db->exec("DELETE FROM Outilscaisseutilises WHERE idOutilsCaisseUtilises=" .$obj->getIdOutilsCaisseUtilises());
+		$db->exec("DELETE from amb_Outilscaisseutilises WHERE idOutilsCaisseUtilises=" .$obj->getIdOutilsCaisseUtilises());
 	}
 	public static function findById($id)
 	{
  		$db=DbConnect::getDb();
 		$id = (int) $id;
-		$q=$db->query("SELECT * FROM Outilscaisseutilises WHERE idOutilsCaisseUtilises =".$id);
+		$q=$db->query("SELECT * from amb_Outilscaisseutilises WHERE idOutilsCaisseUtilises =".$id);
 		$results = $q->fetch(PDO::FETCH_ASSOC);
 		if($results != false)
 		{
@@ -46,7 +46,7 @@ class OutilsCaisseUtilisesManager
 	{
  		$db=DbConnect::getDb();
 		$liste = [];
-		$q = $db->query("SELECT * FROM Outilscaisseutilises");
+		$q = $db->query("SELECT * from amb_Outilscaisseutilises");
 		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
 		{
 			if($donnees != false)

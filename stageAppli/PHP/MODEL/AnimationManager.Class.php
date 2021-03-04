@@ -23,13 +23,13 @@ class AnimationManager
 	public static function delete(Animation $obj)
 	{
  		$db=DbConnect::getDb();
-		$db->exec("DELETE FROM Animation WHERE idAnimation=" .$obj->getIdAnimation());
+		$db->exec("DELETE from amb_Animation WHERE idAnimation=" .$obj->getIdAnimation());
 	}
 	public static function findById($id)
 	{
  		$db=DbConnect::getDb();
 		$id = (int) $id;
-		$q=$db->query("SELECT * FROM Animation WHERE idAnimation =".$id);
+		$q=$db->query("SELECT * from amb_Animation WHERE idAnimation =".$id);
 		$results = $q->fetch(PDO::FETCH_ASSOC);
 		if($results != false)
 		{
@@ -44,7 +44,7 @@ class AnimationManager
 	{
  		$db=DbConnect::getDb();
 		$liste = [];
-		$q = $db->query("SELECT * FROM Animation");
+		$q = $db->query("SELECT * from amb_Animation");
 		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
 		{
 			if($donnees != false)

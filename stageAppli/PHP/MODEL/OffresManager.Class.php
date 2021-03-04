@@ -25,13 +25,13 @@ class OffresManager
 	public static function delete(Offres $obj)
 	{
  		$db=DbConnect::getDb();
-		$db->exec("DELETE FROM Offres WHERE idOffre=" .$obj->getIdOffre());
+		$db->exec("DELETE from amb_Offres WHERE idOffre=" .$obj->getIdOffre());
 	}
 	public static function findById($id)
 	{
  		$db=DbConnect::getDb();
 		$id = (int) $id;
-		$q=$db->query("SELECT * FROM Offres WHERE idOffre =".$id);
+		$q=$db->query("SELECT * from amb_Offres WHERE idOffre =".$id);
 		$results = $q->fetch(PDO::FETCH_ASSOC);
 		if($results != false)
 		{
@@ -46,7 +46,7 @@ class OffresManager
 	{
  		$db=DbConnect::getDb();
 		$liste = [];
-		$q = $db->query("SELECT * FROM Offres");
+		$q = $db->query("SELECT * from amb_Offres");
 		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
 		{
 			if($donnees != false)

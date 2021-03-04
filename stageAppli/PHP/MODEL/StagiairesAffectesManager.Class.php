@@ -23,13 +23,13 @@ class StagiairesAffectesManager
 	public static function delete(StagiairesAffectes $obj)
 	{
  		$db=DbConnect::getDb();
-		$db->exec("DELETE FROM Stagiairesaffectes WHERE idStagiairesAffectes=" .$obj->getIdStagiairesAffectes());
+		$db->exec("DELETE from amb_Stagiairesaffectes WHERE idStagiairesAffectes=" .$obj->getIdStagiairesAffectes());
 	}
 	public static function findById($id)
 	{
  		$db=DbConnect::getDb();
 		$id = (int) $id;
-		$q=$db->query("SELECT * FROM Stagiairesaffectes WHERE idStagiairesAffectes =".$id);
+		$q=$db->query("SELECT * from amb_Stagiairesaffectes WHERE idStagiairesAffectes =".$id);
 		$results = $q->fetch(PDO::FETCH_ASSOC);
 		if($results != false)
 		{
@@ -44,7 +44,7 @@ class StagiairesAffectesManager
 	{
  		$db=DbConnect::getDb();
 		$liste = [];
-		$q = $db->query("SELECT * FROM Stagiairesaffectes");
+		$q = $db->query("SELECT * from amb_Stagiairesaffectes");
 		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
 		{
 			if($donnees != false)

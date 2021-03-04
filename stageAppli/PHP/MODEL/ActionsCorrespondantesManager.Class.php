@@ -23,13 +23,13 @@ class ActionsCorrespondantesManager
 	public static function delete(ActionsCorrespondantes $obj)
 	{
  		$db=DbConnect::getDb();
-		$db->exec("DELETE FROM Actionscorrespondantes WHERE idActionsCorrespondantes=" .$obj->getIdActionsCorrespondantes());
+		$db->exec("DELETE from amb_amb_Actionscorrespondantes WHERE idActionsCorrespondantes=" .$obj->getIdActionsCorrespondantes());
 	}
 	public static function findById($id)
 	{
  		$db=DbConnect::getDb();
 		$id = (int) $id;
-		$q=$db->query("SELECT * FROM Actionscorrespondantes WHERE idActionsCorrespondantes =".$id);
+		$q=$db->query("SELECT * from amb_amb_Actionscorrespondantes WHERE idActionsCorrespondantes =".$id);
 		$results = $q->fetch(PDO::FETCH_ASSOC);
 		if($results != false)
 		{
@@ -44,7 +44,7 @@ class ActionsCorrespondantesManager
 	{
  		$db=DbConnect::getDb();
 		$liste = [];
-		$q = $db->query("SELECT * FROM Actionscorrespondantes");
+		$q = $db->query("SELECT * from amb_amb_Actionscorrespondantes");
 		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
 		{
 			if($donnees != false)

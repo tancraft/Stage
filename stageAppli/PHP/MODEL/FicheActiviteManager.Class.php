@@ -83,13 +83,13 @@ class FicheActiviteManager
 	public static function delete(FicheActivite $obj)
 	{
  		$db=DbConnect::getDb();
-		$db->exec("DELETE FROM Ficheactivite WHERE idActivite=" .$obj->getIdActivite());
+		$db->exec("DELETE from amb_Ficheactivite WHERE idActivite=" .$obj->getIdActivite());
 	}
 	public static function findById($id)
 	{
  		$db=DbConnect::getDb();
 		$id = (int) $id;
-		$q=$db->query("SELECT * FROM Ficheactivite WHERE idActivite =".$id);
+		$q=$db->query("SELECT * from amb_Ficheactivite WHERE idActivite =".$id);
 		$results = $q->fetch(PDO::FETCH_ASSOC);
 		if($results != false)
 		{
@@ -104,7 +104,7 @@ class FicheActiviteManager
 	{
  		$db=DbConnect::getDb();
 		$liste = [];
-		$q = $db->query("SELECT * FROM Ficheactivite");
+		$q = $db->query("SELECT * from amb_Ficheactivite");
 		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
 		{
 			if($donnees != false)

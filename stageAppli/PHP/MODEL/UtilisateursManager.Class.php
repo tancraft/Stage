@@ -31,13 +31,13 @@ class UtilisateursManager
 	public static function delete(Utilisateurs $obj)
 	{
  		$db=DbConnect::getDb();
-		$db->exec("DELETE FROM Utilisateurs WHERE idUser=" .$obj->getIdUser());
+		$db->exec("DELETE from amb_Utilisateurs WHERE idUser=" .$obj->getIdUser());
 	}
 	public static function findById($id)
 	{
  		$db=DbConnect::getDb();
 		$id = (int) $id;
-		$q=$db->query("SELECT * FROM Utilisateurs WHERE idUser =".$id);
+		$q=$db->query("SELECT * from amb_Utilisateurs WHERE idUser =".$id);
 		$results = $q->fetch(PDO::FETCH_ASSOC);
 		if($results != false)
 		{
@@ -52,7 +52,7 @@ class UtilisateursManager
 	{
  		$db=DbConnect::getDb();
 		$liste = [];
-		$q = $db->query("SELECT * FROM Utilisateurs");
+		$q = $db->query("SELECT * from amb_Utilisateurs");
 		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
 		{
 			if($donnees != false)
@@ -65,7 +65,7 @@ class UtilisateursManager
 	public static function getByEmail($email)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->query('SELECT * FROM Utilisateurs WHERE emailUser ="'.$email.'"');
+		$q=$db->query('SELECT * from amb_Utilisateurs WHERE emailUser ="'.$email.'"');
 		$results = $q->fetch(PDO::FETCH_ASSOC);
 		if($results != false)
 		{
@@ -80,7 +80,7 @@ class UtilisateursManager
 	{
  		$db=DbConnect::getDb();
 		$liste = [];
-		$q = $db->query("SELECT * FROM Utilisateurs where idRole = ".$idRole." ORDER BY nomUtilisateur");
+		$q = $db->query("SELECT * from amb_Utilisateurs where idRole = ".$idRole." ORDER BY nomUtilisateur");
 		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
 		{
 			if($donnees != false)

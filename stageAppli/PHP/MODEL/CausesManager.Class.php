@@ -23,13 +23,13 @@ class CausesManager
 	public static function delete(Causes $obj)
 	{
  		$db=DbConnect::getDb();
-		$db->exec("DELETE FROM Causes WHERE idCause=" .$obj->getIdCause());
+		$db->exec("DELETE from amb_Causes WHERE idCause=" .$obj->getIdCause());
 	}
 	public static function findById($id)
 	{
  		$db=DbConnect::getDb();
 		$id = (int) $id;
-		$q=$db->query("SELECT * FROM Causes WHERE idCause =".$id);
+		$q=$db->query("SELECT * from amb_Causes WHERE idCause =".$id);
 		$results = $q->fetch(PDO::FETCH_ASSOC);
 		if($results != false)
 		{
@@ -44,7 +44,7 @@ class CausesManager
 	{
  		$db=DbConnect::getDb();
 		$liste = [];
-		$q = $db->query("SELECT * FROM Causes ORDER BY numeroCause, libelleCause");
+		$q = $db->query("SELECT * from amb_Causes ORDER BY numeroCause, libelleCause");
 		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
 		{
 			if($donnees != false)

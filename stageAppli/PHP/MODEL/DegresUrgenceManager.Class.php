@@ -21,13 +21,13 @@ class DegresUrgenceManager
 	public static function delete(DegresUrgence $obj)
 	{
  		$db=DbConnect::getDb();
-		$db->exec("DELETE FROM Degresurgence WHERE idDegreUrgence=" .$obj->getIdDegreUrgence());
+		$db->exec("DELETE from amb_Degresurgence WHERE idDegreUrgence=" .$obj->getIdDegreUrgence());
 	}
 	public static function findById($id)
 	{
  		$db=DbConnect::getDb();
 		$id = (int) $id;
-		$q=$db->query("SELECT * FROM Degresurgence WHERE idDegreUrgence =".$id);
+		$q=$db->query("SELECT * from amb_Degresurgence WHERE idDegreUrgence =".$id);
 		$results = $q->fetch(PDO::FETCH_ASSOC);
 		if($results != false)
 		{
@@ -42,7 +42,7 @@ class DegresUrgenceManager
 	{
  		$db=DbConnect::getDb();
 		$liste = [];
-		$q = $db->query("SELECT * FROM Degresurgence");
+		$q = $db->query("SELECT * from amb_Degresurgence");
 		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
 		{
 			if($donnees != false)

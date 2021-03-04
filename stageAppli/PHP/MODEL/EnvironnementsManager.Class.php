@@ -21,13 +21,13 @@ class EnvironnementsManager
 	public static function delete(Environnements $obj)
 	{
  		$db=DbConnect::getDb();
-		$db->exec("DELETE FROM Environnements WHERE idEnv=" .$obj->getIdEnv());
+		$db->exec("DELETE from amb_Environnements WHERE idEnv=" .$obj->getIdEnv());
 	}
 	public static function findById($id)
 	{
  		$db=DbConnect::getDb();
 		$id = (int) $id;
-		$q=$db->query("SELECT * FROM Environnements WHERE idEnv =".$id);
+		$q=$db->query("SELECT * from amb_Environnements WHERE idEnv =".$id);
 		$results = $q->fetch(PDO::FETCH_ASSOC);
 		if($results != false)
 		{
@@ -42,7 +42,7 @@ class EnvironnementsManager
 	{
  		$db=DbConnect::getDb();
 		$liste = [];
-		$q = $db->query("SELECT * FROM Environnements");
+		$q = $db->query("SELECT * from amb_Environnements");
 		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
 		{
 			if($donnees != false)

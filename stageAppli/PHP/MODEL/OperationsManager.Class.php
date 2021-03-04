@@ -27,13 +27,13 @@ class OperationsManager
 	public static function delete(Operations $obj)
 	{
  		$db=DbConnect::getDb();
-		$db->exec("DELETE FROM Operations WHERE idOperation=" .$obj->getIdOperation());
+		$db->exec("DELETE from amb_Operations WHERE idOperation=" .$obj->getIdOperation());
 	}
 	public static function findById($id)
 	{
  		$db=DbConnect::getDb();
 		$id = (int) $id;
-		$q=$db->query("SELECT * FROM Operations WHERE idOperation =".$id);
+		$q=$db->query("SELECT * from amb_Operations WHERE idOperation =".$id);
 		$results = $q->fetch(PDO::FETCH_ASSOC);
 		if($results != false)
 		{
@@ -48,7 +48,7 @@ class OperationsManager
 	{
  		$db=DbConnect::getDb();
 		$liste = [];
-		$q = $db->query("SELECT * FROM Operations");
+		$q = $db->query("SELECT * from amb_Operations");
 		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
 		{
 			if($donnees != false)

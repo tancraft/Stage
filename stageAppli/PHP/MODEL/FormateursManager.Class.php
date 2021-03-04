@@ -27,13 +27,13 @@ class FormateursManager
 	public static function delete(Formateurs $obj)
 	{
  		$db=DbConnect::getDb();
-		$db->exec("DELETE FROM Formateurs WHERE idUser=" .$obj->getIdUser());
+		$db->exec("DELETE from amb_Formateurs WHERE idUser=" .$obj->getIdUser());
 	}
 	public static function findById($id)
 	{
  		$db=DbConnect::getDb();
 		$id = (int) $id;
-		$q=$db->query("SELECT * FROM Formateurs WHERE idUser =".$id);
+		$q=$db->query("SELECT * from amb_Formateurs WHERE idUser =".$id);
 		$results = $q->fetch(PDO::FETCH_ASSOC);
 		if($results != false)
 		{
@@ -48,7 +48,7 @@ class FormateursManager
 	{
  		$db=DbConnect::getDb();
 		$liste = [];
-		$q = $db->query("SELECT * FROM Formateurs");
+		$q = $db->query("SELECT * from amb_Formateurs");
 		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
 		{
 			if($donnees != false)

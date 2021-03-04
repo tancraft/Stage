@@ -35,13 +35,13 @@ class OffresFormateursManager
 	public static function delete(OffresFormateurs $obj)
 	{
  		$db=DbConnect::getDb();
-		$db->exec("DELETE FROM Offresformateurs WHERE idUser=" .$obj->getIdUser());
+		$db->exec("DELETE from amb_Offresformateurs WHERE idUser=" .$obj->getIdUser());
 	}
 	public static function findById($id)
 	{
  		$db=DbConnect::getDb();
 		$id = (int) $id;
-		$q=$db->query("SELECT * FROM Offresformateurs WHERE idUser =".$id);
+		$q=$db->query("SELECT * from amb_Offresformateurs WHERE idUser =".$id);
 		$results = $q->fetch(PDO::FETCH_ASSOC);
 		if($results != false)
 		{
@@ -56,7 +56,7 @@ class OffresFormateursManager
 	{
  		$db=DbConnect::getDb();
 		$liste = [];
-		$q = $db->query("SELECT * FROM Offresformateurs");
+		$q = $db->query("SELECT * from amb_Offresformateurs");
 		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
 		{
 			if($donnees != false)

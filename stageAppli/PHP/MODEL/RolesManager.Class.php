@@ -21,13 +21,13 @@ class RolesManager
 	public static function delete(Roles $obj)
 	{
  		$db=DbConnect::getDb();
-		$db->exec("DELETE FROM Roles WHERE idRole=" .$obj->getIdRole());
+		$db->exec("DELETE from amb_Roles WHERE idRole=" .$obj->getIdRole());
 	}
 	public static function findById($id)
 	{
  		$db=DbConnect::getDb();
 		$id = (int) $id;
-		$q=$db->query("SELECT * FROM Roles WHERE idRole =".$id);
+		$q=$db->query("SELECT * from amb_Roles WHERE idRole =".$id);
 		$results = $q->fetch(PDO::FETCH_ASSOC);
 		if($results != false)
 		{
@@ -42,7 +42,7 @@ class RolesManager
 	{
  		$db=DbConnect::getDb();
 		$liste = [];
-		$q = $db->query("SELECT * FROM Roles");
+		$q = $db->query("SELECT * from amb_Roles");
 		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
 		{
 			if($donnees != false)
