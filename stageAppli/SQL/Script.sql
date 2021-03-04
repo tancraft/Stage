@@ -6,34 +6,34 @@ DROP DATABASE IF EXISTS ambDatabase;
 CREATE DATABASE ambDatabase;
 USE ambDatabase;
 
-DROP TABLE IF EXISTS formateurs;
-DROP TABLE IF EXISTS offres;
-DROP TABLE IF EXISTS stagiaires;
-DROP TABLE IF EXISTS roles;
-DROP TABLE IF EXISTS utilisateurs;
-DROP TABLE IF EXISTS environnements;
-DROP TABLE IF EXISTS lieux;
-DROP TABLE IF EXISTS causes;
-DROP TABLE IF EXISTS typesMaintenances;
-DROP TABLE IF EXISTS actions;
-DROP TABLE IF EXISTS blocsCompetences;
-DROP TABLE IF EXISTS mesm;
-DROP TABLE IF EXISTS operations;
-DROP TABLE IF EXISTS fichesInterventions;
-DROP TABLE IF EXISTS activites;
-DROP TABLE IF EXISTS materiaux;
-DROP TABLE IF EXISTS outils;
-DROP TABLE IF EXISTS animation;
-DROP TABLE IF EXISTS stagiairesAffectes;
-DROP TABLE IF EXISTS causesLiees;
-DROP TABLE IF EXISTS actionsCorrespondantes;
-DROP TABLE IF EXISTS outilsUtilises;
+DROP TABLE IF EXISTS amb_formateurs;
+DROP TABLE IF EXISTS amb_offres;
+DROP TABLE IF EXISTS amb_stagiaires;
+DROP TABLE IF EXISTS amb_roles;
+DROP TABLE IF EXISTS amb_utilisateurs;
+DROP TABLE IF EXISTS amb_environnements;
+DROP TABLE IF EXISTS amb_lieux;
+DROP TABLE IF EXISTS amb_causes;
+DROP TABLE IF EXISTS amb_typesMaintenances;
+DROP TABLE IF EXISTS amb_actions;
+DROP TABLE IF EXISTS amb_blocsCompetences;
+DROP TABLE IF EXISTS amb_mesm;
+DROP TABLE IF EXISTS amb_operations;
+DROP TABLE IF EXISTS amb_fichesInterventions;
+DROP TABLE IF EXISTS amb_activites;
+DROP TABLE IF EXISTS amb_materiaux;
+DROP TABLE IF EXISTS amb_outils;
+DROP TABLE IF EXISTS amb_animation;
+DROP TABLE IF EXISTS amb_stagiairesAffectes;
+DROP TABLE IF EXISTS amb_causesLiees;
+DROP TABLE IF EXISTS amb_actionsCorrespondantes;
+DROP TABLE IF EXISTS amb_outilsUtilises;
 
 #------------------------------------------------------------
 # Table: formateurs
 #------------------------------------------------------------
 
-CREATE TABLE formateurs(
+CREATE TABLE amb_formateurs(
         idUser             Int  NOT NULL PRIMARY KEY,
         matriculeFormateur Varchar (50) NOT NULL,
         typeContrat        Varchar (50) NOT NULL ,
@@ -47,7 +47,7 @@ CREATE TABLE formateurs(
 # Table: offres
 #------------------------------------------------------------
 
-CREATE TABLE offres(
+CREATE TABLE amb_offres(
         idOffre        Int Auto_increment  NOT NULL PRIMARY KEY,
         numeroOffre    Varchar (50) NOT NULL ,
         dateDebutOffre Date NOT NULL ,
@@ -60,7 +60,7 @@ CREATE TABLE offres(
 # Table: stagiaires
 #------------------------------------------------------------
 
-CREATE TABLE stagiaires(
+CREATE TABLE amb_stagiaires(
         idUser             Int NOT NULL PRIMARY KEY,
         dateDebutFormation Date NOT NULL ,
         dateFinFormation   Date NOT NULL ,
@@ -74,7 +74,7 @@ CREATE TABLE stagiaires(
 # Table: roles
 #------------------------------------------------------------
 
-CREATE TABLE roles(
+CREATE TABLE amb_roles(
         idRole      Int  Auto_increment  NOT NULL PRIMARY KEY,
         libelleRole Varchar (50) NOT NULL
 
@@ -85,7 +85,7 @@ CREATE TABLE roles(
 # Table: utilisateurs
 #------------------------------------------------------------
 
-CREATE TABLE utilisateurs(
+CREATE TABLE amb_utilisateurs(
         idUser     Int  Auto_increment  NOT NULL PRIMARY KEY,
         nomUser    Varchar (50) NOT NULL ,
         prenomUser Varchar (50) NOT NULL ,
@@ -102,7 +102,7 @@ CREATE TABLE utilisateurs(
 # Table: environnements
 #------------------------------------------------------------
 
-CREATE TABLE environnements(
+CREATE TABLE amb_environnements(
         idEnv   Int  Auto_increment  NOT NULL PRIMARY KEY,
         typeEnv Varchar (50) NOT NULL
 
@@ -113,7 +113,7 @@ CREATE TABLE environnements(
 # Table: lieux
 #------------------------------------------------------------
 
-CREATE TABLE lieux(
+CREATE TABLE amb_lieux(
         idLieu  Int  Auto_increment  NOT NULL PRIMARY KEY,
         nomLieu Varchar (50) NOT NULL ,
         idEnv   Int NOT NULL
@@ -125,7 +125,7 @@ CREATE TABLE lieux(
 # Table: causes
 #------------------------------------------------------------
 
-CREATE TABLE causes(
+CREATE TABLE amb_causes(
         idCause      Int  Auto_increment  NOT NULL PRIMARY KEY,
         numeroCause  Varchar (50) NOT NULL ,
         libelleCause Varchar (50) NOT NULL
@@ -137,7 +137,7 @@ CREATE TABLE causes(
 # Table: typesMaintenances
 #------------------------------------------------------------
 
-CREATE TABLE typesMaintenances(
+CREATE TABLE amb_typesMaintenances(
         idTypeMaint      Int  Auto_increment  NOT NULL PRIMARY KEY,
         numeroTypeMaint  Varchar (50) NOT NULL ,
         libelleTypeMaint Varchar (50) NOT NULL
@@ -149,7 +149,7 @@ CREATE TABLE typesMaintenances(
 # Table: actions
 #------------------------------------------------------------
 
-CREATE TABLE actions(
+CREATE TABLE amb_actions(
         idAction      Int  Auto_increment  NOT NULL PRIMARY KEY,
         numeroAction  Varchar (50) NOT NULL ,
         libelleAction Varchar (50) NOT NULL
@@ -161,7 +161,7 @@ CREATE TABLE actions(
 # Table: blocsCompetences
 #------------------------------------------------------------
 
-CREATE TABLE blocsCompetences(
+CREATE TABLE amb_blocsCompetences(
         idBlocComp      Int  Auto_increment  NOT NULL PRIMARY KEY,
         numeroBlocComp  Varchar (50) NOT NULL ,
         libelleBlocComp Varchar (200) NOT NULL
@@ -173,7 +173,7 @@ CREATE TABLE blocsCompetences(
 # Table: mesm
 #------------------------------------------------------------
 
-CREATE TABLE mesm(
+CREATE TABLE amb_mesm(
         idMesm      Int  Auto_increment  NOT NULL PRIMARY KEY,
         numeroMesm  Varchar (50) NOT NULL ,
         libelleMesm Varchar (200) NOT NULL ,
@@ -185,7 +185,7 @@ CREATE TABLE mesm(
 # Table: operations
 #------------------------------------------------------------
 
-CREATE TABLE operations(
+CREATE TABLE amb_operations(
         idOperation       Int  Auto_increment  NOT NULL PRIMARY KEY,
         numeroOperation   Varchar (50) NOT NULL ,
         intituleOperation Varchar (200) NOT NULL ,
@@ -198,7 +198,7 @@ CREATE TABLE operations(
 # Table: degresUrgence
 #------------------------------------------------------------
 
-CREATE TABLE degresUrgence(
+CREATE TABLE amb_degresUrgence(
         idDegreUrgence      Int  Auto_increment  NOT NULL PRIMARY KEY,
         libelleDegreUrgence Varchar (100) NOT NULL
 
@@ -208,7 +208,7 @@ CREATE TABLE degresUrgence(
 # Table: fichesInterventions
 #------------------------------------------------------------
 
-CREATE TABLE fichesInterventions(
+CREATE TABLE amb_fichesInterventions(
         idFicheIntervention Int  Auto_increment  NOT NULL PRIMARY KEY,
         dateDemande         Date NOT NULL ,
         demandeur           VARCHAR(100)  NOT NULL DEFAULT 'Formateur Référent',
@@ -228,7 +228,7 @@ CREATE TABLE fichesInterventions(
 # Table: activites
 #------------------------------------------------------------
 
-CREATE TABLE activites(
+CREATE TABLE amb_activites(
         idActivite          Int  Auto_increment  NOT NULL PRIMARY KEY,
         dateIntervention    Date NOT NULL ,
         dateDebutItv        Datetime NOT NULL ,
@@ -248,7 +248,7 @@ CREATE TABLE activites(
 # Table: materiaux
 #------------------------------------------------------------
 
-CREATE TABLE materiaux(
+CREATE TABLE amb_materiaux(
         idMateriel  Int  Auto_increment  NOT NULL PRIMARY KEY,
         nomMateriel Varchar (100) NOT NULL ,
         nbDispo     Int NOT NULL ,
@@ -261,7 +261,7 @@ CREATE TABLE materiaux(
 # Table: outilsCaisse
 #------------------------------------------------------------
 
-CREATE TABLE outilsCaisse(
+CREATE TABLE amb_outilsCaisse(
         idOutilCaisse  Int  Auto_increment  NOT NULL PRIMARY KEY,
         nomOutilCaisse Varchar (100) NOT NULL ,
         nbOutilCaisse  Int NOT NULL ,
@@ -273,7 +273,7 @@ CREATE TABLE outilsCaisse(
 # Table: outilsMagasin
 #------------------------------------------------------------
 
-CREATE TABLE outilsMagasin(
+CREATE TABLE amb_outilsMagasin(
         idOutilMagasin  Int  Auto_increment  NOT NULL PRIMARY KEY,
         nomOutilMagasin Varchar (100) NOT NULL ,
         nbOutilMagasin  Int NOT NULL ,
@@ -286,7 +286,7 @@ CREATE TABLE outilsMagasin(
 # Table: animation
 #------------------------------------------------------------
 
-CREATE TABLE animation(
+CREATE TABLE amb_animation(
         idAnimation Int NOT NULL PRIMARY KEY,
         idOffre Int NOT NULL,
         idUser  Int NOT NULL
@@ -298,7 +298,7 @@ CREATE TABLE animation(
 # Table: stagiairesAffectes
 #------------------------------------------------------------
 
-CREATE TABLE stagiairesAffectes(
+CREATE TABLE amb_stagiairesAffectes(
         idStagiairesAffectes           Int NOT NULL PRIMARY KEY,
         idUser              Int NOT NULL ,
         idFicheIntervention Int NOT NULL
@@ -310,7 +310,7 @@ CREATE TABLE stagiairesAffectes(
 # Table: causesLiees
 #------------------------------------------------------------
 
-CREATE TABLE causesLiees(
+CREATE TABLE amb_causesLiees(
         idCausesLiees    Int NOT NULL PRIMARY KEY ,
         idActivite Int NOT NULL ,
         idCause    Int NOT NULL
@@ -322,7 +322,7 @@ CREATE TABLE causesLiees(
 # Table: actionsCorrespondantes
 #------------------------------------------------------------
 
-CREATE TABLE actionsCorrespondantes(
+CREATE TABLE amb_actionsCorrespondantes(
         idActionsCorrespondantes  Int NOT NULL PRIMARY KEY ,   
         idAction   Int NOT NULL ,
         idActivite Int NOT NULL
@@ -334,7 +334,7 @@ CREATE TABLE actionsCorrespondantes(
 # Table: outilsCaisseUtilises
 #------------------------------------------------------------
 
-CREATE TABLE outilsCaisseUtilises(
+CREATE TABLE amb_outilsCaisseUtilises(
         idOutilsCaisseUtilises     Int NOT NULL  PRIMARY KEY,
         idActivite    Int NOT NULL ,
         idOutilCaisse       Int NOT NULL ,
@@ -346,7 +346,7 @@ CREATE TABLE outilsCaisseUtilises(
 # Table: outilsMagasinUtilises
 #------------------------------------------------------------
 
-CREATE TABLE outilsMagasinUtilises(
+CREATE TABLE amb_outilsMagasinUtilises(
         idOutilsMagasinUtilises     Int NOT NULL  PRIMARY KEY,
         idActivite    Int NOT NULL ,
         idOutilMagasin       Int NOT NULL ,
@@ -358,7 +358,7 @@ CREATE TABLE outilsMagasinUtilises(
 # Table: materiauxUtilises
 #------------------------------------------------------------
 
-CREATE TABLE materiauxUtilises(
+CREATE TABLE amb_materiauxUtilises(
         idMateriauxUtilises Int NOT NULL PRIMARY KEY,
         idActivite  Int NOT NULL ,
         idMateriel  Int NOT NULL ,
@@ -370,64 +370,64 @@ CREATE TABLE materiauxUtilises(
 # cle etrangeres
 #------------------------------------------------------------
 
-ALTER TABLE stagiaires ADD CONSTRAINT FK_stagiaires_offres FOREIGN KEY (idOffre) REFERENCES offres(idOffre);
+ALTER TABLE amb_stagiaires ADD CONSTRAINT FK_stagiaires_offres FOREIGN KEY (idOffre) REFERENCES amb_offres(idOffre);
 
-ALTER TABLE  utilisateurs ADD CONSTRAINT FK_utilisateurs_roles FOREIGN KEY (idRole) REFERENCES roles(idRole);
+ALTER TABLE amb_ utilisateurs ADD CONSTRAINT FK_utilisateurs_roles FOREIGN KEY (idRole) REFERENCES amb_roles(idRole);
 
-ALTER TABLE lieux ADD CONSTRAINT FK_lieux_environnements FOREIGN KEY (idEnv) REFERENCES environnements(idEnv);
+ALTER TABLE amb_lieux ADD CONSTRAINT FK_lieux_environnements FOREIGN KEY (idEnv) REFERENCES amb_environnements(idEnv);
 
-ALTER TABLE mesm ADD CONSTRAINT FK_mesm__blocsCompetences FOREIGN KEY (idBlocComp) REFERENCES blocsCompetences(idBlocComp);
+ALTER TABLE amb_mesm ADD CONSTRAINT FK_mesm__blocsCompetences FOREIGN KEY (idBlocComp) REFERENCES amb_blocsCompetences(idBlocComp);
 
-ALTER TABLE operations ADD CONSTRAINT FK_operations__mesm FOREIGN KEY (idMesm) REFERENCES mesm(idMesm);
+ALTER TABLE amb_operations ADD CONSTRAINT FK_operations__mesm FOREIGN KEY (idMesm) REFERENCES amb_mesm(idMesm);
 
-ALTER TABLE fichesInterventions ADD CONSTRAINT FK_fichesInterventions_formateurs FOREIGN KEY (idUser) REFERENCES formateurs(idUser);
-ALTER TABLE fichesInterventions ADD CONSTRAINT FK_fichesInterventions_lieux0 FOREIGN KEY (idLieu) REFERENCES lieux(idLieu);
-ALTER TABLE fichesInterventions ADD CONSTRAINT FK_fichesInterventions__operations1 FOREIGN KEY (idOperation) REFERENCES operations(idOperation);
-ALTER TABLE fichesInterventions ADD CONSTRAINT FK_fichesInterventions__degresUrgence FOREIGN KEY (idDegreUrgence) REFERENCES degresUrgence(idDegreUrgence);
+ALTER TABLE amb_fichesInterventions ADD CONSTRAINT FK_fichesInterventions_formateurs FOREIGN KEY (idUser) REFERENCES amb_formateurs(idUser);
+ALTER TABLE amb_fichesInterventions ADD CONSTRAINT FK_fichesInterventions_lieux0 FOREIGN KEY (idLieu) REFERENCES amb_lieux(idLieu);
+ALTER TABLE amb_fichesInterventions ADD CONSTRAINT FK_fichesInterventions__operations1 FOREIGN KEY (idOperation) REFERENCES amb_operations(idOperation);
+ALTER TABLE amb_fichesInterventions ADD CONSTRAINT FK_fichesInterventions__degresUrgence FOREIGN KEY (idDegreUrgence) REFERENCES amb_degresUrgence(idDegreUrgence);
 
-ALTER TABLE activites ADD CONSTRAINT FK_activites__mesm FOREIGN KEY (idMesm) REFERENCES mesm(idMesm);
-ALTER TABLE activites ADD CONSTRAINT FK_activites__typesMaintenances0 FOREIGN KEY (idTypeMaint) REFERENCES typesMaintenances(idTypeMaint);
-ALTER TABLE activites ADD CONSTRAINT FK_activites_fichesInterventions1 FOREIGN KEY (idFicheIntervention) REFERENCES fichesInterventions(idFicheIntervention);
-
-
-ALTER TABLE materiaux ADD CONSTRAINT FK_materiaux_formateurs FOREIGN KEY (idUser) REFERENCES formateurs(idUser);
+ALTER TABLE amb_activites ADD CONSTRAINT FK_activites__mesm FOREIGN KEY (idMesm) REFERENCES amb_mesm(idMesm);
+ALTER TABLE amb_activites ADD CONSTRAINT FK_activites__typesMaintenances0 FOREIGN KEY (idTypeMaint) REFERENCES amb_typesMaintenances(idTypeMaint);
+ALTER TABLE amb_activites ADD CONSTRAINT FK_activites_fichesInterventions1 FOREIGN KEY (idFicheIntervention) REFERENCES amb_fichesInterventions(idFicheIntervention);
 
 
-ALTER TABLE outilsCaisse ADD CONSTRAINT FK_OutilsCaisse_formateurs FOREIGN KEY (idUser) REFERENCES formateurs(idUser);
-
-ALTER TABLE outilsMagasin ADD CONSTRAINT FK_outilsMagasin_formateurs FOREIGN KEY (idUser) REFERENCES formateurs(idUser);
+ALTER TABLE amb_materiaux ADD CONSTRAINT FK_materiaux_formateurs FOREIGN KEY (idUser) REFERENCES amb_formateurs(idUser);
 
 
-ALTER TABLE animation ADD CONSTRAINT FK_animation_offres FOREIGN KEY (idOffre) REFERENCES offres(idOffre);
-ALTER TABLE animation ADD CONSTRAINT FK_animation_formateurs0 FOREIGN KEY (idUser) REFERENCES formateurs(idUser);
+ALTER TABLE amb_outilsCaisse ADD CONSTRAINT FK_OutilsCaisse_formateurs FOREIGN KEY (idUser) REFERENCES amb_formateurs(idUser);
+
+ALTER TABLE amb_outilsMagasin ADD CONSTRAINT FK_outilsMagasin_formateurs FOREIGN KEY (idUser) REFERENCES amb_formateurs(idUser);
 
 
-ALTER TABLE stagiairesAffectes ADD CONSTRAINT FK_stagiairesAffectes_stagiaires FOREIGN KEY (idUser) REFERENCES stagiaires(idUser);
-ALTER TABLE stagiairesAffectes ADD CONSTRAINT FK_stagiairesAffectes_fichesInterventions0 FOREIGN KEY (idFicheIntervention) REFERENCES fichesInterventions(idFicheIntervention);
-
-ALTER TABLE causesLiees ADD CONSTRAINT FK_causesLiees__activites FOREIGN KEY (idActivite) REFERENCES activites(idActivite);
-ALTER TABLE causesLiees ADD CONSTRAINT FK_causesLiees__causes0 FOREIGN KEY (idCause) REFERENCES causes(idCause);
+ALTER TABLE amb_animation ADD CONSTRAINT FK_animation_offres FOREIGN KEY (idOffre) REFERENCES amb_offres(idOffre);
+ALTER TABLE amb_animation ADD CONSTRAINT FK_animation_formateurs0 FOREIGN KEY (idUser) REFERENCES amb_formateurs(idUser);
 
 
-ALTER TABLE actionsCorrespondantes ADD CONSTRAINT FK_actionsCorrespondantes__actions FOREIGN KEY (idAction) REFERENCES actions(idAction);
-ALTER TABLE actionsCorrespondantes ADD CONSTRAINT FK_actionsCorrespondantes__activites0 FOREIGN KEY (idActivite) REFERENCES activites(idActivite);
+ALTER TABLE amb_stagiairesAffectes ADD CONSTRAINT FK_stagiairesAffectes_stagiaires FOREIGN KEY (idUser) REFERENCES amb_stagiaires(idUser);
+ALTER TABLE amb_stagiairesAffectes ADD CONSTRAINT FK_stagiairesAffectes_fichesInterventions0 FOREIGN KEY (idFicheIntervention) REFERENCES amb_fichesInterventions(idFicheIntervention);
+
+ALTER TABLE amb_causesLiees ADD CONSTRAINT FK_causesLiees__activites FOREIGN KEY (idActivite) REFERENCES amb_activites(idActivite);
+ALTER TABLE amb_causesLiees ADD CONSTRAINT FK_causesLiees__causes0 FOREIGN KEY (idCause) REFERENCES amb_causes(idCause);
 
 
-ALTER TABLE outilsCaisseUtilises ADD CONSTRAINT FK_OutilsCaisseUtilises__activites FOREIGN KEY (idActivite) REFERENCES activites(idActivite);
-ALTER TABLE outilsCaisseUtilises ADD CONSTRAINT FK_OutilsCaisseUtilises__OutilsCaisse FOREIGN KEY (idOutilCaisse) REFERENCES OutilsCaisse(idOutilCaisse);
-
-ALTER TABLE outilsMagasinUtilises ADD CONSTRAINT FK_outilsMagasinUtilises__activites FOREIGN KEY (idActivite) REFERENCES activites(idActivite);
-ALTER TABLE outilsMagasinUtilises ADD CONSTRAINT FK_outilsMagasinUtilises__outilsMagasin FOREIGN KEY (idOutilMagasin) REFERENCES outilsMagasin(idOutilMagasin);
+ALTER TABLE amb_actionsCorrespondantes ADD CONSTRAINT FK_actionsCorrespondantes__actions FOREIGN KEY (idAction) REFERENCES amb_actions(idAction);
+ALTER TABLE amb_actionsCorrespondantes ADD CONSTRAINT FK_actionsCorrespondantes__activites0 FOREIGN KEY (idActivite) REFERENCES amb_activites(idActivite);
 
 
-ALTER TABLE materiauxUtilises ADD CONSTRAINT FK_materiauxUtilises__activites FOREIGN KEY (idActivite) REFERENCES activites(idActivite);
-ALTER TABLE materiauxUtilises ADD CONSTRAINT FK_materiauxUtilises__materiaux0 FOREIGN KEY (idMateriel) REFERENCES materiaux(idMateriel);
+ALTER TABLE amb_outilsCaisseUtilises ADD CONSTRAINT FK_OutilsCaisseUtilises__activites FOREIGN KEY (idActivite) REFERENCES amb_activites(idActivite);
+ALTER TABLE amb_outilsCaisseUtilises ADD CONSTRAINT FK_OutilsCaisseUtilises__OutilsCaisse FOREIGN KEY (idOutilCaisse) REFERENCES amb_OutilsCaisse(idOutilCaisse);
+
+ALTER TABLE amb_outilsMagasinUtilises ADD CONSTRAINT FK_outilsMagasinUtilises__activites FOREIGN KEY (idActivite) REFERENCES amb_activites(idActivite);
+ALTER TABLE amb_outilsMagasinUtilises ADD CONSTRAINT FK_outilsMagasinUtilises__outilsMagasin FOREIGN KEY (idOutilMagasin) REFERENCES amb_outilsMagasin(idOutilMagasin);
+
+
+ALTER TABLE amb_materiauxUtilises ADD CONSTRAINT FK_materiauxUtilises__activites FOREIGN KEY (idActivite) REFERENCES amb_activites(idActivite);
+ALTER TABLE amb_materiauxUtilises ADD CONSTRAINT FK_materiauxUtilises__materiaux0 FOREIGN KEY (idMateriel) REFERENCES amb_materiaux(idMateriel);
 
 #------------------------------------------------------------
 # vues
 #------------------------------------------------------------
 
-CREATE VIEW  offresFormateurs as
+CREATE VIEW  amb_offresFormateurs as
 SELECT
     f.idUser,
     f.matriculeFormateur,
@@ -440,8 +440,8 @@ SELECT
     o.dateFinOffre
 FROM
     formateurs AS f
-INNER JOIN animation AS a ON f.idUser = a.idUser
-INNER JOIN offres AS o ON a.idOffre = o.idOffre;
+INNER JOIN amb_animation AS a ON f.idUser = a.idUser
+INNER JOIN amb_offres AS o ON a.idOffre = o.idOffre;
 
 
 
@@ -471,12 +471,12 @@ SELECT
     bc.libelleBlocComp
 FROM
     stagiaires AS s
-INNER JOIN stagiairesAffectes AS r ON s.idUser = r.idUser
-INNER JOIN fichesInterventions AS fi ON r.idFicheIntervention = fi.idFicheIntervention
-INNER JOIN lieux AS li ON fi.idLieu = li.idLieu
-LEFT JOIN operations AS op ON op.idOperation = fi.idOperation
-INNER JOIN mesm AS m ON m.idMesm = op.idMesm
-INNER JOIN blocsCompetences AS bc ON m.idBlocComp=bc.idBlocComp;
+INNER JOIN amb_stagiairesAffectes AS r ON s.idUser = r.idUser
+INNER JOIN amb_fichesInterventions AS fi ON r.idFicheIntervention = fi.idFicheIntervention
+INNER JOIN amb_lieux AS li ON fi.idLieu = li.idLieu
+LEFT JOIN  amb_operations AS op ON op.idOperation = fi.idOperation
+INNER JOIN amb_mesm AS m ON m.idMesm = op.idMesm
+INNER JOIN amb_blocsCompetences AS bc ON m.idBlocComp=bc.idBlocComp;
 
 
 
@@ -518,16 +518,16 @@ SELECT
 
 FROM
     activites AS ac
-INNER JOIN fichesInterventions AS fi ON fi.idFicheIntervention= ac.idFicheIntervention 
-LEFT JOIN causesLiees AS li ON ac.idActivite = li.idActivite
-INNER JOIN causes AS ca ON li.idCause = ca.idCause
-INNER JOIN mesm AS me ON me.idMesm = ac.idMesm
-INNER JOIN typesMaintenances AS tm ON tm.idTypeMaint= ac.idTypeMaint
-LEFT JOIN actionsCorrespondantes AS cor ON cor.idActivite= ac.idActivite
-INNER JOIN actions AS a ON cor.idAction= a.idAction
-LEFT JOIN materiauxUtilises AS ne ON ne.idActivite= ac.idActivite
-INNER JOIN materiaux AS mat ON ne.idMateriel= mat.idMateriel
-LEFT JOIN OutilsCaisseUtilises AS uticai ON uticai.idActivite= ac.idActivite
-INNER JOIN OutilsCaisse AS oucai ON uticai.idOutilCaisse= oucai.idOutilCaisse
-LEFT JOIN outilsMagasinUtilises AS utimag ON utimag.idActivite= ac.idActivite
-INNER JOIN outilsMagasin AS oumag ON utimag.idOutilMagasin= oumag.idOutilMagasin;
+INNER JOIN amb_fichesInterventions AS fi ON fi.idFicheIntervention= ac.idFicheIntervention 
+LEFT JOIN  amb_causesLiees AS li ON ac.idActivite = li.idActivite
+INNER JOIN amb_causes AS ca ON li.idCause = ca.idCause
+INNER JOIN amb_mesm AS me ON me.idMesm = ac.idMesm
+INNER JOIN amb_typesMaintenances AS tm ON tm.idTypeMaint= ac.idTypeMaint
+LEFT JOIN  amb_actionsCorrespondantes AS cor ON cor.idActivite= ac.idActivite
+INNER JOIN amb_actions AS a ON cor.idAction= a.idAction
+LEFT JOIN  amb_materiauxUtilises AS ne ON ne.idActivite= ac.idActivite
+INNER JOIN amb_materiaux AS mat ON ne.idMateriel= mat.idMateriel
+LEFT JOIN  amb_outilsCaisseUtilises AS uticai ON uticai.idActivite= ac.idActivite
+INNER JOIN amb_OutilsCaisse AS oucai ON uticai.idOutilCaisse= oucai.idOutilCaisse
+LEFT JOIN  amb_outilsMagasinUtilises AS utimag ON utimag.idActivite= ac.idActivite
+INNER JOIN amb_outilsMagasin AS oumag ON utimag.idOutilMagasin= oumag.idOutilMagasin;
