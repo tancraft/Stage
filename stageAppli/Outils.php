@@ -88,15 +88,6 @@ function decode($texte)
     return $resultat;
 }
 
-$test = "test";
-var_dump(code($test));
-var_dump(decode(code($test)));
-
-var_dump(code("localhost"));
-var_dump(code("3306"));
-var_dump(code("multilingue"));
-var_dump(code("root"));
-
 /*fonctions du projet*/
 
 /**

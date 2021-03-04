@@ -50,7 +50,8 @@ class Parametres
 			self::$_port=$param[1];
 			self::$_dbname=decode($param[2]);
 			self::$_login=decode($param[3]);
-			self::$_pwd=decode($param[4]);
+			self::$_pwd=$param[4];
+			//self::$_pwd=decode($param[4]); remplace la ligne du dessus quand un mot de passe est necessaire
 		}
 	}
 }
