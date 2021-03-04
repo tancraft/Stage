@@ -46,11 +46,11 @@ class Parametres
 					$param[]=substr($info[1],0,strlen($info[1])-2);
 				}
 			}
-			self::$_host=$param[0];
+			self::$_host=decode($param[0]);
 			self::$_port=$param[1];
-			self::$_dbname=$param[2];
-			self::$_login=$param[3];
-			self::$_pwd=$param[4];
+			self::$_dbname=decode($param[2]);
+			self::$_login=decode($param[3]);
+			self::$_pwd=decode($param[4]);
 		}
 	}
 }

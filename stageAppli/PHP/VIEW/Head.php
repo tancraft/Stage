@@ -7,3 +7,4 @@
     <link rel="stylesheet" href="./CSS/Root.css">
     <link rel="stylesheet" href="./CSS/Style.css">
 </head>
+<body class="colonne">

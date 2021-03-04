@@ -11,7 +11,8 @@ switch ($mode) {
                 $_SESSION['utilisateur'] = $uti;
                 switch ($uti->getIdRole()) {
                     case "1":
-                        header("location: index.php?page=FormAdmin");
+                        // header("location: index.php?page=FormAdmin");
+                        header("location: index.php?page=default");
                         break;
 
                     case "2":

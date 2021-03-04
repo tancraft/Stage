@@ -1,20 +1,22 @@
 
 -- ne pas utiliser il s agit de donnes de test pour mes listes
 
-SELECT `numeroAction`,`libelleAction` from `amb_actions` ORDER BY `numeroAction`,`libelleAction`;
-SELECT `numeroCause`, `libelleCause` from `amb_causes` ORDER BY `numeroCause`, `libelleCause`;
-SELECT`numeroOperation`, `intituleOperation`, `schemaOperation`, `idMesm` FROM `amb_operations` ORDER BY `intituleOperation`, `schemaOperation`;
-SELECT `numeroBlocComp`, `libelleBlocComp` from `amb_blocscompetences` ORDER BY `numeroBlocComp`,`libelleBlocComp`;
-SELECT `numeroOperation`, `intituleOperation`, `schemaOperation`, `idMesm` FROM `amb_operations` ORDER BY `numeroOperation`, `intituleOperation`;
+SELECT numeroAction,libelleAction from amb_actions ORDER BY numeroAction,libelleAction;
+SELECT numeroCause, libelleCause from amb_causes ORDER BY numeroCause, libelleCause;
+SELECTnumeroOperation, intituleOperation, schemaOperation, idMesm FROM amb_operations ORDER BY intituleOperation, schemaOperation;
+SELECT numeroBlocComp, libelleBlocComp from amb_blocscompetences ORDER BY numeroBlocComp,libelleBlocComp;
+SELECT numeroOperation, intituleOperation, schemaOperation, idMesm FROM amb_operations ORDER BY numeroOperation, intituleOperation;
 
 --insert des operations
 
-INSERT INTO amb_roles(idRole, libelleRole) VALUES (NULL,"administrateur");
-INSERT INTO amb_roles(idRole, libelleRole) VALUES (NULL,"formateur");
-INSERT INTO amb_roles(idRole, libelleRole) VALUES (NULL,"stagiaire");
-INSERT INTO amb_roles(idRole, libelleRole) VALUES (NULL,"formateur suppleant");
+INSERT INTO amb_roles(idRole, libelleRole) VALUES (NULL,"Administrateur");
+INSERT INTO amb_roles(idRole, libelleRole) VALUES (NULL,"Formateur référent");
+INSERT INTO amb_roles(idRole, libelleRole) VALUES (NULL,"Formateur suppleant");
+INSERT INTO amb_roles(idRole, libelleRole) VALUES (NULL,"Stagiaire");
 
-INSERT INTO amb_utilisateurs (idUser, nomUser, prenomUser, telUser, emailUser, mdpUser, idRole) VALUES (NULL,"formateur2","formateur2","0240528471","formateur2@gmail-com","Formateur2*",3);
+INSERT INTO amb_utilisateurs (idUser, nomUser, prenomUser, telUser, emailUser, mdpUser, idRole) VALUES (NULL,"admin","admin","0745821463","admin@gmail.com","admin1*",1);
+INSERT INTO amb_utilisateurs (idUser, nomUser, prenomUser, telUser, emailUser, mdpUser, idRole) VALUES (NULL,"formateur1","formateur1","0614247894","formateur1@gmail.com","Formateur1*",2);
+INSERT INTO amb_utilisateurs (idUser, nomUser, prenomUser, telUser, emailUser, mdpUser, idRole) VALUES (NULL,"formateur2","formateur2","0240528471","formateur2@gmail.com","Formateur2*",3);
 
 INSERT INTO amb_blocscompetences(idBlocComp, numeroBlocComp, libelleBlocComp) VALUES (NULL,"1","Assurer la maintenance courante des aménagements intérieurs d’un bâtiment");
 INSERT INTO amb_blocscompetences(idBlocComp, numeroBlocComp, libelleBlocComp) VALUES (NULL,"2","Assurer la maintenance courante de l’installation et des équipements électriques d’un bâtiment");

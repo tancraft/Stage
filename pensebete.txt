@@ -1,19 +1,15 @@
 ﻿
 fiche itv 
-page connexion
+page connexion ok
 fiche activite
 fiche user 
 fiche type maintenance en visu
 
-
-2. Le calcul de la durée ne sera fait que pour vérifier que la durée saisie est probable (je t'expliquerai en détail plus tard)(modifié)
-[16:24]
-
-modifier index 
+modifier index ok
 
 reorganiser appli ok
 
-reorganiser les script case
+reorganiser les script case ok
 
 get outils magasin by formateur
 
@@ -39,10 +35,10 @@ get fiche by operation
 
 get stagiaire by fiche
 
-corriger index 
+corriger index ok
 
 
 
 select
 
-sur code select ajouter param attribut et libelle
+sur code select ajouter param attribut et libelle deja fait par martine
