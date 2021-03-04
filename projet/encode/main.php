@@ -23,15 +23,15 @@ function decode($texte)
 
 $fp = fopen('./codes.txt',"w");
 
-$host= code(readline('entrer le nom de la BDD'));
+$host= code(readline('entrer le nom du host: '));
 
-fputs($fp, "localhost: ".$host);
+fputs($fp, " localhost: ".$host);
 
-$bdd=code(readline('entrer le nom de la BDD'));
-fputs($fp, "nom bdd: ".$bdd);
+$bdd=code(readline('entrer le nom de la BDD: '));
+fputs($fp, " nom bdd: ".$bdd);
 
-$identifiant=code(readline('entrer lidentifiant'));
-fputs($fp, "identifiant: ".$identifiant);
+$identifiant=code(readline('entrer lidentifiant: '));
+fputs($fp, " identifiant: ".$identifiant);
 
 
 
