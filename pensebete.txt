@@ -1,0 +1,48 @@
+﻿
+fiche itv 
+page connexion
+fiche activite
+fiche user 
+fiche type maintenance en visu
+
+
+2. Le calcul de la durée ne sera fait que pour vérifier que la durée saisie est probable (je t'expliquerai en détail plus tard)(modifié)
+[16:24]
+
+modifier index 
+
+reorganiser appli ok
+
+reorganiser les script case
+
+get outils magasin by formateur
+
+get outilcaisse by formateur
+
+get outil utiliser by formateur
+
+get list operaion by mesm
+
+get list mesm by bloc comp
+
+get lieu by environnement
+
+get offre by formateur
+
+get stagiaire by offre
+
+get formateur by offre
+
+get activite by fiche
+
+get fiche by operation
+
+get stagiaire by fiche
+
+corriger index 
+
+
+
+select
+
+sur code select ajouter param attribut et libelle
