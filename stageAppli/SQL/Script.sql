@@ -176,7 +176,7 @@ CREATE TABLE blocsCompetences(
 CREATE TABLE mesm(
         idMesm      Int  Auto_increment  NOT NULL PRIMARY KEY,
         numeroMesm  Varchar (50) NOT NULL ,
-        libelleMesm Varchar (50) NOT NULL ,
+        libelleMesm Varchar (200) NOT NULL ,
         idBlocComp  Int NOT NULL
 
 )ENGINE=InnoDB, CHARSET = UTF8;
@@ -188,7 +188,7 @@ CREATE TABLE mesm(
 CREATE TABLE operations(
         idOperation       Int  Auto_increment  NOT NULL PRIMARY KEY,
         numeroOperation   Varchar (50) NOT NULL ,
-        intituleOperation Varchar (50) NOT NULL ,
+        intituleOperation Varchar (200) NOT NULL ,
         schemaOperation   Varchar (50) NULL ,
         idMesm            Int NOT NULL
 

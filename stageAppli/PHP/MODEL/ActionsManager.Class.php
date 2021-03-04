@@ -44,7 +44,7 @@ class ActionsManager
 	{
  		$db=DbConnect::getDb();
 		$liste = [];
-		$q = $db->query("SELECT * FROM Actions");
+		$q = $db->query("SELECT * FROM Actions ORDER BY numeroAction, libelleAction");
 		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
 		{
 			if($donnees != false)

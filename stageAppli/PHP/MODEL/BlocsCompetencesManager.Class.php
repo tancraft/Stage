@@ -44,7 +44,7 @@ class BlocsCompetencesManager
 	{
  		$db=DbConnect::getDb();
 		$liste = [];
-		$q = $db->query("SELECT * FROM Blocscompetences");
+		$q = $db->query("SELECT * FROM Blocscompetences ORDER BY numeroBlocComp, libelleBlocComp");
 		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
 		{
 			if($donnees != false)

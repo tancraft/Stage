@@ -44,7 +44,7 @@ class CausesManager
 	{
  		$db=DbConnect::getDb();
 		$liste = [];
-		$q = $db->query("SELECT * FROM Causes");
+		$q = $db->query("SELECT * FROM Causes ORDER BY numeroCause, libelleCause");
 		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
 		{
 			if($donnees != false)
