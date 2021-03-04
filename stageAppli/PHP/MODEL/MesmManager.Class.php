@@ -46,7 +46,7 @@ class MesmManager
 	{
  		$db=DbConnect::getDb();
 		$liste = [];
-		$q = $db->query("SELECT * from amb_Mesm");
+		$q = $db->query("SELECT * from amb_Mesm ORDER BY numeroMesm, libelleMesm");
 		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
 		{
 			if($donnees != false)
