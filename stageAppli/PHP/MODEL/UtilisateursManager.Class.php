@@ -5,7 +5,7 @@ class UtilisateursManager
 	public static function add(Utilisateurs $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("INSERT INTO amb_Utilisateurs (nomUser,prenomUser,telUser,emailUser,mdpUser,idRole) VALUES (:nomUser,:prenomUser,:telUser,:emailUser,:mdpUser,:idRole)");
+		$q=$db->prepare("INSERT INTO amb_utilisateurs (nomUser,prenomUser,telUser,emailUser,mdpUser,idRole) VALUES (:nomUser,:prenomUser,:telUser,:emailUser,:mdpUser,:idRole)");
 		$q->bindValue(":nomUser", $obj->getNomUser());
 		$q->bindValue(":prenomUser", $obj->getPrenomUser());
 		$q->bindValue(":telUser", $obj->getTelUser());
@@ -18,7 +18,7 @@ class UtilisateursManager
 	public static function update(Utilisateurs $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("UPDATE amb_Utilisateurs SET idUser=:idUser,nomUser=:nomUser,prenomUser=:prenomUser,telUser=:telUser,emailUser=:emailUser,mdpUser=:mdpUser,idRole=:idRole WHERE idUser=:idUser");
+		$q=$db->prepare("UPDATE amb_utilisateurs SET idUser=:idUser,nomUser=:nomUser,prenomUser=:prenomUser,telUser=:telUser,emailUser=:emailUser,mdpUser=:mdpUser,idRole=:idRole WHERE idUser=:idUser");
 		$q->bindValue(":idUser", $obj->getIdUser());
 		$q->bindValue(":nomUser", $obj->getNomUser());
 		$q->bindValue(":prenomUser", $obj->getPrenomUser());
@@ -31,13 +31,13 @@ class UtilisateursManager
 	public static function delete(Utilisateurs $obj)
 	{
  		$db=DbConnect::getDb();
-		$db->exec("DELETE from amb_Utilisateurs WHERE idUser=" .$obj->getIdUser());
+		$db->exec("DELETE from amb_utilisateurs WHERE idUser=" .$obj->getIdUser());
 	}
 	public static function findById($id)
 	{
  		$db=DbConnect::getDb();
 		$id = (int) $id;
-		$q=$db->query("SELECT * from amb_Utilisateurs WHERE idUser =".$id);
+		$q=$db->query("SELECT * from amb_utilisateurs WHERE idUser =".$id);
 		$results = $q->fetch(PDO::FETCH_ASSOC);
 		if($results != false)
 		{
@@ -52,7 +52,7 @@ class UtilisateursManager
 	{
  		$db=DbConnect::getDb();
 		$liste = [];
-		$q = $db->query("SELECT * from amb_Utilisateurs");
+		$q = $db->query("SELECT * from amb_utilisateurs");
 		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
 		{
 			if($donnees != false)
@@ -65,7 +65,7 @@ class UtilisateursManager
 	public static function getByEmail($email)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->query('SELECT * from amb_Utilisateurs WHERE emailUser ="'.$email.'"');
+		$q=$db->query('SELECT * from amb_utilisateurs WHERE emailUser ="'.$email.'"');
 		$results = $q->fetch(PDO::FETCH_ASSOC);
 		if($results != false)
 		{
@@ -80,7 +80,7 @@ class UtilisateursManager
 	{
  		$db=DbConnect::getDb();
 		$liste = [];
-		$q = $db->query("SELECT * from amb_Utilisateurs where idRole = ".$idRole." ORDER BY nomUser");
+		$q = $db->query("SELECT * from amb_utilisateurs where idRole = ".$idRole." ORDER BY nomUser");
 		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
 		{
 			if($donnees != false)

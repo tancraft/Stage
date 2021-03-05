@@ -5,7 +5,7 @@ class OperationsManager
 	public static function add(Operations $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("INSERT INTO amb_Operations (numeroOperation,intituleOperation,schemaOperation,idMesm) VALUES (:numeroOperation,:intituleOperation,:schemaOperation,:idMesm)");
+		$q=$db->prepare("INSERT INTO amb_operations (numeroOperation,intituleOperation,schemaOperation,idMesm) VALUES (:numeroOperation,:intituleOperation,:schemaOperation,:idMesm)");
 		$q->bindValue(":numeroOperation", $obj->getNumeroOperation());
 		$q->bindValue(":intituleOperation", $obj->getIntituleOperation());
 		$q->bindValue(":schemaOperation", $obj->getSchemaOperation());
@@ -16,7 +16,7 @@ class OperationsManager
 	public static function update(Operations $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("UPDATE amb_Operations SET idOperation=:idOperation,numeroOperation=:numeroOperation,intituleOperation=:intituleOperation,schemaOperation=:schemaOperation,idMesm=:idMesm WHERE idOperation=:idOperation");
+		$q=$db->prepare("UPDATE amb_operations SET idOperation=:idOperation,numeroOperation=:numeroOperation,intituleOperation=:intituleOperation,schemaOperation=:schemaOperation,idMesm=:idMesm WHERE idOperation=:idOperation");
 		$q->bindValue(":idOperation", $obj->getIdOperation());
 		$q->bindValue(":numeroOperation", $obj->getNumeroOperation());
 		$q->bindValue(":intituleOperation", $obj->getIntituleOperation());
@@ -27,13 +27,13 @@ class OperationsManager
 	public static function delete(Operations $obj)
 	{
  		$db=DbConnect::getDb();
-		$db->exec("DELETE from amb_Operations WHERE idOperation=" .$obj->getIdOperation());
+		$db->exec("DELETE from amb_operations WHERE idOperation=" .$obj->getIdOperation());
 	}
 	public static function findById($id)
 	{
  		$db=DbConnect::getDb();
 		$id = (int) $id;
-		$q=$db->query("SELECT * from amb_Operations WHERE idOperation =".$id);
+		$q=$db->query("SELECT * from amb_operations WHERE idOperation =".$id);
 		$results = $q->fetch(PDO::FETCH_ASSOC);
 		if($results != false)
 		{
@@ -48,7 +48,7 @@ class OperationsManager
 	{
  		$db=DbConnect::getDb();
 		$liste = [];
-		$q = $db->query("SELECT * from amb_Operations ORDER BY numeroOperation, intituleOperation");
+		$q = $db->query("SELECT * from amb_operations ORDER BY numeroOperation, intituleOperation");
 		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
 		{
 			if($donnees != false)

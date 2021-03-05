@@ -5,7 +5,7 @@ class StagiairesFichesInterventionsManager
 	public static function add(StagiairesFichesInterventions $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("INSERT INTO amb_Stagiairesfichesinterventions (dateDebutFormation,dateFinFormation,numeroBeneficiaire,idFicheIntervention,dateDemande,demandeur,descriptionDemande,statutDemande,validation,appreciation,idLieu,nomLieu,idOperation,numeroOperation,intituleOperation,schemaOperation,idMesm,numeroMesm,libelleMesm,numeroBlocComp,libelleBlocComp) VALUES (:dateDebutFormation,:dateFinFormation,:numeroBeneficiaire,:idFicheIntervention,:dateDemande,:demandeur,:descriptionDemande,:statutDemande,:validation,:appreciation,:idLieu,:nomLieu,:idOperation,:numeroOperation,:intituleOperation,:schemaOperation,:idMesm,:numeroMesm,:libelleMesm,:numeroBlocComp,:libelleBlocComp)");
+		$q=$db->prepare("INSERT INTO amb_stagiairesfichesinterventions (dateDebutFormation,dateFinFormation,numeroBeneficiaire,idFicheIntervention,dateDemande,demandeur,descriptionDemande,statutDemande,validation,appreciation,idLieu,nomLieu,idOperation,numeroOperation,intituleOperation,schemaOperation,idMesm,numeroMesm,libelleMesm,numeroBlocComp,libelleBlocComp) VALUES (:dateDebutFormation,:dateFinFormation,:numeroBeneficiaire,:idFicheIntervention,:dateDemande,:demandeur,:descriptionDemande,:statutDemande,:validation,:appreciation,:idLieu,:nomLieu,:idOperation,:numeroOperation,:intituleOperation,:schemaOperation,:idMesm,:numeroMesm,:libelleMesm,:numeroBlocComp,:libelleBlocComp)");
 		$q->bindValue(":dateDebutFormation", $obj->getDateDebutFormation());
 		$q->bindValue(":dateFinFormation", $obj->getDateFinFormation());
 		$q->bindValue(":numeroBeneficiaire", $obj->getNumeroBeneficiaire());
@@ -33,7 +33,7 @@ class StagiairesFichesInterventionsManager
 	public static function update(StagiairesFichesInterventions $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("UPDATE amb_Stagiairesfichesinterventions SET idUser=:idUser,dateDebutFormation=:dateDebutFormation,dateFinFormation=:dateFinFormation,numeroBeneficiaire=:numeroBeneficiaire,idFicheIntervention=:idFicheIntervention,dateDemande=:dateDemande,demandeur=:demandeur,descriptionDemande=:descriptionDemande,statutDemande=:statutDemande,validation=:validation,appreciation=:appreciation,idLieu=:idLieu,nomLieu=:nomLieu,idOperation=:idOperation,numeroOperation=:numeroOperation,intituleOperation=:intituleOperation,schemaOperation=:schemaOperation,idMesm=:idMesm,numeroMesm=:numeroMesm,libelleMesm=:libelleMesm,numeroBlocComp=:numeroBlocComp,libelleBlocComp=:libelleBlocComp WHERE idUser=:idUser");
+		$q=$db->prepare("UPDATE amb_stagiairesfichesinterventions SET idUser=:idUser,dateDebutFormation=:dateDebutFormation,dateFinFormation=:dateFinFormation,numeroBeneficiaire=:numeroBeneficiaire,idFicheIntervention=:idFicheIntervention,dateDemande=:dateDemande,demandeur=:demandeur,descriptionDemande=:descriptionDemande,statutDemande=:statutDemande,validation=:validation,appreciation=:appreciation,idLieu=:idLieu,nomLieu=:nomLieu,idOperation=:idOperation,numeroOperation=:numeroOperation,intituleOperation=:intituleOperation,schemaOperation=:schemaOperation,idMesm=:idMesm,numeroMesm=:numeroMesm,libelleMesm=:libelleMesm,numeroBlocComp=:numeroBlocComp,libelleBlocComp=:libelleBlocComp WHERE idUser=:idUser");
 		$q->bindValue(":idUser", $obj->getIdUser());
 		$q->bindValue(":dateDebutFormation", $obj->getDateDebutFormation());
 		$q->bindValue(":dateFinFormation", $obj->getDateFinFormation());
@@ -61,13 +61,13 @@ class StagiairesFichesInterventionsManager
 	public static function delete(StagiairesFichesInterventions $obj)
 	{
  		$db=DbConnect::getDb();
-		$db->exec("DELETE from amb_Stagiairesfichesinterventions WHERE idUser=" .$obj->getIdUser());
+		$db->exec("DELETE from amb_stagiairesfichesinterventions WHERE idUser=" .$obj->getIdUser());
 	}
 	public static function findById($id)
 	{
  		$db=DbConnect::getDb();
 		$id = (int) $id;
-		$q=$db->query("SELECT * from amb_Stagiairesfichesinterventions WHERE idUser =".$id);
+		$q=$db->query("SELECT * from amb_stagiairesfichesinterventions WHERE idUser =".$id);
 		$results = $q->fetch(PDO::FETCH_ASSOC);
 		if($results != false)
 		{
@@ -82,7 +82,7 @@ class StagiairesFichesInterventionsManager
 	{
  		$db=DbConnect::getDb();
 		$liste = [];
-		$q = $db->query("SELECT * from amb_Stagiairesfichesinterventions");
+		$q = $db->query("SELECT * from amb_stagiairesfichesinterventions");
 		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
 		{
 			if($donnees != false)

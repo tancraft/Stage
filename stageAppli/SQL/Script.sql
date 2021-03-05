@@ -252,7 +252,7 @@ CREATE TABLE amb_materiaux(
         idMateriel  Int  Auto_increment  NOT NULL PRIMARY KEY,
         nomMateriel Varchar (100) NOT NULL ,
         nbDispo     Int NOT NULL ,
-        idUser      Int NOT NULL
+        idUser      Int NULL
 
 )ENGINE=InnoDB, CHARSET = UTF8;
 
@@ -265,7 +265,7 @@ CREATE TABLE amb_outilsCaisse(
         idOutilCaisse  Int  Auto_increment  NOT NULL PRIMARY KEY,
         nomOutilCaisse Varchar (100) NOT NULL ,
         nbOutilCaisse  Int NOT NULL ,
-        idUser   Int NOT NULL
+        idUser   Int NULL
 
 )ENGINE=InnoDB, CHARSET = UTF8;
 
@@ -277,7 +277,7 @@ CREATE TABLE amb_outilsMagasin(
         idOutilMagasin  Int  Auto_increment  NOT NULL PRIMARY KEY,
         nomOutilMagasin Varchar (100) NOT NULL ,
         nbOutilMagasin  Int NOT NULL ,
-        idUser   Int NOT NULL
+        idUser   Int NULL
 
 )ENGINE=InnoDB, CHARSET = UTF8;
 

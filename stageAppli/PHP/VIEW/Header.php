@@ -20,13 +20,6 @@
 
                     </a>';
             }
-            else{
-                echo '<a href="index.php?page=formConnexion">
-
-                    <button class="bouton centre"><i class="fas fa-sign-in-alt"></i> Connexion</button>
-
-                    </a>';
-            }
         ?>
 
         <div></div>

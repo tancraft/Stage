@@ -11,11 +11,13 @@ reorganiser appli ok
 
 reorganiser les script case ok
 
-get outils magasin by formateur
+get outils magasin by formateur ok
+get outilcaisse by formateur ok
+get materiaux by formateur ok
 
-get outilcaisse by formateur
-
-get outil utiliser by formateur
+get outils magasin utiliser by formateur
+get outilcaisse utiliser by formateur
+get materiaux utiliser by formateur
 
 get list operation by mesm
 

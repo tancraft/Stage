@@ -18,6 +18,9 @@ INSERT INTO amb_utilisateurs (idUser, nomUser, prenomUser, telUser, emailUser, m
 INSERT INTO amb_utilisateurs (idUser, nomUser, prenomUser, telUser, emailUser, mdpUser, idRole) VALUES (NULL,"formateur1","formateur1","0614247894","formateur1@gmail.com","Formateur1*",2);
 INSERT INTO amb_utilisateurs (idUser, nomUser, prenomUser, telUser, emailUser, mdpUser, idRole) VALUES (NULL,"formateur2","formateur2","0240528471","formateur2@gmail.com","Formateur2*",3);
 
+INSERT INTO amb_formateurs(idUser, matriculeFormateur, typeContrat, dateDebutContrat, dateFinContrat) VALUES (2,"7654321","CDI","2010-07-05",NULL);
+INSERT INTO amb_formateurs(idUser, matriculeFormateur, typeContrat, dateDebutContrat, dateFinContrat) VALUES (3,"8756312","CDD","2021-02-01","2021-08-01");
+
 INSERT INTO amb_blocscompetences(idBlocComp, numeroBlocComp, libelleBlocComp) VALUES (NULL,"1","Assurer la maintenance courante des aménagements intérieurs d’un bâtiment");
 INSERT INTO amb_blocscompetences(idBlocComp, numeroBlocComp, libelleBlocComp) VALUES (NULL,"2","Assurer la maintenance courante de l’installation et des équipements électriques d’un bâtiment");
 INSERT INTO amb_blocscompetences(idBlocComp, numeroBlocComp, libelleBlocComp) VALUES (NULL,"3","Assurer la maintenance courante de l’installation et des équipements thermiques et sanitaires d’un bâtiment");
@@ -89,9 +92,22 @@ INSERT INTO amb_operations(idOperation, numeroOperation, intituleOperation, sche
 INSERT INTO amb_operations(idOperation, numeroOperation, intituleOperation, schemaOperation, idMesm) VALUES (NULL,"3.03.03","Rechercher l'origine et résoudre un dysfonctionnement d'un appareil sanitaire","image 51",10);
 INSERT INTO amb_operations(idOperation, numeroOperation, intituleOperation, schemaOperation, idMesm) VALUES (NULL,"3.03.04","Rechercher l'origine et résoudre un dysfonctionnement d'un équipement terminal CVC","image 52",10);
 
+INSERT INTO amb_formateurs(idUser, matriculeFormateur, typeContrat, dateDebutContrat, dateFinContrat) VALUES (2,"7654321","CDI","2010-07-05",NULL);
 
 
+INSERT INTO amb_outilscaisse(idOutilCaisse, nomOutilCaisse, nbOutilCaisse, idUser) VALUES (NULL,"Fontaine de nettoyage pour brosses et rouleaux",4,2);
+INSERT INTO amb_outilscaisse(idOutilCaisse, nomOutilCaisse, nbOutilCaisse, idUser) VALUES (NULL,"Perforateur électrique + jeu de forets béton",5,2);
+INSERT INTO amb_outilscaisse(idOutilCaisse, nomOutilCaisse, nbOutilCaisse, idUser) VALUES (NULL,"Fontaine de nettoyage pour brosses et rouleaux",4,3);
+INSERT INTO amb_outilscaisse(idOutilCaisse, nomOutilCaisse, nbOutilCaisse, idUser) VALUES (NULL,"Augette",5,NULL);
 
+INSERT INTO amb_outilsmagasin(idOutilMagasin, nomOutilMagasin, nbOutilMagasin, idUser) VALUES (NULL,"tournevis plat",2,NULL);
+INSERT INTO amb_outilsmagasin(idOutilMagasin, nomOutilMagasin, nbOutilMagasin, idUser) VALUES (NULL,"tournevis cruciforme",4,2);
+INSERT INTO amb_outilsmagasin(idOutilMagasin, nomOutilMagasin, nbOutilMagasin, idUser) VALUES (NULL,"tournevis plat",2,NULL);
+INSERT INTO amb_outilsmagasin(idOutilMagasin, nomOutilMagasin, nbOutilMagasin, idUser) VALUES (NULL,"clé à molette",3,2);
+INSERT INTO amb_outilsmagasin(idOutilMagasin, nomOutilMagasin, nbOutilMagasin, idUser) VALUES (NULL,"marteau",3,3);
 
-
-
+INSERT INTO amb_materiaux(idMateriel, nomMateriel, nbDispo, idUser) VALUES (NULL,"Bande à joint - 10 ml",5,NULL);
+INSERT INTO amb_materiaux(idMateriel, nomMateriel, nbDispo, idUser) VALUES (NULL,"Bande à joint - 10 ml",2,2);
+INSERT INTO amb_materiaux(idMateriel, nomMateriel, nbDispo, idUser) VALUES (NULL,"Bande à joint - 10 ml",1,2);
+INSERT INTO amb_materiaux(idMateriel, nomMateriel, nbDispo, idUser) VALUES (NULL,"Bande à joint - 10 ml",0,3);
+INSERT INTO amb_materiaux(idMateriel, nomMateriel, nbDispo, idUser) VALUES (NULL,"Bande à joint - 10 ml",4,NULL);

@@ -5,7 +5,7 @@ class OutilsMagasinUtilisesManager
 	public static function add(OutilsMagasinUtilises $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("INSERT INTO amb_Outilsmagasinutilises (idActivite,idOutilMagasin,quantiteOutilsMagasin) VALUES (:idActivite,:idOutilMagasin,:quantiteOutilsMagasin)");
+		$q=$db->prepare("INSERT INTO amb_outilsmagasinutilises (idActivite,idOutilMagasin,quantiteOutilsMagasin) VALUES (:idActivite,:idOutilMagasin,:quantiteOutilsMagasin)");
 		$q->bindValue(":idActivite", $obj->getIdActivite());
 		$q->bindValue(":idOutilMagasin", $obj->getIdOutilMagasin());
 		$q->bindValue(":quantiteOutilsMagasin", $obj->getQuantiteOutilsMagasin());
@@ -15,7 +15,7 @@ class OutilsMagasinUtilisesManager
 	public static function update(OutilsMagasinUtilises $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("UPDATE amb_Outilsmagasinutilises SET idOutilsMagasinUtilises=:idOutilsMagasinUtilises,idActivite=:idActivite,idOutilMagasin=:idOutilMagasin,quantiteOutilsMagasin=:quantiteOutilsMagasin WHERE idOutilsMagasinUtilises=:idOutilsMagasinUtilises");
+		$q=$db->prepare("UPDATE amb_outilsmagasinutilises SET idOutilsMagasinUtilises=:idOutilsMagasinUtilises,idActivite=:idActivite,idOutilMagasin=:idOutilMagasin,quantiteOutilsMagasin=:quantiteOutilsMagasin WHERE idOutilsMagasinUtilises=:idOutilsMagasinUtilises");
 		$q->bindValue(":idOutilsMagasinUtilises", $obj->getIdOutilsMagasinUtilises());
 		$q->bindValue(":idActivite", $obj->getIdActivite());
 		$q->bindValue(":idOutilMagasin", $obj->getIdOutilMagasin());
@@ -25,13 +25,13 @@ class OutilsMagasinUtilisesManager
 	public static function delete(OutilsMagasinUtilises $obj)
 	{
  		$db=DbConnect::getDb();
-		$db->exec("DELETE from amb_Outilsmagasinutilises WHERE idOutilsMagasinUtilises=" .$obj->getIdOutilsMagasinUtilises());
+		$db->exec("DELETE from amb_outilsmagasinutilises WHERE idOutilsMagasinUtilises=" .$obj->getIdOutilsMagasinUtilises());
 	}
 	public static function findById($id)
 	{
  		$db=DbConnect::getDb();
 		$id = (int) $id;
-		$q=$db->query("SELECT * from amb_Outilsmagasinutilises WHERE idOutilsMagasinUtilises =".$id);
+		$q=$db->query("SELECT * from amb_outilsmagasinutilises WHERE idOutilsMagasinUtilises =".$id);
 		$results = $q->fetch(PDO::FETCH_ASSOC);
 		if($results != false)
 		{
@@ -46,7 +46,7 @@ class OutilsMagasinUtilisesManager
 	{
  		$db=DbConnect::getDb();
 		$liste = [];
-		$q = $db->query("SELECT * from amb_Outilsmagasinutilises");
+		$q = $db->query("SELECT * from amb_outilsmagasinutilises");
 		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
 		{
 			if($donnees != false)

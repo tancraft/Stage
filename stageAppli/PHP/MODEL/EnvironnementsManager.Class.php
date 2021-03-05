@@ -5,7 +5,7 @@ class EnvironnementsManager
 	public static function add(Environnements $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("INSERT INTO amb_Environnements (typeEnv) VALUES (:typeEnv)");
+		$q=$db->prepare("INSERT INTO amb_environnements (typeEnv) VALUES (:typeEnv)");
 		$q->bindValue(":typeEnv", $obj->getTypeEnv());
 		$q->execute();
 	}
@@ -13,7 +13,7 @@ class EnvironnementsManager
 	public static function update(Environnements $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("UPDATE amb_Environnements SET idEnv=:idEnv,typeEnv=:typeEnv WHERE idEnv=:idEnv");
+		$q=$db->prepare("UPDATE amb_environnements SET idEnv=:idEnv,typeEnv=:typeEnv WHERE idEnv=:idEnv");
 		$q->bindValue(":idEnv", $obj->getIdEnv());
 		$q->bindValue(":typeEnv", $obj->getTypeEnv());
 		$q->execute();
@@ -21,13 +21,13 @@ class EnvironnementsManager
 	public static function delete(Environnements $obj)
 	{
  		$db=DbConnect::getDb();
-		$db->exec("DELETE from amb_Environnements WHERE idEnv=" .$obj->getIdEnv());
+		$db->exec("DELETE from amb_environnements WHERE idEnv=" .$obj->getIdEnv());
 	}
 	public static function findById($id)
 	{
  		$db=DbConnect::getDb();
 		$id = (int) $id;
-		$q=$db->query("SELECT * from amb_Environnements WHERE idEnv =".$id);
+		$q=$db->query("SELECT * from amb_environnements WHERE idEnv =".$id);
 		$results = $q->fetch(PDO::FETCH_ASSOC);
 		if($results != false)
 		{
@@ -42,7 +42,7 @@ class EnvironnementsManager
 	{
  		$db=DbConnect::getDb();
 		$liste = [];
-		$q = $db->query("SELECT * from amb_Environnements");
+		$q = $db->query("SELECT * from amb_environnements");
 		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
 		{
 			if($donnees != false)

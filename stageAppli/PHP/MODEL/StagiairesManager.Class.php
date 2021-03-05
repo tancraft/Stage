@@ -5,7 +5,7 @@ class StagiairesManager
 	public static function add(Stagiaires $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("INSERT INTO amb_Stagiaires (dateDebutFormation,dateFinFormation,numeroBeneficiaire,idOffre) VALUES (:dateDebutFormation,:dateFinFormation,:numeroBeneficiaire,:idOffre)");
+		$q=$db->prepare("INSERT INTO amb_stagiaires (dateDebutFormation,dateFinFormation,numeroBeneficiaire,idOffre) VALUES (:dateDebutFormation,:dateFinFormation,:numeroBeneficiaire,:idOffre)");
 		$q->bindValue(":dateDebutFormation", $obj->getDateDebutFormation());
 		$q->bindValue(":dateFinFormation", $obj->getDateFinFormation());
 		$q->bindValue(":numeroBeneficiaire", $obj->getNumeroBeneficiaire());
@@ -16,7 +16,7 @@ class StagiairesManager
 	public static function update(Stagiaires $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("UPDATE amb_Stagiaires SET idUser=:idUser,dateDebutFormation=:dateDebutFormation,dateFinFormation=:dateFinFormation,numeroBeneficiaire=:numeroBeneficiaire,idOffre=:idOffre WHERE idUser=:idUser");
+		$q=$db->prepare("UPDATE amb_stagiaires SET idUser=:idUser,dateDebutFormation=:dateDebutFormation,dateFinFormation=:dateFinFormation,numeroBeneficiaire=:numeroBeneficiaire,idOffre=:idOffre WHERE idUser=:idUser");
 		$q->bindValue(":idUser", $obj->getIdUser());
 		$q->bindValue(":dateDebutFormation", $obj->getDateDebutFormation());
 		$q->bindValue(":dateFinFormation", $obj->getDateFinFormation());
@@ -27,13 +27,13 @@ class StagiairesManager
 	public static function delete(Stagiaires $obj)
 	{
  		$db=DbConnect::getDb();
-		$db->exec("DELETE from amb_Stagiaires WHERE idUser=" .$obj->getIdUser());
+		$db->exec("DELETE from amb_stagiaires WHERE idUser=" .$obj->getIdUser());
 	}
 	public static function findById($id)
 	{
  		$db=DbConnect::getDb();
 		$id = (int) $id;
-		$q=$db->query("SELECT * from amb_Stagiaires WHERE idUser =".$id);
+		$q=$db->query("SELECT * from amb_stagiaires WHERE idUser =".$id);
 		$results = $q->fetch(PDO::FETCH_ASSOC);
 		if($results != false)
 		{
@@ -48,7 +48,7 @@ class StagiairesManager
 	{
  		$db=DbConnect::getDb();
 		$liste = [];
-		$q = $db->query("SELECT * from amb_Stagiaires");
+		$q = $db->query("SELECT * from amb_stagiaires");
 		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
 		{
 			if($donnees != false)

@@ -5,7 +5,7 @@ class FichesInterventionsManager
 	public static function add(FichesInterventions $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("INSERT INTO amb_Fichesinterventions (dateDemande,demandeur,descriptionDemande,statutDemande,validation,appreciation,idUser,idLieu,idOperation,idDegreUrgence) VALUES (:dateDemande,:demandeur,:descriptionDemande,:statutDemande,:validation,:appreciation,:idUser,:idLieu,:idOperation,:idDegreUrgence)");
+		$q=$db->prepare("INSERT INTO amb_fichesinterventions (dateDemande,demandeur,descriptionDemande,statutDemande,validation,appreciation,idUser,idLieu,idOperation,idDegreUrgence) VALUES (:dateDemande,:demandeur,:descriptionDemande,:statutDemande,:validation,:appreciation,:idUser,:idLieu,:idOperation,:idDegreUrgence)");
 		$q->bindValue(":dateDemande", $obj->getDateDemande());
 		$q->bindValue(":demandeur", $obj->getDemandeur());
 		$q->bindValue(":descriptionDemande", $obj->getDescriptionDemande());
@@ -22,7 +22,7 @@ class FichesInterventionsManager
 	public static function update(FichesInterventions $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("UPDATE amb_Fichesinterventions SET idFicheIntervention=:idFicheIntervention,dateDemande=:dateDemande,demandeur=:demandeur,descriptionDemande=:descriptionDemande,statutDemande=:statutDemande,validation=:validation,appreciation=:appreciation,idUser=:idUser,idLieu=:idLieu,idOperation=:idOperation,idDegreUrgence=:idDegreUrgence WHERE idFicheIntervention=:idFicheIntervention");
+		$q=$db->prepare("UPDATE amb_fichesinterventions SET idFicheIntervention=:idFicheIntervention,dateDemande=:dateDemande,demandeur=:demandeur,descriptionDemande=:descriptionDemande,statutDemande=:statutDemande,validation=:validation,appreciation=:appreciation,idUser=:idUser,idLieu=:idLieu,idOperation=:idOperation,idDegreUrgence=:idDegreUrgence WHERE idFicheIntervention=:idFicheIntervention");
 		$q->bindValue(":idFicheIntervention", $obj->getIdFicheIntervention());
 		$q->bindValue(":dateDemande", $obj->getDateDemande());
 		$q->bindValue(":demandeur", $obj->getDemandeur());
@@ -39,13 +39,13 @@ class FichesInterventionsManager
 	public static function delete(FichesInterventions $obj)
 	{
  		$db=DbConnect::getDb();
-		$db->exec("DELETE from amb_Fichesinterventions WHERE idFicheIntervention=" .$obj->getIdFicheIntervention());
+		$db->exec("DELETE from amb_fichesinterventions WHERE idFicheIntervention=" .$obj->getIdFicheIntervention());
 	}
 	public static function findById($id)
 	{
  		$db=DbConnect::getDb();
 		$id = (int) $id;
-		$q=$db->query("SELECT * from amb_Fichesinterventions WHERE idFicheIntervention =".$id);
+		$q=$db->query("SELECT * from amb_fichesinterventions WHERE idFicheIntervention =".$id);
 		$results = $q->fetch(PDO::FETCH_ASSOC);
 		if($results != false)
 		{
@@ -60,7 +60,7 @@ class FichesInterventionsManager
 	{
  		$db=DbConnect::getDb();
 		$liste = [];
-		$q = $db->query("SELECT * from amb_Fichesinterventions");
+		$q = $db->query("SELECT * from amb_fichesinterventions");
 		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
 		{
 			if($donnees != false)

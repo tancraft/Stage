@@ -128,4 +128,38 @@
 // var_dump($pSupp);
 // UtilisateursManager::delete($pSupp);
 
+/****** Test de OutilsCaisseManager ******/
 
+//On affiche le liste des outils par formateur
+// echo 'On affiche le liste des outils par formateur <br>';
+// $tableau=OutilsCaisseManager::getOutilsCaisseByFormateur(3);
+// var_dump($tableau);
+
+//On affiche le liste des objets
+// echo 'On affiche la liste des objet <br>';
+// $tableau=OutilsCaisseManager::getList();
+// var_dump($tableau);
+
+/****** Test de OutilsMagasin ******/
+
+//On affiche le liste des outils par formateur
+// echo 'On affiche le liste des outils par formateur <br>';
+// $tableau=OutilsMagasinManager::getOutilsMagasinByFormateur(2);
+// var_dump($tableau);
+
+//On affiche le liste des objets
+// echo 'On affiche la liste des objet <br>';
+// $tableau=OutilsMagasinManager::getList();
+// var_dump($tableau);
+
+/****** Test des materiaux ******/
+
+//On affiche le liste des materiaux par formateur
+// echo 'On affiche le liste des outils par formateur <br>';
+// $tableau=OutilsMagasinManager::getOutilsMagasinByFormateur(3);
+// var_dump($tableau);
+
+//On affiche le liste des objets
+// echo 'On affiche la liste des objet <br>';
+// $tableau=OutilsMagasinManager::getList();
+// var_dump($tableau);

@@ -5,7 +5,7 @@ class TexteManager
 	public static function add(Texte $obj)
 	{
 		$db=DbConnect::getDb();
-		$q=$db->prepare("INSERT INTO amb_Texte (codeTexte,codeLangue,Texte) VALUES (:codeTexte,:codeLangue,:texte)");
+		$q=$db->prepare("INSERT INTO amb_texte (codeTexte,codeLangue,Texte) VALUES (:codeTexte,:codeLangue,:texte)");
 		$q->bindValue(":codeTexte", $obj->getCodeTexte());
 		$q->bindValue(":codeLangue", $obj->getCodeLangue());
 		$q->bindValue(":texte", $obj->getTexte());
@@ -14,7 +14,7 @@ class TexteManager
 	public static function update(Texte $obj)
 	{
 		$db=DbConnect::getDb();
-		$q=$db->prepare("UPDATE amb_Texte SET idTexte=:idTexte,codeTexte=:codeTexte,codeLangue=:codeLangue,texte=:texte WHERE idTexte=:idTexte");
+		$q=$db->prepare("UPDATE amb_texte SET idTexte=:idTexte,codeTexte=:codeTexte,codeLangue=:codeLangue,texte=:texte WHERE idTexte=:idTexte");
 		$q->bindValue(":idTexte", $obj->getIdTexte());
 		$q->bindValue(":codeTexte", $obj->getCodeTexte());
 		$q->bindValue(":codeLangue", $obj->getCodeLangue());
@@ -25,7 +25,7 @@ class TexteManager
 	public static function delete(Texte $obj)
 	{
 		$db=DbConnect::getDb();
-		$q=$db->prepare("UPDATE amb_Texte SET idTexte=:idTexte,codeTexte=:codeTexte,codeLangue=:codeLangue,texte=:texte WHERE idTexte=:idTexte");
+		$q=$db->prepare("UPDATE amb_texte SET idTexte=:idTexte,codeTexte=:codeTexte,codeLangue=:codeLangue,texte=:texte WHERE idTexte=:idTexte");
 		$db->exec("DELETE from amb_Texte WHERE idTexte=" .$obj->getIdTexte());
 	}
 
@@ -33,7 +33,7 @@ class TexteManager
 	{
 		$db=DbConnect::getDb();
 		$id = (int) $id;
-		$q=$db->query("SELECT * from amb_Texte WHERE idTexte =".$id);
+		$q=$db->query("SELECT * from amb_texte WHERE idTexte =".$id);
 		$results = $q->fetch(PDO::FETCH_ASSOC);
 		if($results != false)
 		{
@@ -50,7 +50,7 @@ class TexteManager
 	{
 		$db=DbConnect::getDb();
 		$liste = [];
-		$q = $db->query("SELECT * from amb_Texte");
+		$q = $db->query("SELECT * from amb_texte");
 		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
 		{
 			if($donnees != false)
@@ -65,7 +65,7 @@ class TexteManager
 
 	{
 		$db=DbConnect::getDb();
-		$q=$db->prepare("SELECT texte from amb_Traductions WHERE codeTexte =:codeTexte and codeLangue = :codeLangue");
+		$q=$db->prepare("SELECT texte from amb_traductions WHERE codeTexte =:codeTexte and codeLangue = :codeLangue");
 		$q->bindValue(":codeTexte", $codeTexte,PDO::PARAM_STR);
 		$q->bindValue(":codeLangue", $codeLangue,PDO::PARAM_STR);
 		$q->execute();
