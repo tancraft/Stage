@@ -163,3 +163,15 @@
 // echo 'On affiche la liste des objet <br>';
 // $tableau=OutilsMagasinManager::getList();
 // var_dump($tableau);
+
+/****** OperationsManager ******/
+
+//On affiche le liste des operations par mesm
+// echo 'On affiche le liste des operations par mesm <br>';
+// $tableau=OperationsManager::getListeOperationByMesm(3);
+// var_dump($tableau);
+
+//On affiche le liste des operations
+// echo 'On affiche la liste des operations <br>';
+// $tableau=OperationsManager::getList();
+// var_dump($tableau);

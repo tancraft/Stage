@@ -58,4 +58,18 @@ class OperationsManager
 		}
 		return $liste;
 	}
+	public static function getListeOperationByMesm($mesm)
+	{
+ 		$db=DbConnect::getDb();
+		$liste = [];
+		$q = $db->query("SELECT * from amb_operations where idMesm = ".$mesm." ORDER BY numeroOperation, intituleOperation");
+		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+		{
+			if($donnees != false)
+			{
+				$liste[] = new Operations($donnees) ;
+			}
+		}
+		return $liste;
+	}
 }

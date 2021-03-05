@@ -19,9 +19,9 @@ get outils magasin utiliser by formateur
 get outilcaisse utiliser by formateur
 get materiaux utiliser by formateur
 
-get list operation by mesm
+get list operation by mesm ok
 
-get list mesm by bloc comp
+get list mesm by bloc comp ok
 
 get lieu by environnement
 
