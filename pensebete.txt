@@ -44,3 +44,11 @@ corriger index ok
 select
 
 sur code select ajouter param attribut et libelle deja fait par martine
+
+code couleur 
+
+rouge pas commencer 
+orange stagiaire a pris en compte la fiche
+vert realiser et envoyer formateur
+
+pictogramme croix ou coche dans cercle si reussi ou non
