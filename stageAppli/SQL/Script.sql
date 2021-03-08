@@ -234,7 +234,7 @@ CREATE TABLE amb_activites(
         dateIntervention    Date NOT NULL ,
         dateDebutItv        Datetime NOT NULL ,
         dateFinItv          Datetime NOT NULL ,
-        dureeItv            Datetime NOT NULL ,
+        dureeItv            TIME NOT NULL ,
         travauxRealises     Text NOT NULL ,
         travauxNonRealises  Text NOT NULL ,
         observations        Text NOT NULL ,
