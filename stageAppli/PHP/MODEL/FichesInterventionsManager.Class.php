@@ -70,4 +70,18 @@ class FichesInterventionsManager
 		}
 		return $liste;
 	}
+	public static function getFicheByOperation($idOperation)
+	{
+ 		$db=DbConnect::getDb();
+		$liste = [];
+		$q = $db->query("SELECT * from amb_fichesinterventions where idOperation = ".$idOperation);
+		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+		{
+			if($donnees != false)
+			{
+				$liste[] = new FichesInterventions($donnees) ;
+			}
+		}
+		return $liste;
+	}
 }

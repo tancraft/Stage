@@ -484,6 +484,7 @@ INNER JOIN amb_blocsCompetences AS bc ON m.idBlocComp=bc.idBlocComp;
 
 CREATE VIEW  ficheActivite as
 SELECT
+
     ac.idActivite,
     ac.dateIntervention,
     ac.dateDebutItv,
@@ -533,3 +534,4 @@ LEFT JOIN  amb_outilsCaisseUtilises AS uticai ON uticai.idActivite= ac.idActivit
 INNER JOIN amb_OutilsCaisse AS oucai ON uticai.idOutilCaisse= oucai.idOutilCaisse
 LEFT JOIN  amb_outilsMagasinUtilises AS utimag ON utimag.idActivite= ac.idActivite
 INNER JOIN amb_outilsMagasin AS oumag ON utimag.idOutilMagasin= oumag.idOutilMagasin;
+

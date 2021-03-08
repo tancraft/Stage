@@ -31,11 +31,11 @@ get stagiaire by offre ok
 
 get formateur by offre ok
 
-get fiche by operation
+get fiche by operation ok
 
-get activite by fiche
+get activite by fiche ok
 
-get stagiaire by fiche
+get stagiaire by fiche ok
 
 corriger index ok
 

@@ -70,4 +70,18 @@ class ActivitesManager
 		}
 		return $liste;
 	}
+	public static function getActiviteByFiche($idFiche)
+	{
+ 		$db=DbConnect::getDb();
+		$liste = [];
+		$q = $db->query("SELECT * from amb_activites where idFicheIntervention = ".$idFiche);
+		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+		{
+			if($donnees != false)
+			{
+				$liste[] = new Activites($donnees) ;
+			}
+		}
+		return $liste;
+	}
 }

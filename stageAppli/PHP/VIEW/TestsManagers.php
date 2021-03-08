@@ -217,3 +217,39 @@
 // $tableau=StagiairesManager::getList();
 // var_dump($tableau);
 
+
+/****** operation ******/
+
+// on affiche la liste des fiche par operation
+// echo 'on affiche la liste des fiche par operation <br>';
+// $tableau=FichesInterventionsManager::getFicheByOperation(51);
+// var_dump($tableau);
+
+//On affiche le liste des stagiaires
+// echo 'On affiche le liste des lieux <br>';
+// $tableau=FichesInterventionsManager::getList();
+// var_dump($tableau);
+
+/****** fiches ******/
+
+// on affiche la liste des activites par fiche
+// echo 'on affiche la liste des activites par fiche <br>';
+// $tableau=ActivitesManager::getActiviteByFiche(3);
+// var_dump($tableau);
+
+//On affiche le liste des stagiaires
+// echo 'On affiche le liste des lieux <br>';
+// $tableau=ActivitesManager::getList();
+// var_dump($tableau);
+
+/****** stagiaire fiche ******/
+
+// on affiche la liste des stagiaires par fiche
+echo 'on affiche la liste des stagiaires par fiche <br>';
+$tableau=StagiairesFichesInterventionsManager::getStagiaireByFiche(2);
+var_dump($tableau);
+
+//On affiche le liste des stagiaire et des fiches
+// echo 'On affiche le liste des lieux <br>';
+// $tableau=StagiairesFichesInterventionsManager::getList();
+// var_dump($tableau);

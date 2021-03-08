@@ -54,4 +54,5 @@ class StagiairesAffectesManager
 		}
 		return $liste;
 	}
+
 }
