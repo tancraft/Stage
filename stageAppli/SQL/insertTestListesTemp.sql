@@ -9,6 +9,20 @@ SELECT numeroOperation, intituleOperation, schemaOperation, idMesm FROM amb_oper
 
 --insert des operations
 
+INSERT INTO amb_environnements(idEnv, typeEnv) VALUES (NULL,"Atelier");
+INSERT INTO amb_environnements(idEnv, typeEnv) VALUES (NULL,"Centre");
+
+INSERT INTO amb_lieux(idLieu, nomLieu, idEnv) VALUES (NULL,"cabine 1",1);
+INSERT INTO amb_lieux(idLieu, nomLieu, idEnv) VALUES (NULL,"cabine 2",1);
+INSERT INTO amb_lieux(idLieu, nomLieu, idEnv) VALUES (NULL,"maquette 1",1);
+INSERT INTO amb_lieux(idLieu, nomLieu, idEnv) VALUES (NULL,"maquette 2",1);
+INSERT INTO amb_lieux(idLieu, nomLieu, idEnv) VALUES (NULL,"Bat 1-RDC-salle 1",2);
+INSERT INTO amb_lieux(idLieu, nomLieu, idEnv) VALUES (NULL,"BAT 2-RDC-salle 2",2);
+INSERT INTO amb_lieux(idLieu, nomLieu, idEnv) VALUES (NULL,"secreteriat Bureau 1",2);
+INSERT INTO amb_lieux(idLieu, nomLieu, idEnv) VALUES (NULL,"chaufferie",2);
+INSERT INTO amb_lieux(idLieu, nomLieu, idEnv) VALUES (NULL,"foyer-RDC-Chambre 1",2);
+INSERT INTO amb_lieux(idLieu, nomLieu, idEnv) VALUES (NULL,"foyer-RDC-Chambre 2",2);
+
 INSERT INTO amb_roles(idRole, libelleRole) VALUES (NULL,"Administrateur");
 INSERT INTO amb_roles(idRole, libelleRole) VALUES (NULL,"Formateur référent");
 INSERT INTO amb_roles(idRole, libelleRole) VALUES (NULL,"Formateur suppleant");
@@ -91,9 +105,6 @@ INSERT INTO amb_operations(idOperation, numeroOperation, intituleOperation, sche
 INSERT INTO amb_operations(idOperation, numeroOperation, intituleOperation, schemaOperation, idMesm) VALUES (NULL,"3.03.02","Rechercher l'origine et résoudre un dysfonctionnement d'un réseau EF/EC","image 50",10);
 INSERT INTO amb_operations(idOperation, numeroOperation, intituleOperation, schemaOperation, idMesm) VALUES (NULL,"3.03.03","Rechercher l'origine et résoudre un dysfonctionnement d'un appareil sanitaire","image 51",10);
 INSERT INTO amb_operations(idOperation, numeroOperation, intituleOperation, schemaOperation, idMesm) VALUES (NULL,"3.03.04","Rechercher l'origine et résoudre un dysfonctionnement d'un équipement terminal CVC","image 52",10);
-
-INSERT INTO amb_formateurs(idUser, matriculeFormateur, typeContrat, dateDebutContrat, dateFinContrat) VALUES (2,"7654321","CDI","2010-07-05",NULL);
-
 
 INSERT INTO amb_outilscaisse(idOutilCaisse, nomOutilCaisse, nbOutilCaisse, idUser) VALUES (NULL,"Fontaine de nettoyage pour brosses et rouleaux",4,2);
 INSERT INTO amb_outilscaisse(idOutilCaisse, nomOutilCaisse, nbOutilCaisse, idUser) VALUES (NULL,"Perforateur électrique + jeu de forets béton",5,2);

@@ -175,3 +175,15 @@
 // echo 'On affiche la liste des operations <br>';
 // $tableau=OperationsManager::getList();
 // var_dump($tableau);
+
+/****** LieuxManager ******/
+
+//On affiche le liste des operations par mesm
+// echo 'On affiche le liste des operations par mesm <br>';
+// $tableau=LieuxManager::getLieuByEnvironnement(2);
+// var_dump($tableau);
+
+//On affiche le liste des operations
+// echo 'On affiche la liste des operations <br>';
+// $tableau=LieuxManager::getList();
+// var_dump($tableau);

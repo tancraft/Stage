@@ -54,4 +54,18 @@ class LieuxManager
 		}
 		return $liste;
 	}
+	public static function getLieuByEnvironnement($env)
+	{
+ 		$db=DbConnect::getDb();
+		$liste = [];
+		$q = $db->query("SELECT * from amb_lieux where idEnv = ".$env);
+		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+		{
+			if($donnees != false)
+			{
+				$liste[] = new Lieux($donnees) ;
+			}
+		}
+		return $liste;
+	}
 }

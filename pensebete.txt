@@ -23,7 +23,7 @@ get list operation by mesm ok
 
 get list mesm by bloc comp ok
 
-get lieu by environnement
+get lieu by environnement ok
 
 get offre by formateur
 
