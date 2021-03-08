@@ -28,9 +28,34 @@ INSERT INTO amb_roles(idRole, libelleRole) VALUES (NULL,"Formateur référent");
 INSERT INTO amb_roles(idRole, libelleRole) VALUES (NULL,"Formateur suppleant");
 INSERT INTO amb_roles(idRole, libelleRole) VALUES (NULL,"Stagiaire");
 
+INSERT INTO amb_degresurgence(idDegreUrgence, libelleDegreUrgence) VALUES (NULL,"Immédiate");
+INSERT INTO amb_degresurgence(idDegreUrgence, libelleDegreUrgence) VALUES (NULL,"Urgente");
+INSERT INTO amb_degresurgence(idDegreUrgence, libelleDegreUrgence) VALUES (NULL,"Rapide");
+INSERT INTO amb_degresurgence(idDegreUrgence, libelleDegreUrgence) VALUES (NULL,"Normal");
+
+INSERT INTO amb_actions(idAction, numeroAction, libelleAction) VALUES (NULL,1,"Remplacement");
+INSERT INTO amb_actions(idAction, numeroAction, libelleAction) VALUES (NULL,2,"Réglage");
+INSERT INTO amb_actions(idAction, numeroAction, libelleAction) VALUES (NULL,3,"Nettoyage");
+INSERT INTO amb_actions(idAction, numeroAction, libelleAction) VALUES (NULL,4,"Dépannage");
+INSERT INTO amb_actions(idAction, numeroAction, libelleAction) VALUES (NULL,5,"Réparation");
+INSERT INTO amb_actions(idAction, numeroAction, libelleAction) VALUES (NULL,6,"Amélioration");
+INSERT INTO amb_actions(idAction, numeroAction, libelleAction) VALUES (NULL,7,"Contrôle");
+
+INSERT INTO amb_causes(idCause, numeroCause, libelleCause) VALUES (NULL,1,"Usure");
+INSERT INTO amb_causes(idCause, numeroCause, libelleCause) VALUES (NULL,2,"Détérioration");
+INSERT INTO amb_causes(idCause, numeroCause, libelleCause) VALUES (NULL,3,"Manque d'entretien");
+INSERT INTO amb_causes(idCause, numeroCause, libelleCause) VALUES (NULL,4,"Contrôle de routine");
+
+INSERT INTO amb_typesmaintenances(idTypeMaint, numeroTypeMaint, libelleTypeMaint) VALUES (NULL,1,"améliorative");
+INSERT INTO amb_typesmaintenances(idTypeMaint, numeroTypeMaint, libelleTypeMaint) VALUES (NULL,2,"Préventive");
+INSERT INTO amb_typesmaintenances(idTypeMaint, numeroTypeMaint, libelleTypeMaint) VALUES (NULL,3,"Corrective");
+
 INSERT INTO amb_utilisateurs (idUser, nomUser, prenomUser, telUser, emailUser, mdpUser, idRole) VALUES (NULL,"admin","admin","0745821463","admin@gmail.com","admin1*",1);
 INSERT INTO amb_utilisateurs (idUser, nomUser, prenomUser, telUser, emailUser, mdpUser, idRole) VALUES (NULL,"formateur1","formateur1","0614247894","formateur1@gmail.com","Formateur1*",2);
 INSERT INTO amb_utilisateurs (idUser, nomUser, prenomUser, telUser, emailUser, mdpUser, idRole) VALUES (NULL,"formateur2","formateur2","0240528471","formateur2@gmail.com","Formateur2*",3);
+INSERT INTO amb_utilisateurs (idUser, nomUser, prenomUser, telUser, emailUser, mdpUser, idRole) VALUES (NULL,"Stagiaire1","Stagiaire1","0614247894","Stagiaire1@gmail.com","Stagiaire1*",4);
+INSERT INTO amb_utilisateurs (idUser, nomUser, prenomUser, telUser, emailUser, mdpUser, idRole) VALUES (NULL,"Stagiaire2","Stagiaire2","0240528471","Stagiaire2@gmail.com","Stagiaire2*",4);
+INSERT INTO amb_utilisateurs (idUser, nomUser, prenomUser, telUser, emailUser, mdpUser, idRole) VALUES (NULL,"Stagiaire3","Stagiaire3","0240528471","Stagiaire3@gmail.com","Stagiaire3*",4);
 
 INSERT INTO amb_formateurs(idUser, matriculeFormateur, typeContrat, dateDebutContrat, dateFinContrat) VALUES (2,"7654321","CDI","2010-07-05",NULL);
 INSERT INTO amb_formateurs(idUser, matriculeFormateur, typeContrat, dateDebutContrat, dateFinContrat) VALUES (3,"8756312","CDD","2021-02-01","2021-08-01");
@@ -43,9 +68,14 @@ INSERT INTO amb_offres(idOffre, numeroOffre, dateDebutOffre, dateFinOffre) VALUE
 INSERT INTO amb_offres(idOffre, numeroOffre, dateDebutOffre, dateFinOffre) VALUES (NULL,"067892","2021-02-21","2021-08-21");
 INSERT INTO amb_offres(idOffre, numeroOffre, dateDebutOffre, dateFinOffre) VALUES (NULL,"043215","2021-03-10","2021-09-10");
 
+INSERT INTO amb_stagiaires(idUser, dateDebutFormation, dateFinFormation, numeroBeneficiaire, idOffre) VALUES (4,"2020-06-09","2020-12-09","1654321",1);
+INSERT INTO amb_stagiaires(idUser, dateDebutFormation, dateFinFormation, numeroBeneficiaire, idOffre) VALUES (5,"2021-2-21","2021-08-21","2234567",2);
+INSERT INTO amb_stagiaires(idUser, dateDebutFormation, dateFinFormation, numeroBeneficiaire, idOffre) VALUES (6,"2021-02-24","2021-08-21","3546123",2);
+
 INSERT INTO amb_animation(idAnimation, idOffre, idUser) VALUES (NULL,1,2);
 INSERT INTO amb_animation(idAnimation, idOffre, idUser) VALUES (NULL,2,2);
 INSERT INTO amb_animation(idAnimation, idOffre, idUser) VALUES (NULL,2,3);
+INSERT INTO amb_animation(idAnimation, idOffre, idUser) VALUES (NULL,3,3);
 
 
 INSERT INTO amb_mesm(idMesm, numeroMesm, libelleMesm, idBlocComp) VALUES (NULL,"1.01","Effectuer la maintenance améliorative courante des aménagements intérieurs d’un bâtiment",1);
@@ -129,3 +159,40 @@ INSERT INTO amb_materiaux(idMateriel, nomMateriel, nbDispo, idUser) VALUES (NULL
 INSERT INTO amb_materiaux(idMateriel, nomMateriel, nbDispo, idUser) VALUES (NULL,"Bande à joint - 10 ml",1,2);
 INSERT INTO amb_materiaux(idMateriel, nomMateriel, nbDispo, idUser) VALUES (NULL,"Bande à joint - 10 ml",0,3);
 INSERT INTO amb_materiaux(idMateriel, nomMateriel, nbDispo, idUser) VALUES (NULL,"Bande à joint - 10 ml",4,NULL);
+
+INSERT INTO amb_fichesinterventions(idFicheIntervention, dateDemande, demandeur, telDemandeur, descriptionDemande, statutDemande, validation, appreciation, idUser, idLieu, idOperation, idDegreUrgence) VALUES (NULL,"2020-07-08","Formateur référent","0614247894","Fuite sur le WC Disponibilité de la maquette de 14h00 à 17h00",2,true,"terminer avec succes",2,6,51,1);
+INSERT INTO amb_fichesinterventions(idFicheIntervention, dateDemande, demandeur, telDemandeur, descriptionDemande, statutDemande, validation, appreciation, idUser, idLieu, idOperation, idDegreUrgence) VALUES (NULL,"2021-04-06","Formateur référent","0614225832","ampoule grillée",3,NULL,"",2,1,37,2);
+INSERT INTO amb_fichesinterventions(idFicheIntervention, dateDemande, demandeur, telDemandeur, descriptionDemande, statutDemande, validation, appreciation, idUser, idLieu, idOperation, idDegreUrgence) VALUES (NULL,"2021-05-08","toto","0714225832","chaise cassée",3,NULL,"",3,1,37,3);
+
+INSERT INTO amb_stagiairesaffectes(idStagiairesAffectes, idUser, idFicheIntervention) VALUES (NULL,4,1);
+INSERT INTO amb_stagiairesaffectes(idStagiairesAffectes, idUser, idFicheIntervention) VALUES (NULL,5,2);
+INSERT INTO amb_stagiairesaffectes(idStagiairesAffectes, idUser, idFicheIntervention) VALUES (NULL,6,2);
+
+INSERT INTO amb_activites(idActivite, dateIntervention, dateDebutItv, dateFinItv, dureeItv, travauxRealises, travauxNonRealises, observations, idMesm, idTypeMaint, idFicheIntervention) VALUES (NULL,"2020-07-09","2020-07-09T09:00:00","2020-07-09T10:00:00","2020-07-09T01:00:00","Changement du joint du robinet équerre d'arrivée d'eau","","Après détection de la fuite sur le robinet équerre d'arrivée d'eau du WC, j'ai remplacé le joint sans difficulté. Après vérification, il n'y a plus de fuite.",10,3,1);
+INSERT INTO amb_activites(idActivite, dateIntervention, dateDebutItv, dateFinItv, dureeItv, travauxRealises, travauxNonRealises, observations, idMesm, idTypeMaint, idFicheIntervention) VALUES (NULL,"2021-04-06","2021-04-07T09:30:00","2021-04-07T10:30:00","2021-04-07T01:00:00","","ampoule non changer ","il ny a plus d ampoules en stocks. ",5,3,2);
+INSERT INTO amb_activites(idActivite, dateIntervention, dateDebutItv, dateFinItv, dureeItv, travauxRealises, travauxNonRealises, observations, idMesm, idTypeMaint, idFicheIntervention) VALUES (NULL,"2021-05-16","2021-05-16T13:30:00","2021-05-16T16:30:00","2021-05-16T3:00:00","chaise reparee. ","","il m a fallu emmener a l'atelier. ",4,3,3);
+
+INSERT INTO amb_actionscorrespondantes(idActionsCorrespondantes, idAction, idActivite) VALUES (NULL,4,1);
+INSERT INTO amb_actionscorrespondantes(idActionsCorrespondantes, idAction, idActivite) VALUES (NULL,5,2);
+INSERT INTO amb_actionscorrespondantes(idActionsCorrespondantes, idAction, idActivite) VALUES (NULL,5,3);
+
+INSERT INTO amb_causesliees(idCausesLiees, idActivite, idCause) VALUES (NULL,1,2);
+INSERT INTO amb_causesliees(idCausesLiees, idActivite, idCause) VALUES (NULL,2,2);
+INSERT INTO amb_causesliees(idCausesLiees, idActivite, idCause) VALUES (NULL,3,3);
+
+INSERT INTO amb_materiauxutilises(idMateriauxUtilises, idActivite, idMateriel, quantiteMat) VALUES (NULL,1,2,3);
+INSERT INTO amb_materiauxutilises(idMateriauxUtilises, idActivite, idMateriel, quantiteMat) VALUES (NULL,1,3,2);
+INSERT INTO amb_materiauxutilises(idMateriauxUtilises, idActivite, idMateriel, quantiteMat) VALUES (NULL,2,1,3);
+INSERT INTO amb_materiauxutilises(idMateriauxUtilises, idActivite, idMateriel, quantiteMat) VALUES (NULL,2,4,2);
+INSERT INTO amb_materiauxutilises(idMateriauxUtilises, idActivite, idMateriel, quantiteMat) VALUES (NULL,3,5,1);
+
+INSERT INTO amb_outilscaisseutilises(idOutilsCaisseUtilises, idActivite, idOutilCaisse, quantiteOutilsCaisse) VALUES (NULL,1,2,1);
+INSERT INTO amb_outilscaisseutilises(idOutilsCaisseUtilises, idActivite, idOutilCaisse, quantiteOutilsCaisse) VALUES (NULL,1,4,2);
+INSERT INTO amb_outilscaisseutilises(idOutilsCaisseUtilises, idActivite, idOutilCaisse, quantiteOutilsCaisse) VALUES (NULL,2,3,5);
+INSERT INTO amb_outilscaisseutilises(idOutilsCaisseUtilises, idActivite, idOutilCaisse, quantiteOutilsCaisse) VALUES (NULL,3,1,2);
+INSERT INTO amb_outilscaisseutilises(idOutilsCaisseUtilises, idActivite, idOutilCaisse, quantiteOutilsCaisse) VALUES (NULL,3,2,3);
+
+INSERT INTO amb_outilsmagasinutilises(idOutilsMagasinUtilises, idActivite, idOutilMagasin, quantiteOutilsMagasin) VALUES (NULL,1,5,2);
+INSERT INTO amb_outilsmagasinutilises(idOutilsMagasinUtilises, idActivite, idOutilMagasin, quantiteOutilsMagasin) VALUES (NULL,2,2,3);
+INSERT INTO amb_outilsmagasinutilises(idOutilsMagasinUtilises, idActivite, idOutilMagasin, quantiteOutilsMagasin) VALUES (NULL,2,4,6);
+

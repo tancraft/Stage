@@ -190,12 +190,29 @@
 
 /****** OffresManager ******/
 
-//On affiche le liste des lieux par environnement
-// echo 'On affiche le liste des lieux par environnement <br>';
+//On affiche le liste des offres par formateur
+// echo 'On affiche le liste des offres par formateur <br>';
 // $tableau=OffresFormateursManager::getOffreByFormateur(3);
+// var_dump($tableau);
+
+//On affiche la liste des formateurs par offre
+// echo 'On affiche la liste des formateurs par offre <br>';
+// $tableau=OffresFormateursManager::getFormateurByOffre(2);
 // var_dump($tableau);
 
 //On affiche le liste des lieux
 // echo 'On affiche le liste des lieux <br>';
 // $tableau=OffresFormateursManager::getList();
+// var_dump($tableau);
+
+/****** Stagiaire ******/
+
+//'On affiche la liste des stagiaire par offre
+// echo 'On affiche la liste des stagiaire par offre <br>';
+// $tableau=StagiairesManager::getStagiaireByOffre(1);
+// var_dump($tableau);
+
+//On affiche le liste des stagiaires
+// echo 'On affiche le liste des lieux <br>';
+// $tableau=StagiairesManager::getList();
 // var_dump($tableau);

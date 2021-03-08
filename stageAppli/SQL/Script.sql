@@ -215,7 +215,7 @@ CREATE TABLE amb_fichesInterventions(
         telDemandeur           VARCHAR(20)  NOT NULL DEFAULT 'Formateur Référent',
         descriptionDemande  Text NOT NULL ,
         statutDemande       Int NOT NULL ,
-        validation          Bool NOT NULL ,
+        validation          Bool NULL   ,
         appreciation        Text NULL ,
         idUser              Int NOT NULL ,
         idLieu              Int NOT NULL ,

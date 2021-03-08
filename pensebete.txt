@@ -25,21 +25,21 @@ get list mesm by bloc comp ok
 
 get lieu by environnement ok
 
-get offre by formateur
+get offre by formateur ok
 
-get stagiaire by offre
+get stagiaire by offre ok
 
-get formateur by offre
-
-get activite by fiche
+get formateur by offre ok
 
 get fiche by operation
+
+get activite by fiche
 
 get stagiaire by fiche
 
 corriger index ok
 
-
+donnes exemples
 
 select
 
