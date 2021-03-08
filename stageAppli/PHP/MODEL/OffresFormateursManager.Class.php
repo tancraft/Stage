@@ -66,4 +66,20 @@ class OffresFormateursManager
 		}
 		return $liste;
 	}
+
+	public static function getOffreByFormateur($idFormateur)
+    {
+        $db = DbConnect::getDb();
+        $liste = [];
+        $idFormateur = (int) $idFormateur;
+        $q = $db->query("SELECT DISTINCT idOffre FROM amb_offresformateurs WHERE idUser = ".$idFormateur );
+        while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
+        {
+            if ($donnees != false)
+            {
+                $liste[] = AnimationManager::findById($donnees['idOffre']);
+            }
+        }
+        return $liste;
+    }
 }

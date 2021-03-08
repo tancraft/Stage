@@ -288,7 +288,7 @@ CREATE TABLE amb_outilsMagasin(
 #------------------------------------------------------------
 
 CREATE TABLE amb_animation(
-        idAnimation Int NOT NULL PRIMARY KEY,
+        idAnimation Int Auto_increment NOT NULL PRIMARY KEY,
         idOffre Int NOT NULL,
         idUser  Int NOT NULL
 
@@ -300,7 +300,7 @@ CREATE TABLE amb_animation(
 #------------------------------------------------------------
 
 CREATE TABLE amb_stagiairesAffectes(
-        idStagiairesAffectes           Int NOT NULL PRIMARY KEY,
+        idStagiairesAffectes           Int Auto_increment NOT NULL PRIMARY KEY,
         idUser              Int NOT NULL ,
         idFicheIntervention Int NOT NULL
 
@@ -312,7 +312,7 @@ CREATE TABLE amb_stagiairesAffectes(
 #------------------------------------------------------------
 
 CREATE TABLE amb_causesLiees(
-        idCausesLiees    Int NOT NULL PRIMARY KEY ,
+        idCausesLiees    Int Auto_increment NOT NULL PRIMARY KEY ,
         idActivite Int NOT NULL ,
         idCause    Int NOT NULL
 
@@ -324,7 +324,7 @@ CREATE TABLE amb_causesLiees(
 #------------------------------------------------------------
 
 CREATE TABLE amb_actionsCorrespondantes(
-        idActionsCorrespondantes  Int NOT NULL PRIMARY KEY ,   
+        idActionsCorrespondantes  Int Auto_increment NOT NULL PRIMARY KEY ,   
         idAction   Int NOT NULL ,
         idActivite Int NOT NULL
 
@@ -336,7 +336,7 @@ CREATE TABLE amb_actionsCorrespondantes(
 #------------------------------------------------------------
 
 CREATE TABLE amb_outilsCaisseUtilises(
-        idOutilsCaisseUtilises     Int NOT NULL  PRIMARY KEY,
+        idOutilsCaisseUtilises     Int Auto_increment NOT NULL  PRIMARY KEY,
         idActivite    Int NOT NULL ,
         idOutilCaisse       Int NOT NULL ,
         quantiteOutilsCaisse Int NOT NULL
@@ -348,7 +348,7 @@ CREATE TABLE amb_outilsCaisseUtilises(
 #------------------------------------------------------------
 
 CREATE TABLE amb_outilsMagasinUtilises(
-        idOutilsMagasinUtilises     Int NOT NULL  PRIMARY KEY,
+        idOutilsMagasinUtilises     Int Auto_increment NOT NULL  PRIMARY KEY,
         idActivite    Int NOT NULL ,
         idOutilMagasin       Int NOT NULL ,
         quantiteOutilsMagasin Int NOT NULL
@@ -360,7 +360,7 @@ CREATE TABLE amb_outilsMagasinUtilises(
 #------------------------------------------------------------
 
 CREATE TABLE amb_materiauxUtilises(
-        idMateriauxUtilises Int NOT NULL PRIMARY KEY,
+        idMateriauxUtilises Int Auto_increment NOT NULL PRIMARY KEY,
         idActivite  Int NOT NULL ,
         idMateriel  Int NOT NULL ,
         quantiteMat Int NOT NULL

@@ -39,6 +39,13 @@ INSERT INTO amb_blocscompetences(idBlocComp, numeroBlocComp, libelleBlocComp) VA
 INSERT INTO amb_blocscompetences(idBlocComp, numeroBlocComp, libelleBlocComp) VALUES (NULL,"2","Assurer la maintenance courante de l’installation et des équipements électriques d’un bâtiment");
 INSERT INTO amb_blocscompetences(idBlocComp, numeroBlocComp, libelleBlocComp) VALUES (NULL,"3","Assurer la maintenance courante de l’installation et des équipements thermiques et sanitaires d’un bâtiment");
 
+INSERT INTO amb_offres(idOffre, numeroOffre, dateDebutOffre, dateFinOffre) VALUES (NULL,"012345","2020-06-09","2020-12-09");
+INSERT INTO amb_offres(idOffre, numeroOffre, dateDebutOffre, dateFinOffre) VALUES (NULL,"067892","2021-02-21","2021-08-21");
+INSERT INTO amb_offres(idOffre, numeroOffre, dateDebutOffre, dateFinOffre) VALUES (NULL,"043215","2021-03-10","2021-09-10");
+
+INSERT INTO amb_animation(idAnimation, idOffre, idUser) VALUES (NULL,1,2);
+INSERT INTO amb_animation(idAnimation, idOffre, idUser) VALUES (NULL,2,2);
+INSERT INTO amb_animation(idAnimation, idOffre, idUser) VALUES (NULL,2,3);
 
 
 INSERT INTO amb_mesm(idMesm, numeroMesm, libelleMesm, idBlocComp) VALUES (NULL,"1.01","Effectuer la maintenance améliorative courante des aménagements intérieurs d’un bâtiment",1);

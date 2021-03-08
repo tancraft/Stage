@@ -56,5 +56,4 @@ class OffresManager
 		}
 		return $liste;
 	}
-	
 }

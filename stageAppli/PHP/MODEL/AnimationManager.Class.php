@@ -54,4 +54,5 @@ class AnimationManager
 		}
 		return $liste;
 	}
+
 }

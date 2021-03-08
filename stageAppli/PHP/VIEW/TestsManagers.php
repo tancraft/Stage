@@ -178,12 +178,24 @@
 
 /****** LieuxManager ******/
 
-//On affiche le liste des operations par mesm
+//On affiche le liste des lieux par environnement
 // echo 'On affiche le liste des operations par mesm <br>';
 // $tableau=LieuxManager::getLieuByEnvironnement(2);
 // var_dump($tableau);
 
-//On affiche le liste des operations
+//On affiche le liste des lieux
 // echo 'On affiche la liste des operations <br>';
 // $tableau=LieuxManager::getList();
+// var_dump($tableau);
+
+/****** OffresManager ******/
+
+//On affiche le liste des lieux par environnement
+// echo 'On affiche le liste des lieux par environnement <br>';
+// $tableau=OffresFormateursManager::getOffreByFormateur(3);
+// var_dump($tableau);
+
+//On affiche le liste des lieux
+// echo 'On affiche le liste des lieux <br>';
+// $tableau=OffresFormateursManager::getList();
 // var_dump($tableau);
