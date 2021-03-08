@@ -216,3 +216,4 @@
 // echo 'On affiche le liste des lieux <br>';
 // $tableau=StagiairesManager::getList();
 // var_dump($tableau);
+

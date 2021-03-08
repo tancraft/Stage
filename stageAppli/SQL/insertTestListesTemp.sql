@@ -1,14 +1,4 @@
 
--- ne pas utiliser il s agit de donnes de test pour mes listes
-
-SELECT numeroAction,libelleAction from amb_actions ORDER BY numeroAction,libelleAction;
-SELECT numeroCause, libelleCause from amb_causes ORDER BY numeroCause, libelleCause;
-SELECTnumeroOperation, intituleOperation, schemaOperation, idMesm FROM amb_operations ORDER BY intituleOperation, schemaOperation;
-SELECT numeroBlocComp, libelleBlocComp from amb_blocscompetences ORDER BY numeroBlocComp,libelleBlocComp;
-SELECT numeroOperation, intituleOperation, schemaOperation, idMesm FROM amb_operations ORDER BY numeroOperation, intituleOperation;
-
---insert des operations
-
 INSERT INTO amb_environnements(idEnv, typeEnv) VALUES (NULL,"Atelier");
 INSERT INTO amb_environnements(idEnv, typeEnv) VALUES (NULL,"Centre");
 
