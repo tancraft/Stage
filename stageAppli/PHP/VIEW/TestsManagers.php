@@ -245,9 +245,9 @@
 /****** stagiaire fiche ******/
 
 // on affiche la liste des stagiaires par fiche
-echo 'on affiche la liste des stagiaires par fiche <br>';
-$tableau=StagiairesFichesInterventionsManager::getStagiaireByFiche(2);
-var_dump($tableau);
+// echo 'on affiche la liste des stagiaires par fiche <br>';
+// $tableau=StagiairesFichesInterventionsManager::getStagiaireByFiche(2);
+// var_dump($tableau);
 
 //On affiche le liste des stagiaire et des fiches
 // echo 'On affiche le liste des lieux <br>';
