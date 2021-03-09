@@ -16,11 +16,11 @@ switch ($mode) {
                         break;
 
                     case "2":
-                        header("location: index.php?page=InterfaceFormateur");
+                        header("location: index.php?page=interfaceFormateur");
 
                         break;
                     case "3":
-                        header("location: index.php?page=FormFRStagiaire");
+                        header("location: index.php?page=interfaceStagiaire");
 
                         break;
                     default:
