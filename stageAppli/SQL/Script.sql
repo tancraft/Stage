@@ -445,8 +445,7 @@ INNER JOIN amb_animation AS a ON f.idUser = a.idUser
 INNER JOIN amb_offres AS o ON a.idOffre = o.idOffre;
 
 
-
-CREATE VIEW  stagiairesFichesInterventions as
+CREATE VIEW  amb_stagiairesFichesInterventions as
 SELECT
     s.idUser,
     s.dateDebutFormation,
@@ -482,7 +481,7 @@ INNER JOIN amb_blocsCompetences AS bc ON m.idBlocComp=bc.idBlocComp;
 
 
 
-CREATE VIEW  ficheActivite as
+CREATE VIEW  amb_ficheActivite as
 SELECT
 
     ac.idActivite,

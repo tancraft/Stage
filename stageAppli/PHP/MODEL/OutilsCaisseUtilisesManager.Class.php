@@ -56,4 +56,18 @@ class OutilsCaisseUtilisesManager
 		}
 		return $liste;
 	}
+	public static function getOutilsCaisseUtilisesrByFormateur($idFormateur)
+	{
+ 		$db=DbConnect::getDb();
+		$liste = [];
+		$q = $db->query("SELECT * from amb_outilscaisseutilises INNER JOIN amb_outilscaisse ON amb_outilscaisseutilises.idOutilCaisse = amb_outilscaisse.idOutilCaisse WHERE amb_outilscaisse.idUser =".$idFormateur);
+		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+		{
+			if($donnees != false)
+			{
+				$liste[] = new OutilsCaisseUtilises($donnees) ;
+			}
+		}
+		return $liste;
+	}
 }

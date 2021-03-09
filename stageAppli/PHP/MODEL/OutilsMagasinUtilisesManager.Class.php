@@ -56,4 +56,18 @@ class OutilsMagasinUtilisesManager
 		}
 		return $liste;
 	}
+	public static function getOutilsMagasinUtilisesrByFormateur($idFormateur)
+	{
+ 		$db=DbConnect::getDb();
+		$liste = [];
+		$q = $db->query("SELECT * from amb_outilsmagasinutilises INNER JOIN amb_outilsmagasin ON amb_outilsmagasinutilises.idOutilMagasin = amb_outilsmagasin.idOutilMagasin WHERE amb_outilsmagasin.idUser =".$idFormateur);
+		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+		{
+			if($donnees != false)
+			{
+				$liste[] = new OutilsMagasinUtilises($donnees) ;
+			}
+		}
+		return $liste;
+	}
 }

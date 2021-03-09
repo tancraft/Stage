@@ -56,4 +56,19 @@ class MateriauxUtilisesManager
 		}
 		return $liste;
 	}
+	public static function getMateriauxUtiliserByFormateur($idFormateur)
+	{
+ 		$db=DbConnect::getDb();
+		$liste = [];
+		$q = $db->query("SELECT * from amb_materiauxutilises INNER JOIN amb_materiaux ON amb_materiauxutilises.idMateriel = amb_materiaux.idMateriel WHERE amb_materiaux.idUser =".$idFormateur);
+		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+		{
+			if($donnees != false)
+			{
+				$liste[] = new MateriauxUtilises($donnees) ;
+			}
+		}
+		return $liste;
+	}
+
 }

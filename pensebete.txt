@@ -15,9 +15,9 @@ get outils magasin by formateur ok
 get outilcaisse by formateur ok
 get materiaux by formateur ok
 
-get outils magasin utiliser by formateur
-get outilcaisse utiliser by formateur
-get materiaux utiliser by formateur
+get outils magasin utiliser by formateur ok
+get outilcaisse utiliser by formateur ok
+get materiaux utiliser by formateur ok
 
 get list operation by mesm ok
 
@@ -52,3 +52,5 @@ orange stagiaire a pris en compte la fiche
 vert realiser et envoyer formateur
 
 pictogramme croix ou coche dans cercle si reussi ou non
+
+SELECT * from amb_materiauxutilises INNER JOIN amb_materiaux ON amb_materiauxutilises.idMateriel = amb_materiaux.idMateriel WHERE amb_materiaux.idUser = 1;

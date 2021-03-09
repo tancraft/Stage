@@ -253,3 +253,39 @@
 // echo 'On affiche le liste des lieux <br>';
 // $tableau=StagiairesFichesInterventionsManager::getList();
 // var_dump($tableau);
+
+/****** materiaux utiliser ******/
+
+// on affiche la liste des materiaux utiliser par formateur
+// echo 'on affiche la liste des materiaux utiliser par formateur <br>';
+// $tableau=MateriauxUtilisesManager::getMateriauxUtiliserByFormateur(2);
+// var_dump($tableau);
+
+//On affiche le liste des materiaux utiliser
+// echo 'On affiche le liste des materiaux utiliser <br>';
+// $tableau=MateriauxUtilisesManager::getList();
+// var_dump($tableau);
+
+/****** outils caisse utiliser ******/
+
+// on affiche la liste des outils caisse utiliser par formateur
+// echo 'on affiche la liste des outils caisse utiliser par formateur <br>';
+// $tableau=OutilsCaisseUtilisesManager::getOutilsCaisseUtilisesrByFormateur(2);
+// var_dump($tableau);
+
+//on affiche la liste des outils caisse utiliser
+// echo 'on affiche la liste des outils caisse utiliser <br>';
+// $tableau=OutilsCaisseUtilisesManager::getList();
+// var_dump($tableau);
+
+/****** outils magasin utiliser ******/
+
+// on affiche la liste des outils magasin utiliser par formateur
+// echo 'on affiche la liste des outils magasin utiliser par formateur <br>';
+// $tableau=OutilsMagasinUtilisesManager::getOutilsMagasinUtilisesrByFormateur(3);
+// var_dump($tableau);
+
+//on affiche la liste des magasin caisse utiliser
+// echo 'on affiche la liste des outils magasin utiliser <br>';
+// $tableau=OutilsMagasinUtilisesManager::getList();
+// var_dump($tableau);
