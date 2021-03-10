@@ -15,37 +15,40 @@ $idRole = $unUser->getIdRole();
 switch ($mode) {
     case "ajouter":
         {
-            echo '<form action="Index.php?page=actionUtilisateur&mode=ajouter" method="POST">';
+            $formAction ='<form action="Index.php?page=actionUtilisateur&mode=ajouter" method="POST">';
             $disabled = '';
+            $submit = '<button id="submit" class="bouton" type="submit" disabled><i class="fas fa-paper-plane"></i>&nbsp Ajouter</button>';
             break;
         }
     case "modifier":
         {
-            echo '<form method="POST" action="Index.php?page=actionUtilisateur&mode=modifier" method="POST">';
+            $formAction ='<form method="POST" action="Index.php?page=actionUtilisateur&mode=modifier" method="POST">';
             $disabled = '';
+            $submit = '<button class="bouton"><i class="fas fa-edit"></i> &nbsp Modifier</button>';
             break;
         }
     case "details":
         {
-            echo '<form method="POST" >';
+            $formAction ='<form method="POST" >';
             $disabled = 'disabled';
+            $submit = "";
             break;
         }
     case "supprimer":
         {
-            echo '<form action="Index.php?page=actionUtilisateur&mode=supprimer" method="POST"';
+            $formAction ='<form action="Index.php?page=actionUtilisateur&mode=supprimer" method="POST"';
             $disabled = 'disabled';
+            $submit = '<button class="bouton"><i class="fas fa-trash-alt"></i>&nbsp Supprimer</button>';
             break;
         }
 }
-?>
+echo $formAction;
 
-      <form action="" method="POST">
-      <?php if ($mode != "ajouter") {
+
+if ($mode != "ajouter") {
     echo '<input name= "idUser" value="' . $idUser . '" type= "hidden">';
 }
-
-if ($mode == "ajouter") {
+else{
     echo '<input value="" type= "hidden">';
 }
 
@@ -136,29 +139,10 @@ if ($mode == "ajouter") {
                 <div class="info  center">
 
                     <?php
-
-switch ($mode) {
-    case "ajouter":
-        {
-            echo '<button id="submit" class="bouton" type="submit" disabled><i class="fas fa-paper-plane"></i>&nbsp Ajouter</button>';
-            break;
-        }
-    case "modifier":
-        {
-            echo '<button class="bouton"><i class="fas fa-edit"></i> &nbsp Modifier</button>';
-            break;
-        }
-
-    case "supprimer":
-        {
-            echo '<button class="bouton"><i class="fas fa-trash-alt"></i>&nbsp Supprimer</button>';
-            break;
-        }
-
-}
-echo '<div class="mini"></div>';
-echo '<a href="Index.php?page=listeUtilisateurs"><div class="bouton"><i class="far fa-arrow-alt-circle-left"></i>&nbsp Retour</div></a>';
-?>
+                    echo $submit;
+                    echo '<div class="mini"></div>';
+                    echo '<a href="Index.php?page=listeUtilisateurs"><div class="bouton"><i class="far fa-arrow-alt-circle-left"></i>&nbsp Retour</div></a>';
+                    ?>
 
                    </div>
             </div>
