@@ -4,15 +4,8 @@
     <?php
 
 $mode = $_GET['mode'];
-if (isset($_GET['id']))
-{
-    $idUser=$_GET['id'];
-    $unUser = UtilisateursManager::findById($idUser);
-}else{
-    $unUser = new Utilisateurs();
-    $idUser= $unUser->getIdUser();
-}
-$idRole = $unUser->getIdRole();
+$idUser=$_GET['id'];
+
 switch ($mode) {
     case "ajouter":
         {
@@ -22,11 +15,15 @@ switch ($mode) {
     case "modifier":
         {
             echo '<form method="POST" action="Index.php?page=actionUtilisateur&mode=modifier" method="POST">';
+            $idRecherche = $_GET['id'];
+            $id = UtilisateursManager::findById($idRecherche);
             break;
         }
     case "details":
         {
             echo '<form method="POST" >';
+            $idRecherche = $_GET['id'];
+            $id = UtilisateursManager::findById($idRecherche);
             break;
         }
     case "supprimer":
@@ -35,11 +32,16 @@ switch ($mode) {
             break;
         }
 }
+
+if (isset($_GET["id"])) {
+    $choix = UtilisateursManager::findById($_GET["id"]);
+    $role = RolesManager::getList();
+}
 ?>
 
       <form action="" method="POST">
       <?php if ($mode != "ajouter") {
-    echo '<input name= "idUser" value="' . $idUser . '" type= "hidden">';
+    echo '<input name= "idUser" value="' . $choix->getIdUser() . '" type= "hidden">';
 }
 
 if ($mode == "ajouter") {
@@ -53,7 +55,9 @@ if ($mode == "ajouter") {
                     <input type="text" id="nom" <?php if ($mode == "details" || $mode == "supprimer") {
     echo '" disabled "';
 }
-?>name="nomUser" value="<?php echo $unUser->getNomUser();
+?>name="nomUser" value="<?php if ($mode != "ajouter") {
+    echo $choix->getNomUser();
+}
 ?>" required pattern="[a-zA-Z- ]{3,}">
                 </div>
                 <div class="info colonne ">
@@ -61,8 +65,9 @@ if ($mode == "ajouter") {
                     <input type="text" id="prenom" <?php if ($mode == "details" || $mode == "supprimer") {
     echo '" disabled "';
 }
-?>name="prenomUser" value="<?php echo $unUser->getPrenomUser();
-
+?>name="prenomUser" value="<?php if ($mode != "ajouter") {
+    echo $choix->getPrenomUser();
+}
 ?>" required pattern="[a-zA-Z- ]{3,}">
                 </div>
             </div>
@@ -74,7 +79,9 @@ if ($mode == "ajouter") {
     echo '" disabled "';
 }
 ?>name="emailUser" required
-                        pattern="^[0-9a-zA-Z._-]+@{1}[0-9a-zA-Z.-]{2,}[.]{1}[a-z]{2,6}$" value="<?php echo $unUser->getEmailUser();
+                        pattern="^[0-9a-zA-Z._-]+@{1}[0-9a-zA-Z.-]{2,}[.]{1}[a-z]{2,6}$" value="<?php if ($mode != "ajouter") {
+    echo $choix->getEmailUser();
+}
 ?>">
                 </div>
                 <div class="info colonne  grande">
@@ -83,7 +90,9 @@ if ($mode == "ajouter") {
     echo '" disabled "';
 }
 ?>name="telUser" required
-                        pattern="^(01|02|03|04|05|06|07|08|09)[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}" value="<?php echo $unUser->getTelUser();
+                        pattern="^(01|02|03|04|05|06|07|08|09)[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}" value="<?php if ($mode != "ajouter") {
+    echo $choix->getTelUser();
+}
 ?>">
                 </div>
             </div>
@@ -94,7 +103,9 @@ if ($mode == "ajouter") {
                     <input type="password" id="mdp" <?php if ($mode == "details" || $mode == "supprimer") {
     echo '" disabled "';
 }
-?>name="mdpUser" value="<?php echo $unUser->getMdpUser();
+?>name="mdpUser" value="<?php if ($mode != "ajouter") {
+    echo $choix->getMdpUser();
+}
 ?>" required
                         pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[\d])(?=.*[!@#\$%\^&\*+])[a-zA-Z\d!@#\$%\^&\*+]{8,}$">
                     <div class="mini">
@@ -138,7 +149,9 @@ if ($mode == "ajouter") {
                     <input type="password" id="confirmation" <?php if ($mode == "details" || $mode == "supprimer") {
     echo '" disabled "';
 }
-?>name="confirmation" value="<?php echo $unUser->getMdpUser();
+?>name="confirmation" value="<?php if ($mode != "ajouter") {
+    echo $choix->getMdpUser();
+}
 ?>" title="remettre le même mot de passe"
                         required>
                 </div>
@@ -148,7 +161,7 @@ if ($mode == "ajouter") {
                     <label for="idRole">Role :</label>
                     <?php
 
-$selRole = optionSelect($idUser, "roles", "idRole", $mode, "libelleRole","");
+$selRole = optionSelect($id, "roles", "idRole", $mode, "libelleRole","");
 echo $selRole;
 ?>
 

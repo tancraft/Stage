@@ -126,7 +126,7 @@ function optionSelect($valeur, $table, $nomId, $mode, $libelle, $attribut)
 {
    
     $select = '<select id="' . $nomId . '" name="' . $nomId . '"';
-    if ($mode == "detail" || $mode == "delete") {
+    if ($mode == "details" || $mode == "supprimer") {
         $select .= " disabled ";
     }
     $select .= $attribut .'>';
@@ -140,6 +140,7 @@ function optionSelect($valeur, $table, $nomId, $mode, $libelle, $attribut)
         if ($valeur == appelGet($elt, $nomId)) //appel de la methode stockée dans $method
         { // si le code entré en paramètre est égale à l'élément alors c'est celui qui est selectionné
             $select .= '<option value="' . appelGet($elt, $nomId) . '" SELECTED>' . appelGet($elt, $libelle) . '</option>';
+            var_dump($select);
         } else {
             $select .= '<option value="' . appelGet($elt, $nomId) . '">' . appelGet($elt, $libelle) . '</option>';
         }
