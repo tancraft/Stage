@@ -122,7 +122,33 @@ function appelGet($obj, $chaine)
  * @libelle : nom de la colonne libelle à mettre dans les options
  * @attribut : chaine de caractère ajouter comme attribut (ex : checkValidity, class="centrer")
  */
-function optionSelect($valeur, $table, $nomId, $mode, $libelle, $attribut)
+// function optionSelect($valeur, $table, $nomId, $mode, $libelle, $attribut)
+// {
+   
+//     $select = '<select id="' . $nomId . '" name="' . $nomId . '"';
+//     if ($mode == "details" || $mode == "supprimer") {
+//         $select .= " disabled ";
+//     }
+//     $select .= $attribut .'>';
+//     $liste = appelGetList($table);
+
+//     if ($valeur == null) { // si le code est null, on ne mets pas de choix par défaut avec valeur
+//         $select .= '<option value="" SELECTED>Choisir une valeur</option>';
+//     }
+//     foreach ($liste as $elt) {
+
+//         if ($valeur == appelGet($elt, $nomId)) //appel de la methode stockée dans $method
+//         { // si le code entré en paramètre est égale à l'élément alors c'est celui qui est selectionné
+//             $select .= '<option value="' . appelGet($elt, $nomId) . '" SELECTED>' . appelGet($elt, $libelle) . '</option>';
+//         } else {
+//             $select .= '<option value="' . appelGet($elt, $nomId) . '">' . appelGet($elt, $libelle) . '</option>';
+//         }
+//     }
+//     $select .= "</select>";
+//     return $select;
+// }
+
+function optionSelect($valeur,$idChoisi, $table, $nomId, $mode, $libelle, $attribut)
 {
    
     $select = '<select id="' . $nomId . '" name="' . $nomId . '"';
@@ -137,10 +163,9 @@ function optionSelect($valeur, $table, $nomId, $mode, $libelle, $attribut)
     }
     foreach ($liste as $elt) {
 
-        if ($valeur == appelGet($elt, $nomId)) //appel de la methode stockée dans $method
+        if ($idChoisi == appelGet($elt, $nomId)) //appel de la methode stockée dans $method
         { // si le code entré en paramètre est égale à l'élément alors c'est celui qui est selectionné
             $select .= '<option value="' . appelGet($elt, $nomId) . '" SELECTED>' . appelGet($elt, $libelle) . '</option>';
-            var_dump($select);
         } else {
             $select .= '<option value="' . appelGet($elt, $nomId) . '">' . appelGet($elt, $libelle) . '</option>';
         }
