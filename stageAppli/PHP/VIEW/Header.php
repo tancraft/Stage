@@ -5,7 +5,7 @@
         <div class="logo"></div>
     </div>
     <div class="texteClair centre colonne">
-        <h1>Gestion des Conventions de Stage</h1>
+        <h1>Gestion des interventions</h1>
         <h2><?php echo $titre ?></h2>
     </div>
 
