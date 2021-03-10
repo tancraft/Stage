@@ -118,6 +118,7 @@ function appelGet($obj, $chaine)
  * @valeur : valeur qui sera selected
  * @table : table de reference
  * @nomId : nom de l'id dans la table de reference
+ * @idChoisi : correspond a l'id de comparaison quand une valeur est non NULL
  * @mode : mode ajout modif, edit ou supprime
  * @libelle : nom de la colonne libelle à mettre dans les options
  * @attribut : chaine de caractère ajouter comme attribut (ex : checkValidity, class="centrer")
