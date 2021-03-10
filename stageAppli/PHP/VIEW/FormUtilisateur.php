@@ -161,7 +161,8 @@ if ($mode == "ajouter") {
                     <label for="idRole">Role :</label>
                     <?php
 
-optionSelect($id, "roles", "idRole", $mode, "libelleRole","");
+$selRole = optionSelect($id, "roles", "idRole", $mode, "libelleRole","");
+echo $selRole;
 ?>
 
                 </div>
