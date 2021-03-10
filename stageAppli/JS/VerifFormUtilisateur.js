@@ -1,4 +1,4 @@
-console.log('toto');
+
 var inputs = document.getElementsByTagName("input");
 
 for (let i = 0; i < inputs.length; i++) {
@@ -7,44 +7,73 @@ for (let i = 0; i < inputs.length; i++) {
     });
 }
 
-function updateValidity(input) {
-    isValid = validateInput(input);
+var valider = document.querySelector('#valider');
+
+/**
+ * Vérifie la validité de la saisie dans un input et change le style en conséquence
+ * @param {élément de type input} input 
+ */
+ function updateValidity(input) {
+    isValid = valideInput(input);
+    console.log(isValid);
     impactValidity(input, isValid);
     checkAllValidity();
 }
 
-function validateInput(input) {
+/**
+ * Vérifie la validité de la saisie dans un input
+ * Renvoi vrai si la saisie est valide, faux si elle n'est pas valide, 0 si le champ n'est pas rempli
+ * @param {élément de type input} input 
+ */
+function valideInput(input){   
     isValid = input.checkValidity();
-    if (!isValid && input.value == "" && input.required) {
+    if (!isValid && input.value == "" && input.required)
+    {
         isValid = 0;
     }
     return isValid;
 }
 
-function impactValidity(input, isValid) {
-
-    var message = input.parentNode.getElementsByClassName("message")[0];
-    message.classList.add("visible");
-    image = input.parentNode.getElementsByTagName("i")[1];
-
-    switch (isValid) {
+/**
+ * Affiche le message d'erreur, change les couleurs et affiche les coches
+ * @param {élément de type input} input 
+ * @param {*} isValid 
+ */
+function impactValidity(input, isValid)
+{
+    let erreur = document.querySelector('.erreur');
+    switch (isValid){
         case true:
-            message.innerHTML = "Champ valide.";
-            input.style.borderBottomColor = "rgb(50,200,50)";
-            image.classList = "far fa-check-circle fa-2x vert";
-            image.style.display = "block";
+            erreur.innerHTML = 'Champ Valide';
+            input.classList = 'correct';
             break;
         case 0:
-            message.innerHTML = "Champ requis!";
-            image.style.display = "none";
+            erreur.innerHTML = 'Champ requis';
+            input.classList = 'incorrect';
             break;
         case false:
-            message.innerHTML = "Format invalide!";
-            input.style.borderBottomColor = "rgb(200,50,50)";
-            image.classList = "far fa-times-circle fa-2x rouge";
-            image.style.display = "block";
+            erreur.innerHTML = 'Format invalide';
+            input.classList = 'incorrect';
             break;
-        default:
-            break;
+    }
+
+}
+
+/**
+ * Activation du bouton de formulaire
+ * Vérification de tous les champs
+ */
+ function checkAllValidity() {
+    var pasErreur = true;
+    i = 0;
+    // on vérifie les inputs un à un
+    while (pasErreur && i < inputs.length) {
+        pasErreur = valideInput(inputs[i])
+        i++;
+    }
+    if (pasErreur) {
+        valider.disabled = false;
+    }else{
+        valider.disabled = true;
     }
 }

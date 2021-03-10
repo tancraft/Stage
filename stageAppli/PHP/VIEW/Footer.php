@@ -6,7 +6,6 @@
 <?php 
 if (isset($page))
 {
-    var_dump($page);
     switch ($page[1])
     {
         // case "FormFRStagiaire" : echo '<script src="./JS/VerifFormFRStagiaire.js"></script>
