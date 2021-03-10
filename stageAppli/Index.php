@@ -20,23 +20,22 @@ $lang=isset($_SESSION['lang']) ? $_SESSION['lang'] : 'FR';
 /******Fin des langues******/
 
 $routes=[
-	"default"=>["PHP/VIEW/","listeUtilisateurs","Accueil",false],
+	"Default"=>["PHP/VIEW/","ListeUtilisateurs","Accueil",false],
 
-	"testsManagers"=>["PHP/VIEW/","TestsManagers","page de tests",false],
+	"TestsManagers"=>["PHP/VIEW/","TestsManagers","page de tests",false],
 
-	"listeUtilisateurs"=>["PHP/VIEW/","ListeUtilisateurs","Liste des utilisateurs",false],
-	"formConnexion"=>["PHP/VIEW/","FormConnexion","Formulaire de connexion",false],
-	"actionConnexion"=>["PHP/VIEW/","ActionConnexion","Actions de deconnexion",false],
+	"ListeUtilisateurs"=>["PHP/VIEW/","ListeUtilisateurs","Liste des utilisateurs",false],
+	"FormConnexion"=>["PHP/VIEW/","FormConnexion","Formulaire de connexion",false],
+	"ActionConnexion"=>["PHP/VIEW/","ActionConnexion","Actions de deconnexion",false],
 
-	"formUtilisateur"=>["PHP/VIEW/","FormUtilisateur","Formulaire Utilisateur",false],
-	"actionUtilisateur"=>["PHP/VIEW/","ActionUtilisateur","Actions Utilisateur",false],
+	"FormUtilisateur"=>["PHP/VIEW/","FormUtilisateur","Formulaire Utilisateur",false],
+	"ActionUtilisateur"=>["PHP/VIEW/","ActionUtilisateur","Actions Utilisateur",false],
 
-	"interfaceAdmin"=>["PHP/VIEW/","InterfaceAdmin","Interface administrateur",false],
+	"InterfaceAdmin"=>["PHP/VIEW/","InterfaceAdmin","Interface administrateur",false],
 
-	"interfaceFormateur"=>["PHP/VIEW/","InterfaceFormateur","Interface formateur",false],
+	"InterfaceFormateur"=>["PHP/VIEW/","InterfaceFormateur","Interface formateur",false],
 
-	"interfaceStagiaire"=>["PHP/VIEW/","InterfaceStagiaire","Interface stagiaire",false],
-	"testOutils"=>["","testOutils","Interface stagiaire",false]
+	"InterfaceStagiaire"=>["PHP/VIEW/","InterfaceStagiaire","Interface stagiaire",false]
 
 ];
 
@@ -51,10 +50,10 @@ if(isset($_GET["page"]))
 	}
 	else
 	{
-		AfficherPage($routes["default"]);
+		AfficherPage($routes["Default"]);
 	}
 }
 else
 {
-	AfficherPage($routes["default"]);
+	AfficherPage($routes["Default"]);
 }

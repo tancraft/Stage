@@ -1,6 +1,6 @@
 <section>
     <div class="demi"></div>
-    <form action="index.php?page=actionConnexion" method="post">
+    <form action="index.php?page=ActionConnexion" method="post">
 
         <div class="info centre">
             <div>

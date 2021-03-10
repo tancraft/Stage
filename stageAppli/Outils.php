@@ -126,12 +126,11 @@ function optionSelect($valeur, $table, $nomId, $mode, $libelle, $attribut)
 {
    
     $select = '<select id="' . $nomId . '" name="' . $nomId . '"';
-    if ($mode == "detail" || $mode == "delete") {
+    if ($mode == "details" || $mode == "supprimer") {
         $select .= " disabled ";
     }
     $select .= $attribut .'>';
-    $liste = appelGetList( $table);
-    var_dump($liste);
+    $liste = appelGetList($table);
 
     if ($valeur == null) { // si le code est null, on ne mets pas de choix par défaut avec valeur
         $select .= '<option value="" SELECTED>Choisir une valeur</option>';

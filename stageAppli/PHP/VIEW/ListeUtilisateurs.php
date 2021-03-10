@@ -20,7 +20,7 @@ echo '<section class="colonne">
 
     <div class="zoneBouton">
         <div class="grande">
-            <div><a href="index.php?page=formUtilisateur&mode=ajouter"><button class="bouton"><i
+            <div><a href="index.php?page=FormUtilisateur&mode=ajouter"><button class="bouton"><i
                             class="fas fa-plus-circle"></i> &nbsp Ajouter</button></a></div>
 
             <div><a href="index.php?page=FormAdmin"><button class="bouton"><i class="far fa-arrow-alt-circle-left"></i> &nbsp Retour</button></a></div>
@@ -44,13 +44,13 @@ echo '<section class="colonne">
 
                 <div class="triple">
                     <div class="mini"></div>
-                    <a href="index.php?page=formUtilisateur&mode=details&id='.$unUser->getIdUser().'"><button class="bouton"><i class="fas fa-info-circle"></i> Détail</button></a>
+                    <a href="index.php?page=FormUtilisateur&mode=details&id='.$unUser->getIdUser().'"><button class="bouton"><i class="fas fa-info-circle"></i> Détail</button></a>
                     <div class="mini"></div>
                     <div class="mini"></div>
-                    <a href="index.php?page=formUtilisateur&mode=modifier&id='.$unUser->getIdUser().'"><button class="bouton"><i class="fas fa-edit"></i> Modifier</button></a>
+                    <a href="index.php?page=FormUtilisateur&mode=modifier&id='.$unUser->getIdUser().'"><button class="bouton"><i class="fas fa-edit"></i> Modifier</button></a>
                     <div class="mini"></div>
                     <div class="mini"></div>
-                    <a href="index.php?page=formUtilisateur&mode=supprimer&id='.$unUser->getIdUser().'"><button class="bouton"><i class="fas fa-trash-alt"></i> Supprimer</button></a>
+                    <a href="index.php?page=FormUtilisateur&mode=supprimer&id='.$unUser->getIdUser().'"><button class="bouton"><i class="fas fa-trash-alt"></i> Supprimer</button></a>
                     <div class="mini"></div>
                 </div>';
 

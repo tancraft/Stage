@@ -14,7 +14,7 @@
         <?php
             if (isset($_SESSION['utilisateur'])) {
                 echo '<div class="texteClair" >' . $_SESSION['utilisateur']->getPrenomUser().' '.$_SESSION['utilisateur']->getNomUser().'</div>';
-                echo '<a href="index.php?page=actionConnexion&mode=logout">
+                echo '<a href="index.php?page=ActionConnexion&mode=logout">
 
                     <button class="bouton centre"><i class="fas fa-sign-out-alt"></i> Deconnexion</button>
 

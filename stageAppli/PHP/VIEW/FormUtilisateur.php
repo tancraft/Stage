@@ -11,18 +11,18 @@ if (isset($_GET['id'])) {
     $unUser = new Utilisateurs();
     $idUser = $unUser->getIdUser();
 }
-$idRole = $unUser->getIdRole();
+
 switch ($mode) {
     case "ajouter":
         {
-            $formAction ='<form action="Index.php?page=actionUtilisateur&mode=ajouter" method="POST">';
+            $formAction ='<form action="index.php?page=ActionUtilisateur&mode=ajouter" method="POST">';
             $disabled = '';
             $submit = '<button id="submit" class="bouton" type="submit" disabled><i class="fas fa-paper-plane"></i>&nbsp Ajouter</button>';
             break;
         }
     case "modifier":
         {
-            $formAction ='<form method="POST" action="Index.php?page=actionUtilisateur&mode=modifier" method="POST">';
+            $formAction ='<form method="POST" action="index.php?page=ActionUtilisateur&mode=modifier" method="POST">';
             $disabled = '';
             $submit = '<button class="bouton"><i class="fas fa-edit"></i> &nbsp Modifier</button>';
             break;
@@ -36,21 +36,13 @@ switch ($mode) {
         }
     case "supprimer":
         {
-            $formAction ='<form action="Index.php?page=actionUtilisateur&mode=supprimer" method="POST"';
+            $formAction ='<form action="index.php?page=ActionUtilisateur&mode=supprimer" method="POST"';
             $disabled = 'disabled';
             $submit = '<button class="bouton"><i class="fas fa-trash-alt"></i>&nbsp Supprimer</button>';
             break;
         }
 }
 echo $formAction;
-
-
-if ($mode != "ajouter") {
-    echo '<input name= "idUser" value="' . $idUser . '" type= "hidden">';
-}
-else{
-    echo '<input value="" type= "hidden">';
-}
 
 ?>
             <div class=" ">
@@ -129,7 +121,7 @@ else{
                     <label for="idRole">Role :</label>
                     <?php
 
-                    $selRole = optionSelect($idUser, $idRole, "roles", "idRole", $mode, "libelleRole", "");
+                    $selRole = optionSelect($unUser->getIdRole(), "roles", "idRole", $mode, "libelleRole", "");
                     echo $selRole;
                     ?>
 
@@ -141,7 +133,7 @@ else{
                     <?php
                     echo $submit;
                     echo '<div class="mini"></div>';
-                    echo '<a href="Index.php?page=listeUtilisateurs"><div class="bouton"><i class="far fa-arrow-alt-circle-left"></i>&nbsp Retour</div></a>';
+                    echo '<a href="index.php?page=ListeUtilisateurs"><div class="bouton"><i class="far fa-arrow-alt-circle-left"></i>&nbsp Retour</div></a>';
                     ?>
 
                    </div>

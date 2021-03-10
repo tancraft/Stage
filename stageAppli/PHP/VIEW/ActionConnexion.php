@@ -12,19 +12,19 @@ switch ($mode) {
                 switch ($uti->getIdRole()) {
                     case "1":
                         // header("location: index.php?page=FormAdmin");
-                        header("location: index.php?page=interfaceAdmin");
+                        header("location: index.php?page=InterfaceAdmin");
                         break;
 
                     case "2":
-                        header("location: index.php?page=interfaceFormateur");
+                        header("location: index.php?page=InterfaceFormateur");
 
                         break;
                     case "3":
-                        header("location: index.php?page=interfaceStagiaire");
+                        header("location: index.php?page=InterfaceStagiaire");
 
                         break;
                     default:
-                        header("location: index.php?page=default");
+                        header("location: index.php?page=Default");
                         break;
 
                 }
