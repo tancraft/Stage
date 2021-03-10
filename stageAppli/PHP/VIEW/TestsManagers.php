@@ -84,7 +84,7 @@
 
 //On teste la suppression
 // echo 'On supprime un article <br>';
-// $pSupp=UtilisateursManager::findById(5);
+// $pSupp=UtilisateursManager::findById(7);
 // var_dump($pSupp);
 // UtilisateursManager::delete($pSupp);
 

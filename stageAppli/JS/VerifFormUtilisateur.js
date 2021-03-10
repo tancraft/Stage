@@ -7,7 +7,7 @@ for (let i = 0; i < inputs.length; i++) {
     });
 }
 
-var valider = document.querySelector('#valider');
+var valider = document.querySelector('#submit');
 
 /**
  * Vérifie la validité de la saisie dans un input et change le style en conséquence

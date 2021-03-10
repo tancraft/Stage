@@ -41,11 +41,11 @@ INSERT INTO amb_typesmaintenances(idTypeMaint, numeroTypeMaint, libelleTypeMaint
 INSERT INTO amb_typesmaintenances(idTypeMaint, numeroTypeMaint, libelleTypeMaint) VALUES (NULL,3,"Corrective");
 
 INSERT INTO amb_utilisateurs (idUser, nomUser, prenomUser, telUser, emailUser, mdpUser, idRole) VALUES (NULL,"admin","admin","0745821463","admin@gmail.com","admin1*",1);
-INSERT INTO amb_utilisateurs (idUser, nomUser, prenomUser, telUser, emailUser, mdpUser, idRole) VALUES (NULL,"formateur1","formateur1","0614247894","formateur1@gmail.com","Formateur1*",2);
-INSERT INTO amb_utilisateurs (idUser, nomUser, prenomUser, telUser, emailUser, mdpUser, idRole) VALUES (NULL,"formateur2","formateur2","0240528471","formateur2@gmail.com","Formateur2*",4);
-INSERT INTO amb_utilisateurs (idUser, nomUser, prenomUser, telUser, emailUser, mdpUser, idRole) VALUES (NULL,"Stagiaire1","Stagiaire1","0614247894","Stagiaire1@gmail.com","Stagiaire1*",3);
-INSERT INTO amb_utilisateurs (idUser, nomUser, prenomUser, telUser, emailUser, mdpUser, idRole) VALUES (NULL,"Stagiaire2","Stagiaire2","0240528471","Stagiaire2@gmail.com","Stagiaire2*",3);
-INSERT INTO amb_utilisateurs (idUser, nomUser, prenomUser, telUser, emailUser, mdpUser, idRole) VALUES (NULL,"Stagiaire3","Stagiaire3","0240528471","Stagiaire3@gmail.com","Stagiaire3*",3);
+INSERT INTO amb_utilisateurs (idUser, nomUser, prenomUser, telUser, emailUser, mdpUser, idRole) VALUES (NULL,"formateurUn","formateurUn","0614247894","formateur1@gmail.com","Formateur1*",2);
+INSERT INTO amb_utilisateurs (idUser, nomUser, prenomUser, telUser, emailUser, mdpUser, idRole) VALUES (NULL,"formateurDeux","formateurDeux","0240528471","formateur2@gmail.com","Formateur2*",4);
+INSERT INTO amb_utilisateurs (idUser, nomUser, prenomUser, telUser, emailUser, mdpUser, idRole) VALUES (NULL,"StagiaireUn","StagiaireUn","0614247894","Stagiaire1@gmail.com","Stagiaire1*",3);
+INSERT INTO amb_utilisateurs (idUser, nomUser, prenomUser, telUser, emailUser, mdpUser, idRole) VALUES (NULL,"StagiaireDeux","StagiaireDeux","0240528471","Stagiaire2@gmail.com","Stagiaire2*",3);
+INSERT INTO amb_utilisateurs (idUser, nomUser, prenomUser, telUser, emailUser, mdpUser, idRole) VALUES (NULL,"StagiaireTrois","StagiaireTrois","0240528471","Stagiaire3@gmail.com","Stagiaire3*",3);
 
 INSERT INTO amb_formateurs(idUser, matriculeFormateur, typeContrat, dateDebutContrat, dateFinContrat) VALUES (2,"7654321","CDI","2010-07-05",NULL);
 INSERT INTO amb_formateurs(idUser, matriculeFormateur, typeContrat, dateDebutContrat, dateFinContrat) VALUES (3,"8756312","CDD","2021-02-01","2021-08-01");

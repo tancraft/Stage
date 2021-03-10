@@ -5,24 +5,25 @@
 
 $mode = $_GET['mode'];
 if (isset($_GET['id'])) {
-    $idUser = $_GET['id'];
-    $unUser = UtilisateursManager::findById($idUser);
+    $id = $_GET['id'];
+    $unUser = UtilisateursManager::findById($id);
 } else {
     $unUser = new Utilisateurs();
-    $idUser = $unUser->getIdUser();
 }
 
 switch ($mode) {
     case "ajouter":
         {
             $formAction ='<form action="index.php?page=ActionUtilisateur&mode=ajouter" method="POST">';
+            $idUserHidden = '<input value="" type= "hidden">';
             $disabled = '';
             $submit = '<button id="submit" class="bouton" type="submit" disabled><i class="fas fa-paper-plane"></i>&nbsp Ajouter</button>';
             break;
         }
     case "modifier":
         {
-            $formAction ='<form method="POST" action="index.php?page=ActionUtilisateur&mode=modifier" method="POST">';
+            $formAction ='<form action="index.php?page=ActionUtilisateur&mode=modifier" method="POST">';
+            $idUserHidden ='<input name= "idUser" value="'.$unUser->getIdUser().'" type= "hidden">';
             $disabled = '';
             $submit = '<button class="bouton"><i class="fas fa-edit"></i> &nbsp Modifier</button>';
             break;
@@ -30,19 +31,23 @@ switch ($mode) {
     case "details":
         {
             $formAction ='<form method="POST" >';
+            $idUserHidden ='<input name= "idUser" value="'.$unUser->getIdUser().'" type= "hidden">';
             $disabled = 'disabled';
             $submit = "";
             break;
         }
     case "supprimer":
         {
-            $formAction ='<form action="index.php?page=ActionUtilisateur&mode=supprimer" method="POST"';
+
+            $formAction ='<form action="index.php?page=ActionUtilisateur&mode=supprimer" method="POST">';
+            $idUserHidden ='<input name= "idUser" value="'.$unUser->getIdUser().'" type= "hidden">';
             $disabled = 'disabled';
             $submit = '<button class="bouton"><i class="fas fa-trash-alt"></i>&nbsp Supprimer</button>';
             break;
         }
 }
 echo $formAction;
+echo $idUserHidden;
 
 ?>
             <div class=" ">
