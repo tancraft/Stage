@@ -31,7 +31,8 @@ $routes=[
 
 	"interfaceFormateur"=>["PHP/VIEW/","InterfaceFormateur","Interface formateur",false],
 
-	"interfaceStagiaire"=>["PHP/VIEW/","InterfaceStagiaire","Interface stagiaire",false]
+	"interfaceStagiaire"=>["PHP/VIEW/","InterfaceStagiaire","Interface stagiaire",false],
+	"testOutils"=>["","testOutils","Interface stagiaire",false]
 
 ];
 
