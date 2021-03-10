@@ -54,3 +54,6 @@ vert realiser et envoyer formateur
 pictogramme croix ou coche dans cercle si reussi ou non
 
 SELECT * from amb_materiauxutilises INNER JOIN amb_materiaux ON amb_materiauxutilises.idMateriel = amb_materiaux.idMateriel WHERE amb_materiaux.idUser = 1;
+
+lien supplement regex
+https://montrezvous.net/developpement-web/controles-de-formulaires-en-html5.html
