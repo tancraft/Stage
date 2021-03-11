@@ -14,7 +14,7 @@ if (isset($_GET['id'])) {
 switch ($mode) {
     case "ajouter":
         {
-            $formAction ='<form action="index.php?page=ActionUtilisateur&mode=ajouter" method="POST">';
+            $formAction = '<form action="index.php?page=ActionUtilisateur&mode=ajouter" method="POST">';
             $idUserHidden = '<input value="" type= "hidden">';
             $disabled = '';
             $submit = '<button id="submit" class="bouton" type="submit" disabled><i class="fas fa-paper-plane"></i>&nbsp Ajouter</button>';
@@ -22,16 +22,16 @@ switch ($mode) {
         }
     case "modifier":
         {
-            $formAction ='<form action="index.php?page=ActionUtilisateur&mode=modifier" method="POST">';
-            $idUserHidden ='<input name= "idUser" value="'.$unUser->getIdUser().'" type= "hidden">';
+            $formAction = '<form action="index.php?page=ActionUtilisateur&mode=modifier" method="POST">';
+            $idUserHidden = '<input name= "idUser" value="' . $unUser->getIdUser() . '" type= "hidden">';
             $disabled = '';
             $submit = '<button class="bouton"><i class="fas fa-edit"></i> &nbsp Modifier</button>';
             break;
         }
     case "details":
         {
-            $formAction ='<form method="POST" >';
-            $idUserHidden ='<input name= "idUser" value="'.$unUser->getIdUser().'" type= "hidden">';
+            $formAction = '<form method="POST" >';
+            $idUserHidden = '<input name= "idUser" value="' . $unUser->getIdUser() . '" type= "hidden">';
             $disabled = 'disabled';
             $submit = "";
             break;
@@ -39,8 +39,8 @@ switch ($mode) {
     case "supprimer":
         {
 
-            $formAction ='<form action="index.php?page=ActionUtilisateur&mode=supprimer" method="POST">';
-            $idUserHidden ='<input name= "idUser" value="'.$unUser->getIdUser().'" type= "hidden">';
+            $formAction = '<form action="index.php?page=ActionUtilisateur&mode=supprimer" method="POST">';
+            $idUserHidden = '<input name= "idUser" value="' . $unUser->getIdUser() . '" type= "hidden">';
             $disabled = 'disabled';
             $submit = '<button class="bouton"><i class="fas fa-trash-alt"></i>&nbsp Supprimer</button>';
             break;
@@ -79,10 +79,11 @@ echo $idUserHidden;
                     <label for="mdpUser">Mot de passe :</label>
                     <input type="password" id="mdp" <?=$disabled;?> name="mdpUser" value="<?=$unUser->getMdpUser();?>" required
                         pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[\d])(?=.*[!@#\$%\^&\*+])[a-zA-Z\d!@#\$%\^&\*+]{8,}$">
+
                     <div class="mini">
-                        <div class="oeil">
+                    <div class="oeil">
                             <i class="fas fa-eye"></i>
-                        </div>
+                    </div>
                     </div>
                     <div class="aideMdp absolu">
                         <div>Liste des critères à respecter !! </div>
@@ -126,9 +127,9 @@ echo $idUserHidden;
                     <label for="idRole">Role :</label>
                     <?php
 
-                    $selRole = optionSelect($unUser->getIdRole(), "roles", "idRole", $mode, "libelleRole", "");
-                    echo $selRole;
-                    ?>
+$selRole = optionSelect($unUser->getIdRole(), "roles", "idRole", $mode, "libelleRole", "");
+echo $selRole;
+?>
 
                 </div>
             </div>
@@ -136,10 +137,10 @@ echo $idUserHidden;
                 <div class="info  center">
 
                     <?php
-                    echo $submit;
-                    echo '<div class="mini"></div>';
-                    echo '<a href="index.php?page=ListeUtilisateurs"><div class="bouton"><i class="far fa-arrow-alt-circle-left"></i>&nbsp Retour</div></a>';
-                    ?>
+echo $submit;
+echo '<div class="mini"></div>';
+echo '<a href="index.php?page=ListeUtilisateurs"><div class="bouton"><i class="far fa-arrow-alt-circle-left"></i>&nbsp Retour</div></a>';
+?>
 
                    </div>
             </div>

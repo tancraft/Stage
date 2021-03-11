@@ -173,13 +173,6 @@ select option::selection {
     position: relative;
 }
 
-.oeil {
-    position: absolute;
-    left: 32vw;
-    top: 4vh;
-}
-
-
 
 /******** Header ********/
 header,
@@ -230,9 +223,9 @@ footer {
 }
 
 .oeil {
-    position: absolute;
+position: absolute;
     left: 32vw;
-    top: 4vh;
+    top: 3vh;
 }
 
 /*   MENU   */

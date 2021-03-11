@@ -1,3 +1,5 @@
+var urlParams = new URLSearchParams(document.location.href);
+var mode = urlParams.get('mode');
 
 var inputs = document.getElementsByTagName("input");
 
@@ -8,6 +10,19 @@ for (let i = 0; i < inputs.length; i++) {
 }
 
 var valider = document.querySelector('#submit');
+
+//gestion de l'oeil dans le mot de passe
+var oeil = document.getElementsByClassName("oeil")[0];
+// on affiche un petit oeil qui permet de voir de mot de passe 
+oeil.addEventListener("mousedown", function () {
+    if (mode != 'details' && mode != 'supprimer')
+    {
+        affichePassWord(true);
+    }
+});
+oeil.addEventListener("mouseup", function () {
+    affichePassWord(false);
+});
 
 /**
  * Vérifie la validité de la saisie dans un input et change le style en conséquence
@@ -76,4 +91,13 @@ function impactValidity(input, isValid)
     }else{
         valider.disabled = true;
     }
+}
+
+/**
+ * Change le type de l'input mot de passe
+ * @param {boolean} flag 
+ */
+ function affichePassWord(flag) {
+    if (flag) mdp.type = "text";
+    else mdp.type = "password";
 }
