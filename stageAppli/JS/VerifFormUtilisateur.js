@@ -5,7 +5,6 @@
  */
  function updateValidity(input) {
     isValid = valideInput(input);
-    console.log(isValid);
     impactValidity(input, isValid);
     checkAllValidity();
 }
@@ -91,7 +90,9 @@ var mode = urlParams.get('mode');
 var inputs = document.querySelectorAll("input");
 var mdp = document.querySelector('#mdp');
 var confirmer = document.querySelector('#confirmation');
+var selectRole = document.querySelectorAll('select')[0];
 var valider = document.querySelector('#submit');
+
 
 for (let i = 0; i < inputs.length; i++) {
     inputs[i].addEventListener("input", function (event) {
@@ -149,3 +150,12 @@ confirmer.addEventListener("input", function (event) {
         impactValidity(confirmation, false);
     }
 });
+
+selectRole.addEventListener('input', function (event){
+    if (selectRole.value != ""){
+        impactValidity(selectRole, true);
+    } else {
+        impactValidity(selectRole, false);
+    }
+    checkAllValidity()
+})
