@@ -33,7 +33,8 @@ $routes=[
 
 	"InterfaceAdmin"=>["PHP/VIEW/","InterfaceAdmin","Interface administrateur",false],
 
-	"InterfaceFormateur"=>["PHP/VIEW/","InterfaceFormateur","Interface formateur",false],
+	"InterfaceFormateurRef"=>["PHP/VIEW/","InterfaceFormateurRef","Interface formateur référent",false],
+	"InterfaceFormateurSup"=>["PHP/VIEW/","InterfaceFormateurSup","Interface formateur supplémentaire",false],
 
 	"InterfaceStagiaire"=>["PHP/VIEW/","InterfaceStagiaire","Interface stagiaire",false]
 
