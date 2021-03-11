@@ -158,4 +158,4 @@ selectRole.addEventListener('input', function (event){
         impactValidity(selectRole, false);
     }
     checkAllValidity()
-})
+});
