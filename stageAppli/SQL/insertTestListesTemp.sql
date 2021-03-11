@@ -1,3 +1,4 @@
+USE ambdatabase;
 
 INSERT INTO amb_environnements(idEnv, typeEnv) VALUES (NULL,"Atelier");
 INSERT INTO amb_environnements(idEnv, typeEnv) VALUES (NULL,"Centre");
