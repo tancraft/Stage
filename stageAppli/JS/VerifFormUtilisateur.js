@@ -3,7 +3,7 @@
  * Vérifie la validité de la saisie dans un input et change le style en conséquence
  * @param {élément de type input} input 
  */
- function updateValidity(input) {
+function updateValidity(input) {
     isValid = valideInput(input);
     impactValidity(input, isValid);
     checkAllValidity();
@@ -14,10 +14,9 @@
  * Renvoi vrai si la saisie est valide, faux si elle n'est pas valide, 0 si le champ n'est pas rempli
  * @param {élément de type input} input 
  */
-function valideInput(input){   
+function valideInput(input) {
     isValid = input.checkValidity();
-    if (!isValid && input.value == "" && input.required)
-    {
+    if (!isValid && input.value == "" && input.required) {
         isValid = 0;
     }
     return isValid;
@@ -28,10 +27,9 @@ function valideInput(input){
  * @param {élément de type input} input 
  * @param {*} isValid 
  */
-function impactValidity(input, isValid)
-{
+function impactValidity(input, isValid) {
     let erreur = document.querySelector('.erreur');
-    switch (isValid){
+    switch (isValid) {
         case true:
             erreur.innerHTML = 'Champ Valide';
             input.classList = 'correct';
@@ -52,7 +50,7 @@ function impactValidity(input, isValid)
  * Activation du bouton de formulaire
  * Vérification de tous les champs
  */
- function checkAllValidity() {
+function checkAllValidity() {
     var pasErreur = true;
     i = 0;
     // on vérifie les inputs un à un
@@ -60,9 +58,12 @@ function impactValidity(input, isValid)
         pasErreur = valideInput(inputs[i])
         i++;
     }
+    if (select.value == "") {
+        pasErreur = false;
+    }
     if (pasErreur) {
         valider.disabled = false;
-    }else{
+    } else {
         valider.disabled = true;
     }
 }
@@ -71,7 +72,7 @@ function impactValidity(input, isValid)
  * Change le type de l'input mot de passe
  * @param {boolean} flag 
  */
- function affichePassWord(flag) {
+function affichePassWord(flag) {
     if (flag) mdp.type = "text";
     else mdp.type = "password";
 }
@@ -80,8 +81,8 @@ function impactValidity(input, isValid)
  * Annule l'action associé à la touche ou au clic
  * @param {*} event 
  */
- function annule(event) {
-        event.preventDefault();
+function annule(event) {
+    event.preventDefault();
 }
 
 var urlParams = new URLSearchParams(document.location.href);
@@ -90,7 +91,7 @@ var mode = urlParams.get('mode');
 var inputs = document.querySelectorAll("input");
 var mdp = document.querySelector('#mdp');
 var confirmer = document.querySelector('#confirmation');
-var selectRole = document.querySelectorAll('select')[0];
+var select = document.querySelectorAll('select')[0];
 var valider = document.querySelector('#submit');
 
 
@@ -99,6 +100,18 @@ for (let i = 0; i < inputs.length; i++) {
         updateValidity(event.target);
     });
 }
+
+
+select.addEventListener("input", function (event) {
+    if (select.value != "") {
+        impactValidity(select, true);
+    } else {
+        impactValidity(select, false);
+    }
+    checkAllValidity();
+});
+
+
 
 //empecher copier dans champ mdp et confirm/empecher coller dans champ confirm
 mdp.addEventListener('contextmenu', annule);
@@ -111,8 +124,7 @@ var oeil = document.getElementsByClassName("oeil")[0];
 
 // on affiche un petit oeil qui permet de voir de mot de passe 
 oeil.addEventListener("mousedown", function () {
-    if (mode != 'details' && mode != 'supprimer')
-    {
+    if (mode != 'details' && mode != 'supprimer') {
         affichePassWord(true);
     }
 });
@@ -149,8 +161,4 @@ confirmer.addEventListener("input", function (event) {
     } else {
         impactValidity(confirmation, false);
     }
-});
-
-selectRole.addEventListener('input', function (event){
-
 });
