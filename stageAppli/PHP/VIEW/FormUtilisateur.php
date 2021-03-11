@@ -70,7 +70,7 @@ echo $idUserHidden;
                 <div class="info colonne  grande">
                     <label for="telUser">Numéro de téléphone :</label>
                     <input type="text" id="telephone" <?=$disabled;?> name="telUser" required
-                        pattern="^(01|02|03|04|05|06|07|08|09)[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}" value="<?php echo $unUser->getTelUser(); ?>">
+                        pattern="^[0-9]{10}$" value="<?php echo $unUser->getTelUser(); ?>">
                 </div>
             </div>
 
