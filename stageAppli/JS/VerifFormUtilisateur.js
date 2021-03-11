@@ -152,10 +152,5 @@ confirmer.addEventListener("input", function (event) {
 });
 
 selectRole.addEventListener('input', function (event){
-    if (selectRole.value != ""){
-        impactValidity(selectRole, true);
-    } else {
-        impactValidity(selectRole, false);
-    }
-    checkAllValidity()
+
 });
