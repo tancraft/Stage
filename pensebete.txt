@@ -39,11 +39,22 @@ get stagiaire by fiche ok
 
 corriger index ok
 
-donnes exemples
+donnes exemples ok
 
-select
+CRUD utilisateurs ok
 
-sur code select ajouter param attribut et libelle deja fait par martine
+RIR ajouter ce role dans BDD et prendre en compte dans l appli ok
+
+tous les roles
+Admin
+RIR
+Formateur référent
+Formateur itinerant
+Stagaire
+
+ajouter choix de l offre dans drawio fiche ITV
+
+
 
 code couleur 
 
