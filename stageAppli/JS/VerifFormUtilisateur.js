@@ -23,6 +23,20 @@ function valideInput(input) {
 }
 
 /**
+ * Vérifie la validité du select
+ * Renvoi vrai si la saisie est valide, faux si elle n'est pas valide
+ * @param {élément de type input} input 
+ */
+ function valideSelect(select) {
+    if (!select.value == "") {
+        return isValid = true;
+    }
+    else{
+        return isValid = false
+    }
+}
+
+/**
  * Affiche le message d'erreur, change les couleurs et affiche les coches
  * @param {élément de type input} input 
  * @param {*} isValid 
@@ -53,13 +67,16 @@ function impactValidity(input, isValid) {
 function checkAllValidity() {
     var pasErreur = true;
     i = 0;
+    j = 0;
     // on vérifie les inputs un à un
     while (pasErreur && i < inputs.length) {
         pasErreur = valideInput(inputs[i])
         i++;
     }
-    if (select.value == "") {
-        pasErreur = false;
+    while (pasErreur && j < selects.length)
+    {
+        pasErreur = valideSelect(selects[j])
+        j++
     }
     if (pasErreur) {
         valider.disabled = false;
@@ -91,7 +108,7 @@ var mode = urlParams.get('mode');
 var inputs = document.querySelectorAll("input");
 var mdp = document.querySelector('#mdp');
 var confirmer = document.querySelector('#confirmation');
-var select = document.querySelectorAll('select')[0];
+var selects = document.querySelectorAll('select');
 var valider = document.querySelector('#submit');
 
 
@@ -101,15 +118,15 @@ for (let i = 0; i < inputs.length; i++) {
     });
 }
 
+for (let j = 0; j < selects.length; j++) {
+    selects[j].addEventListener("change", function (event) {
+        isValid = valideSelect(event.target);
+        impactValidity(selects[j], isValid);
+        checkAllValidity();
+    });
+}
 
-select.addEventListener("input", function (event) {
-    if (select.value != "") {
-        impactValidity(select, true);
-    } else {
-        impactValidity(select, false);
-    }
-    checkAllValidity();
-});
+
 
 
 
@@ -162,3 +179,4 @@ confirmer.addEventListener("input", function (event) {
         impactValidity(confirmation, false);
     }
 });
+
