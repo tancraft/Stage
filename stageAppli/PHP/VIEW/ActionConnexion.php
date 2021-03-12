@@ -9,43 +9,14 @@ switch ($mode) {
         if ($uti != false ) {
             if ($_POST['mdpUser'] == $uti->getMdpUser()) {
                 $_SESSION['utilisateur'] = $uti;
-                switch ($uti->getIdRole()) {
-                    case "1":
-                        // header("location: index.php?page=FormAdmin");
-                        header("location: index.php?page=InterfaceAdmin");
-                        break;
-
-                    case "2":
-                        header("location: index.php?page=InterfaceRir");
-
-                        break;
-                    case "3":
-                        header("location: index.php?page=InterfaceFormateurRef");
-
-                        break;
-                    case "4":
-                        header("location: index.php?page=InterfaceFormateurSup");
-    
-                        break;
-                    case "5":
-                        header("location: index.php?page=InterfaceStagiaire");
-        
-                        break;
-                    default:
-                        header("location: index.php?page=Default");
-                        break;
-
-                }
-
+                header("location: index.php?page=InterfaceUser&idRole=".$uti->getIdRole());
             } else {
-                echo '
-                <div class="titreColonne zoneBouton">le mot de passe ou eMail est incorrect</div>
-                ';header("refresh:3;url=index.php?page=FormConnexion");
+                echo '<div class="titreColonne zoneBouton">le mot de passe ou eMail est incorrect</div>';
+                header("refresh:3;url=index.php?page=FormConnexion");
             }
         } else {
-            echo '
-            <div class="titreColonne zoneBouton">l\'utilisateur n\'existe pas</div>
-            ';header("refresh:3;url=index.php?page=FormConnexion");
+            echo '<div class="titreColonne zoneBouton">l\'utilisateur n\'existe pas</div>';
+            header("refresh:3;url=index.php?page=FormConnexion");
         }
         break;
 

@@ -3,6 +3,7 @@
 <footer>
     <h3>&copy;DWWM 2020</h3>
 </footer>
+<script src="../../JS/VerifForm.js"></script>
 <?php 
 if (isset($page))
 {
