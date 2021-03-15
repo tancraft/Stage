@@ -32,22 +32,22 @@ function impactValidity(input, isValid) {
 
     let invalide = input.previousElementSibling.textContent;
     console.log(invalide);
-    requis = invalide.substr(0,invalide.length-1) +" est requis"
-    invalide = invalide.substr(0,invalide.length-1) +" est invalide";
+    requis = invalide.substr(0, invalide.length - 1) + " est requis"
+    invalide = invalide.substr(0, invalide.length - 1) + " est invalide";
     switch (isValid) {
         case true:
-            erreur.innerHTML = erreur.innerHTML.replace("<br>" +invalide,"");
-            erreur.innerHTML = erreur.innerHTML.replace("<br>" +requis,"");
+            erreur.innerHTML = erreur.innerHTML.replace("<br>" + invalide, "");
+            erreur.innerHTML = erreur.innerHTML.replace("<br>" + requis, "");
             break;
         case 0:
-            erreur.innerHTML = erreur.innerHTML.replace("<br>" +invalide,"");
-            if (erreur.innerHTML.indexOf(requis)==-1)
-            erreur.innerHTML += "<br>" +requis;
+            erreur.innerHTML = erreur.innerHTML.replace("<br>" + invalide, "");
+            if (erreur.innerHTML.indexOf(requis) == -1)
+                erreur.innerHTML += "<br>" + requis;
             break;
         case false:
-            erreur.innerHTML = erreur.innerHTML.replace("<br>" +requis,"");
-            if (erreur.innerHTML.indexOf(invalide)==-1)
-            erreur.innerHTML += "<br>" +invalide;
+            erreur.innerHTML = erreur.innerHTML.replace("<br>" + requis, "");
+            if (erreur.innerHTML.indexOf(invalide) == -1)
+                erreur.innerHTML += "<br>" + invalide;
             break;
     }
 
@@ -60,17 +60,17 @@ function impactValidity(input, isValid) {
 function checkAllValidity() {
     var pasErreur = true;
     i = 0;
-    j = 0;
     // on vérifie les listeInput un à un
     while (pasErreur && i < listeInput.length) {
-        pasErreur = (listeSelect[j].value != ""); 
+        pasErreur = (listeInput[i]);
         i++;
     }
-    if([].length === 0 )
-    while (pasErreur && j < listeSelect.length)
-    {
-        pasErreur = valideSelect(listeSelect[j])
-        j++
+    if (listeSelect != null) {
+        j = 0;
+        while (pasErreur && j < listeSelect.length) {
+            pasErreur = (listeSelect[j].value != "")
+            j++
+        }
     }
     if (pasErreur) {
         valider.disabled = false;
