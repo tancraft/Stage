@@ -26,11 +26,9 @@ if ($role == 5) {
             echo '<a href="index.php?page=ListeFormateurs" class="info ">
                     <button class="bouton grandBouton">gestion des formateurs</button>
                   </a>';
-            if ($role < 2) {
-                echo '<a href="index.php?page=ListeUtilisateurs" class="info ">
-                        <button class="bouton grandBouton">gestion des utilisateurs</button>
-                      </a>';
-            }
+            echo '<a href="index.php?page=ListeUtilisateurs" class="info ">
+                    <button class="bouton grandBouton">gestion des utilisateurs</button>
+                  </a>';
         }
     }
 }
