@@ -63,7 +63,7 @@ function checkAllValidity() {
     j = 0;
     // on vérifie les listeInput un à un
     while (pasErreur && i < listeInput.length) {
-        pasErreur = valideInput(listeInput[i])
+        pasErreur = (listeSelect[j].value != ""); 
         i++;
     }
     while (pasErreur && j < listeSelect.length)
