@@ -66,6 +66,7 @@ function checkAllValidity() {
         pasErreur = (listeSelect[j].value != ""); 
         i++;
     }
+    if([].length === 0 )
     while (pasErreur && j < listeSelect.length)
     {
         pasErreur = valideSelect(listeSelect[j])
