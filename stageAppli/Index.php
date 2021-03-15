@@ -20,12 +20,11 @@ $lang=isset($_SESSION['lang']) ? $_SESSION['lang'] : 'FR';
 /******Fin des langues******/
 
 $routes=[
-	"Default"=>["PHP/VIEW/","FormConnexionProvisoire","Accueil",false],
+	"Default"=>["PHP/VIEW/","FormConnexion","Accueil",false],
 
 	"TestsManagers"=>["PHP/VIEW/","TestsManagers","page de tests",false],
 
 	"FormConnexion"=>["PHP/VIEW/","FormConnexion","Formulaire de connexion",false],
-	"FormConnexionProvisoire"=>["PHP/VIEW/","FormConnexionProvisoire","Formulaire de connexion",false],
 	"ActionConnexion"=>["PHP/VIEW/","ActionConnexion","Actions de deconnexion",false],
 
 	"InterfaceUser"=>["PHP/VIEW/","InterfaceUser","Interface Utilisateur",false],

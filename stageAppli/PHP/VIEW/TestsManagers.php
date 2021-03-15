@@ -6,7 +6,6 @@
 // $p=BlocsCompetencesManager::findById(3);
 // var_dump($p);
 
-
 //On teste l'ajout
 
 // echo 'ajout';
@@ -20,19 +19,16 @@
 // var_dump($pRecharge);
 // BlocsCompetencesManager::update($pRecharge);
 
-
 //On affiche le liste des objets
 // echo 'On affiche la liste des blocs <br>';
 // $tableau=BlocsCompetencesManager::getList();
 // var_dump($tableau);
-
 
 //On teste la suppression
 // echo 'On supprime un article <br>';
 // $pSupp=BlocsCompetencesManager::findById(4);
 // var_dump($pSupp);
 // BlocsCompetencesManager::delete($pSupp);
-
 
 /****** Test de UtilisateursManager ******/
 
@@ -68,19 +64,16 @@
 // $p=UtilisateursManager::findById(3);
 // var_dump($p);
 
-
 //On teste la mise a jour
 // $pRecharge=UtilisateursManager::findById(5);
 // $pRecharge->setNomUser("testmodif");
 // var_dump($pRecharge);
 // UtilisateursManager::update($pRecharge);
 
-
 //On affiche le liste des objets
 // echo 'On affiche la liste des objet <br>';
 // $tableau=UtilisateursManager::getList();
 // var_dump($tableau);
-
 
 //On teste la suppression
 // echo 'On supprime un article <br>';
@@ -99,7 +92,6 @@
 // $tableau=UtilisateursManager::getListByRole(3);
 // var_dump($tableau);
 
-
 /****** Test de OperationsManager ******/
 
 //On teste l'ajout
@@ -115,12 +107,10 @@
 // var_dump($pRecharge);
 // OperationsManager::update($pRecharge);
 
-
 //On affiche le liste des objets
 // echo 'On affiche la liste des objet <br>';
 // $tableau=OperationsManager::getList();
 // var_dump($tableau);
-
 
 //On teste la suppression
 // echo 'On supprime un article <br>';
@@ -217,7 +207,6 @@
 // $tableau=StagiairesManager::getList();
 // var_dump($tableau);
 
-
 /****** operation ******/
 
 // on affiche la liste des fiche par operation
@@ -289,3 +278,18 @@
 // echo 'on affiche la liste des outils magasin utiliser <br>';
 // $tableau=OutilsMagasinUtilisesManager::getList();
 // var_dump($tableau);
+// if (isset($_GET["page"]))
+// {
+//     preg_match("/Liste|Form|Action/", $_GET["page"], $matches);
+
+//     if ($matches != null) {
+//         if ($matches[0] == "Liste") {
+//             echo "toto";
+//         } else if ($matches[0] == "Form") {
+//             echo "tata";
+//         } else {
+//             echo "titi";
+//         }
+//     }
+// }
+

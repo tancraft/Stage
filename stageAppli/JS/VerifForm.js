@@ -31,8 +31,9 @@ function valideInput(input) {
  */
 function impactValidity(input, isValid) {
     let erreur = document.querySelector('.erreur');
-    console.log(erreur);
+
     let invalide = input.previousElementSibling.textContent;
+    console.log(invalide);
     requis = invalide.substr(0,invalide.length-1) +" est requis"
     invalide = invalide.substr(0,invalide.length-1) +" est invalide";
     switch (isValid) {
