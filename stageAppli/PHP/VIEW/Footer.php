@@ -3,12 +3,10 @@
 <footer>
     <h3>&copy;DWWM 2020</h3>
 </footer>
-<script src="../../JS/VerifForm.js"></script>
 <?php 
 if (isset($page))
 {
     preg_match("/Liste|Form|Action/", $page[1], $matches);
-var_dump($matches);
     if ($matches != null) {
         if ($matches[0] == "Liste") {
             echo '<script src="./JS/FiltresListe.js"></script>';
@@ -31,6 +29,7 @@ var_dump($matches);
         // case "FormFRCondition" : echo '<script src="./JS/MenuFR.js"></script><script src="./JS/VerifFormFRCondition.js"></script>';break;
         // case "FormFREvaluation" : echo '<script src="./JS/MenuFR.js"></script><script src="./JS/VerifFormFREvaluation.js"></script>';break;
         case "ListeUtilisateurs" : echo '<script src="./JS/FiltreUtilisateurs.js"></script>';break;
+        case "FormUtilisateur" : echo '<script src="./JS/VerifFormUtilisateur.js"></script>';break;
         // case "FormStagiaire" : echo '<script src="./JS/VerifFormStagiaire.js"></script>';break;
         // case "FormFormation" : echo '<script src="./JS/VerifFormFormation.js"></script>';break;
         // case "FormSession" : echo '<script src="./JS/VerifFormSession.js"></script>';break;

@@ -22,6 +22,21 @@ function valideInput(input) {
     return isValid;
 }
 
+/**
+ * Vérifie la validité de la saisie dans un input
+ * Renvoi vrai si la saisie est valide, faux si elle n'est pas valide, 0 si le champ n'est pas rempli
+ * @param {élément de type input} input 
+ */
+ function valideSelect(select) {
+    if (select.value != "") {
+        return isValid = true;
+    }
+    else{
+        return isValid = false;
+    }
+    ;
+}
+
 
 
 /**
