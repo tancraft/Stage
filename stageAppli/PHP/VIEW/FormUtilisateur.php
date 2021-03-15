@@ -50,7 +50,7 @@ echo $formAction;
 echo $idUserHidden;
 
 ?>
-            <div class=" ">
+            <div>
                 <div class="info colonne ">
                     <label for="nomUser">Nom :</label>
                     <input type="text" id="nom" <?=$disabled;?> name="nomUser" value="<?=$unUser->getNomUser();?>" required pattern="[a-zA-Z- ]{3,}">
@@ -75,7 +75,7 @@ echo $idUserHidden;
             </div>
 
             <div>
-                <div class="info colonne center relatif">
+                <div class="info colonne relatif">
                     <label for="mdpUser">Mot de passe :</label>
                     <input type="password" id="mdp" <?=$disabled;?> name="mdpUser" value="<?=$unUser->getMdpUser();?>" required
                         pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[\d])(?=.*[!@#\$%\^&\*+])[a-zA-Z\d!@#\$%\^&\*+]{8,}$">
@@ -116,14 +116,14 @@ echo $idUserHidden;
                 </div>
 
 
-                <div class="info colonne center">
+                <div class="info colonne">
                     <label for="confirmation">Confirmation de mot de passe :</label>
                     <input type="password" id="confirmation" <?=$disabled;?> name="confirmation" value="<?=$unUser->getMdpUser();?>" title="remettre le même mot de passe"
                         required>
                 </div>
             </div>
                 <div>
-                <div class="info colonne center">
+                <div class="info colonne">
                     <label for="idRole">Role :</label>
                     <?php
 
@@ -134,7 +134,7 @@ echo $selRole;
                 </div>
             </div>
             <div>
-                <div class="info  center">
+                <div class="info">
 
                     <?php
 echo $submit;
@@ -145,7 +145,7 @@ echo '<a href="index.php?page=ListeUtilisateurs"><div class="bouton"><i class="f
                    </div>
             </div>
             <div>
-                <div class="info center">
+                <div class="info">
                     <div class="erreur"></div>
                 </div>
             </div>

@@ -9,6 +9,7 @@ echo '<section class="colonne">
     </div>
     <div>
         <div id="admin" class="bouton">Administrateurs</div><div></div>
+        <div id="rir" class="bouton">Rirs</div><div></div>
         <div id="form" class="bouton">Formateurs</div><div></div>
         <div id="stag" class="bouton">Stagiaires</div><div></div>
         <div id="tous" class="bouton">Tous</div>
@@ -30,8 +31,6 @@ echo '<section class="colonne">
     <div class="espaceHor"></div>';
     foreach ($users as $unUser) 
     {
-        // var_dump($unUser);
-        // var_dump($unUser->getIdUtilisateur());
         $role= RolesManager::findById($unUser->getIdRole());
         
             echo '<div class="info ">
@@ -54,10 +53,8 @@ echo '<section class="colonne">
                 </div>';
 
 
-                echo '
-            </div>';
+                echo '</div>';
         
     }
 
-    echo ' 
-        </section>';
+    echo '</section>';

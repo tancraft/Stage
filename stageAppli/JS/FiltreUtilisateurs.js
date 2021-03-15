@@ -1,47 +1,43 @@
-var role=document.getElementsByClassName("role");
-var admin=document.getElementById("admin");
-var form=document.getElementById("form");
-var stag=document.getElementById("stag");
-var tous=document.getElementById("tous");
+var tab = document.querySelectorAll(".role");
+var admin = document.querySelector("#admin");
+var rir = document.querySelector("#rir");
+var form = document.querySelector("#form");
+var stag = document.querySelector("#stag");
+var tous = document.querySelector("#tous");
 
-admin.addEventListener("click",Administration)
-form.addEventListener("click",Formateur)
-stag.addEventListener("click",Stagiaire)
-tous.addEventListener("click",Tous)
+admin.addEventListener("click", function () { Filtre("Administrateur") });
+rir.addEventListener("click", function () { Filtre("RIR") });
+form.addEventListener("click", function () { Filtre("Formateur référent", "Formateur suppleant") });
+stag.addEventListener("click", function () { Filtre("Stagiaire") });
+tous.addEventListener("click", Tous);
 
-function Formateur()
-{reset()
-    for (let i = 0; i < role.length; i++) {
-        if (role[i].textContent!="Formateur référent") {
-            role[i].parentNode.parentNode.style.display="none"
+/**
+ * fonction qui affiche tous les libelles d'une table
+ * pas de parametres
+ */
+function Tous() {
+    for (let i = 0; i < tab.length; i++) {
+        tab[i].parentNode.parentNode.style.display = "flex";
+    }
+}
+/**
+ * fonction qui filtre une table par rapport a un ou plusieurs libellés 
+ * @param {string} nomFiltre obligatoire nom du filtre, correspond au libéllé de la table pour filtrer
+ * @param {string} nomFiltre2 optionnel nom du filtre, correspond a un autre libéllé de la table pour filtrer
+ */
+function Filtre(nomFiltre, nomFiltre2) {
+    Tous()
+    if (typeof(nomFiltre2) == 'undefined') {
+        for (let i = 0; i < tab.length; i++) {
+            if (tab[i].textContent != nomFiltre) {
+                tab[i].parentNode.parentNode.style.display = "none";
+            }
         }
-    }
-}
-function Administration()
-{reset()
-    for (let i = 0; i < role.length; i++) {
-        if (role[i].textContent!="Administrateur") {
-            role[i].parentNode.parentNode.style.display="none"
+    } else {
+        for (let i = 0; i < tab.length; i++) {
+            if (tab[i].textContent != nomFiltre && tab[i].textContent != nomFiltre2) {
+                tab[i].parentNode.parentNode.style.display = "none";
+            }
         }
-    }
-}
-function Stagiaire()
-{reset()
-    for (let i = 0; i < role.length; i++) {
-        if (role[i].textContent!="Stagiaire") {
-            role[i].parentNode.parentNode.style.display="none"
-        }
-    }
-}
-function Tous()
-{
-    for (let i = 0; i < role.length; i++) {
-            role[i].parentNode.parentNode.style.display="flex"
-    }
-}
-function reset()
-{
-    for (let i = 0; i < role.length; i++) {
-            role[i].parentNode.parentNode.style.display="flex" 
     }
 }

@@ -12,16 +12,16 @@ switch ($mode) {
                 header("location: index.php?page=InterfaceUser&idRole=".$uti->getIdRole());
             } else {
                 echo '<div class="titreColonne zoneBouton">le mot de passe ou eMail est incorrect</div>';
-                header("refresh:3;url=index.php?page=FormConnexion");
+                header("refresh:3;url=index.php?page=FormConnexionProvisoire");
             }
         } else {
             echo '<div class="titreColonne zoneBouton">l\'utilisateur n\'existe pas</div>';
-            header("refresh:3;url=index.php?page=FormConnexion");
+            header("refresh:3;url=index.php?page=FormConnexionProvisoire");
         }
         break;
 
     case 'logout':
         session_destroy();
-        header("location: index.php?page=FormConnexion");
+        header("location: index.php?page=FormConnexionProvisoire");
         break;
 }

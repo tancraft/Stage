@@ -72,6 +72,10 @@ section {
     margin: 0.3em;
 }
 
+.pad{
+    padding: 0.5em;
+}
+
 /******* Form ********/
 label {
     color: var(--CouleurTexte);
