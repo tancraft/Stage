@@ -29,7 +29,8 @@ if (isset($page))
         // case "FormFRCondition" : echo '<script src="./JS/MenuFR.js"></script><script src="./JS/VerifFormFRCondition.js"></script>';break;
         // case "FormFREvaluation" : echo '<script src="./JS/MenuFR.js"></script><script src="./JS/VerifFormFREvaluation.js"></script>';break;
         case "ListeUtilisateurs" : echo '<script src="./JS/FiltreUtilisateurs.js"></script>';break;
-        case "FormUtilisateur" : echo '<script src="./JS/VerifFormUtilisateur.js"></script>';break;
+        case "FormUtilisateur" : echo '<script src="./JS/VerifFormUtilisateur.js"></script>'."\n".
+                '<script src="./JS/VerifAdresseMail.js"></script>';break;
         // case "FormStagiaire" : echo '<script src="./JS/VerifFormStagiaire.js"></script>';break;
         // case "FormFormation" : echo '<script src="./JS/VerifFormFormation.js"></script>';break;
         // case "FormSession" : echo '<script src="./JS/VerifFormSession.js"></script>';break;
