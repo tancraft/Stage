@@ -33,7 +33,10 @@ $routes=[
 	"ListeFichesItv"=>["PHP/VIEW/","ListeFichesItv","Liste des fiches interventions",false],
 
 	"FormUtilisateur"=>["PHP/VIEW/","FormUtilisateur","Formulaire Utilisateur",false],
-	"ActionUtilisateur"=>["PHP/VIEW/","ActionUtilisateur","Actions Utilisateur",false]
+	"ActionUtilisateur"=>["PHP/VIEW/","ActionUtilisateur","Actions Utilisateur",false],
+	
+	/* Lancement des API */
+	"AdresseMail"=>["PHP/MODEL/API","AdresseMail","API",true]
 
 
 ];

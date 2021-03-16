@@ -1,5 +1,5 @@
 <?php
-$role = $_GET['idRole'];
+$role = $_SESSION['utilisateur']->getIdRole();
 echo '<section class="double">
         <div class="colonne ">';
 if ($role == 5) {

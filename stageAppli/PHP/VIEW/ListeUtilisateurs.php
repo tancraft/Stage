@@ -23,7 +23,7 @@ echo '<section class="colonne">
             <div><a href="index.php?page=FormUtilisateur&mode=ajouter"><button class="bouton"><i
                             class="fas fa-plus-circle"></i> &nbsp Ajouter</button></a></div>
 
-            <div><a href="index.php?page=InterfaceUser&idRole="'.$_SESSION["utilisateur"]->getIdRole().'><button class="bouton"><i class="far fa-arrow-alt-circle-left"></i> &nbsp Retour</button></a></div>
+            <div><a href="index.php?page=InterfaceUser"><button class="bouton"><i class="far fa-arrow-alt-circle-left"></i> &nbsp Retour</button></a></div>
         </div>
         <div class="triple"></div>
     </div>
