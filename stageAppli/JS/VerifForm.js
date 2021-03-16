@@ -60,18 +60,16 @@ function impactValidity(input, isValid) {
 function checkAllValidity() {
     var pasErreur = true;
     i = 0;
+    j = 0;
     // on vérifie les listeInput un à un
     while (pasErreur && i < listeInput.length) {
         pasErreur = (listeInput[i]);
         i++;
     }
-    if (listeSelect != null) {
-        j = 0;
-        while (pasErreur && j < listeSelect.length) {
+        while (listeSelect != null && pasErreur && j < listeSelect.length) {
             pasErreur = (listeSelect[j].value != "")
             j++
         }
-    }
     if (pasErreur) {
         valider.disabled = false;
     } else {
@@ -82,7 +80,6 @@ function checkAllValidity() {
 var listeInput = document.querySelectorAll("input");
 var listeSelect = document.querySelectorAll('select');
 var valider = document.querySelector('#submit');
-
 
 for (let i = 0; i < listeInput.length; i++) {
     listeInput[i].addEventListener("input", function (event) {
