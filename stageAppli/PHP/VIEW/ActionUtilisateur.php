@@ -3,7 +3,6 @@
 $mode=$_GET['mode'];
 
 $Utilisateur = new Utilisateurs($_POST);
-var_dump($Utilisateur);
 switch($mode)
 {
     case "ajouter":

@@ -31,7 +31,6 @@ function impactValidity(input, isValid) {
     let erreur = document.querySelector('.erreur');
 
     let invalide = input.previousElementSibling.textContent;
-    console.log(invalide);
     requis = invalide.substr(0, invalide.length - 1) + " est requis"
     invalide = invalide.substr(0, invalide.length - 1) + " est invalide";
     switch (isValid) {
@@ -63,13 +62,13 @@ function checkAllValidity() {
     j = 0;
     // on vérifie les listeInput un à un
     while (pasErreur && i < listeInput.length) {
-        pasErreur = (listeInput[i]);
+        pasErreur = valideInput(listeInput[i]);
         i++;
     }
-        while (listeSelect != null && pasErreur && j < listeSelect.length) {
-            pasErreur = (listeSelect[j].value != "")
-            j++
-        }
+    while (listeSelect != null && pasErreur && j < listeSelect.length) {
+        pasErreur = (listeSelect[j].value != "")
+        j++
+    }
     if (pasErreur) {
         valider.disabled = false;
     } else {
