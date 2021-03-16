@@ -31,7 +31,7 @@ function impactValidity(input, isValid) {
     let erreur = document.querySelector('.erreur');
 
     let invalide = input.previousElementSibling.textContent;
-    requis = invalide.substr(0, invalide.length - 1) + " est requis"
+    requis = invalide.substr(0, invalide.length - 1) + " est requis";
     invalide = invalide.substr(0, invalide.length - 1) + " est invalide";
     switch (isValid) {
         case true:
