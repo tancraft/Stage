@@ -57,7 +57,6 @@ function impactValidity(input, isValid) {
  * Vérification de tous les champs
  */
 function checkAllValidity() {
-    let erreur = document.querySelector('.erreur');
     var pasErreur = true;
     i = 0;
     j = 0;
@@ -70,7 +69,7 @@ function checkAllValidity() {
         pasErreur = (listeSelect[j].value != "")
         j++
     }
-    if (pasErreur && erreur.innerHTML == "") {
+    if (pasErreur) {
         valider.disabled = false;
     } else {
         valider.disabled = true;
