@@ -32,7 +32,6 @@ var args = email.addEventListener('input', function (e) {
     var isValid = e.target.checkValidity();
     if (isValid) {
         var valeur = e.target.value;
-        console.log(valeur)
         request.open('POST', 'index.php?page=AdresseMail', true);
         request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         args = "emailUser=" + valeur;
