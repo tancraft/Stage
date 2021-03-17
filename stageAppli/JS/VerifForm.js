@@ -55,6 +55,7 @@ function impactValidity(input, isValid) {
 /**
  * Activation du bouton de formulaire
  * Vérification de tous les champs
+ * 
  */
 function checkAllValidity() {
     var pasErreur = true;
