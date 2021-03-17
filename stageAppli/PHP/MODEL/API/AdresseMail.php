@@ -1,7 +1,7 @@
 <?php
 
 $email=$_POST["emailUser"];
-//echo json_encode(UtilisateursManager::getByEmail($email, true));
+//formater la reponse pour avoir un json correct
 if (UtilisateursManager::getByEmail($email, true)){
     echo json_encode(["reponse"=>true]);
 }

@@ -47,7 +47,6 @@ request.onreadystatechange = function (event) {
             reponse = JSON.parse(this.responseText);
             let isValid = reponse["reponse"];
             testExiste(isValid);
-           // checkAllValidity();
 
         } else {
             console.log("Status de la réponse: %d (%s)", this.status, this.statusText);
