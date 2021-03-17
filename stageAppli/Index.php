@@ -36,7 +36,7 @@ $routes=[
 	"ActionUtilisateur"=>["PHP/VIEW/","ActionUtilisateur","Actions Utilisateur",false],
 	
 	/* Lancement des API */
-	"AdresseMail"=>["PHP/MODEL/API","AdresseMail","API",true]
+	"AdresseMail"=>["PHP/MODEL/API/","AdresseMail","API",true]
 
 
 ];

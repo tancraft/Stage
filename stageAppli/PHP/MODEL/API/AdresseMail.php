@@ -3,4 +3,5 @@
 // executer la methode Utilisateur ::FindByEmail 
 // si il y a un objet=> reponse positive<?phpsinon false
 
-$listUsers = json_encode(UtilisateursManager::getList(true));
+$email=$_POST["emailUser"];
+echo json_encode(UtilisateursManager::getByEmail($email));
