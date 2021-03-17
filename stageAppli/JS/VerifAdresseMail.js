@@ -14,25 +14,17 @@ var args = email.addEventListener('input', function (e) {
         console.log(valeur)
         request.open('POST', 'index.php?page=AdresseMail', true);
         request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        args = "emailUser="+valeur;
+        args = "emailUser=" + valeur;
         request.send(args);
     }
 });
 
-request.onreadystatechange = function(event) {
+request.onreadystatechange = function (event) {
     if (this.readyState === XMLHttpRequest.DONE) {
         if (this.status === 200) {
-            // console.log("Réponse reçue: %s", this.responseText);
-            reponse=JSON.parse(this.responseText);
-            if (reponse)
-            {
-                var toto = 1;
-            }
-            else{
-                var toto = 2;
-            }
-            console.log(toto);
-           //on traite les éléments de la liste ....
+            reponse = JSON.parse(this.responseText);
+            testExiste(reponse);
+            
         } else {
             console.log("Status de la réponse: %d (%s)", this.status, this.statusText);
         }
@@ -45,21 +37,22 @@ request.onreadystatechange = function(event) {
  * @param {élément de type input} input 
  * @param {*} isValid 
  */
-function testExiste(input, isValid) {
+function testExiste(reponse) {
     let erreur = document.querySelector('.erreur');
-
-    let existe = input.previousElementSibling.textContent;
-    existe = existe.substr(0, existe.length - 2) + "  existe déja.";
-    existe = "L'" + existe.toLowerCase();
-    switch (isValid) {
-        case true:
-            erreur.innerHTML = erreur.innerHTML.replace("<br>" + existe, "");
-            break;
-        case false:
-            erreur.innerHTML = erreur.innerHTML.replace("<br>" + existe, "");
-            if (erreur.innerHTML.indexOf(existe) == -1)
-                erreur.innerHTML += "<br>" + existe;
-            break;
+    let existe = "<br>Cette adresse mail existe déja!";
+    if (reponse && !erreur.innerHTML) {
+        erreur.innerHTML = erreur.innerHTML = existe;
     }
-
+    else {
+        if (reponse) {
+            erreur.innerHTML += erreur.innerHTML = existe;
+        } else {
+            if (erreur.innerHTML.indexOf(existe) == -1) {
+                erreur.innerHTML += "";
+            }
+            else {
+                erreur.innerHTML = erreur.innerHTML.replace(existe, "");
+            }
+        }
+    }
 }
